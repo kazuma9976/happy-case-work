@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/* common */
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+
+/* メイン画像 */
+#mainVisual {
+    width: 370px;
+    margin: 40px auto;
+}
+
+#mainVisual img {
+    width: 370px;
+    height: 260px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #444444;
+}
+
+/* ケース記録関連の画像　*/
+#case_photo {
+    width: 100px;
+    height: 80px;
+}
+
+#case_detail_photo {
+    width: 300px;
+    height: 200px;
+}
+
+/* ケース記録文字列 */
+#case {
+    text-align: left;
+}
