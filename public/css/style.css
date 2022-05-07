@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 /* common */
+body {
+    background-image: url('../images/bcg.jpg');
+}
+
 h1 {
     font-size: 30px;
 }
@@ -11,6 +15,7 @@ h2 {
 
 
 /* メイン画像 */
+
 #mainVisual {
     width: 370px;
     margin: 40px auto;
@@ -24,6 +29,7 @@ h2 {
 }
 
 /* ケース記録関連の画像　*/
+
 #case_photo {
     width: 100px;
     height: 80px;

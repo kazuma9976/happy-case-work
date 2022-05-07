@@ -6,7 +6,6 @@
             </div>
             <div class="row mt-4">
                 <form class="col-sm-12" action="/login" method="POST">
-                    
                     <!-- 1行 -->
                     <div class="mb-3 row">
                         <label class="offset-sm-1 col-sm-2 col-form-label">メールアドレス :</label>
