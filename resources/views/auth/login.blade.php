@@ -2,7 +2,7 @@
 @section('title', 'ログイン')
 @section('content')
             <div class="row mt-3">
-                <h1 class="col-sm-12 text-center text-primary pb-1 mt-3">ログイン画面</h1>
+                <h1 class="col-sm-12 text-center text-info pb-1 mt-3">ログイン画面</h1>
             </div>
             <div class="row mt-4">
                 <form class="col-sm-12" action="/login" method="POST">

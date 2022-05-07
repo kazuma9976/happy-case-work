@@ -32,6 +32,9 @@
                   <a class="nav-link" aria-current="page" href="patients_create.php">新規利用者登録</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="log.php">業務日誌</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="/logout">ログアウト</a>
                 </li>
               </ul>
