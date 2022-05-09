@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Top')
 @section('content')
-            <div class="row mt-2">
+            <div class="row mt-5">
                 <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
             </div>
             <table class="table table-bordered table-striped text-center mt-3">
@@ -25,6 +25,188 @@
                         <td>1994/2/13</td>
                         <td>男性</td>
                         <td>統合失調症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>鈴木 大輔</td>
+                        <td>1933/5/20</td>
+                        <td>男性</td>
+                        <td>アルコール依存症</td>
                     </tr>
                     <tr>
                         <td>3</td>

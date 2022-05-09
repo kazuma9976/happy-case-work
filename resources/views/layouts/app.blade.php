@@ -20,7 +20,7 @@
     </head>
     <body>
         @if(Auth::check())
-        <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <nav id="menu" class="navbar navbar-expand-sm navbar-light bg-white">
             <!-- 利用者一覧 -->
             <a href="/top" class="navbar-brand text-success">職員: {{ Auth::user()->name }}</a>
             <!-- スマホなどのレスポンスで表示されるハンバーガーボタン -->

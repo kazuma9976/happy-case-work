@@ -12,6 +12,6 @@
                 {!! link_to_route('signup.get', '新規職員登録', [], ['class' => 'offset-sm-4 col-sm-4 btn btn-primary']) !!}
             </div>
             <div class="row mt-3">
-                {!! link_to_route('login', 'ログイン', [], ['class' => 'offset-sm-4 col-sm-4 mt-3 btn btn-danger']) !!}
+                {!! link_to_route('login', 'ログイン画面', [], ['class' => 'offset-sm-4 col-sm-4 mt-3 btn btn-danger']) !!}
             </div>
 @endsection
