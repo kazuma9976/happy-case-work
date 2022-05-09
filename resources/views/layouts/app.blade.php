@@ -20,29 +20,25 @@
     </head>
     <body>
         @if(Auth::check())
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand text-success" href="/top">職員: {{ Auth::user()->name }}</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="patients_create.php">新規利用者登録</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="log.php">業務日誌</a>
-                        </li>
-                        <li class="nav-item">
-                          {!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="利用者検索" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white">
+            <!-- 利用者一覧 -->
+            <a href="/top" class="navbar-brand text-success">職員: {{ Auth::user()->name }}</a>
+            <!-- スマホなどのレスポンスで表示されるハンバーガーボタン -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- メニュー -->
+            <div class="collapse navbar-collapse" id="nav-bar">
+                <ul class="navbar-nav" id="nav">
+                    <li class="nav-item"><a href="patients_create.php" class="nav-link">新規利用者登録</a></li>
+                    <li class="nav-item"><a href="log.php" class="nav-link">業務日誌</a></li>
+                    <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+                </ul>
+                <!-- 利用者検索 -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="利用者検索" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </nav>
         @endif
