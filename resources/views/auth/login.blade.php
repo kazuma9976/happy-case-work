@@ -20,10 +20,10 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
         </div>
-                {!! Form::submit('ログイン', ['class' => 'mt-5 col-sm-6 offset-sm-3 btn btn-primary btn-block']) !!}
+                {!! Form::submit('ログイン', ['class' => 'mt-5 col-sm-4 offset-sm-4 btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
             
-        {!! link_to_route('index', 'トップページへ戻る', [], ['class' => 'mt-4 col-sm-6 offset-sm-3 btn btn-danger']) !!}
+        {!! link_to_route('index', 'トップページへ戻る', [], ['class' => 'mt-4 col-sm-4 offset-sm-4 btn btn-danger']) !!}
     </div>
     
 @endsection
