@@ -13,13 +13,6 @@
                         <th>病名</th>
                     </tr>
                     <tr>
-                        <td><a href="patients_show.php">1</a></td>
-                        <td>山田花子</td>
-                        <td>1980/10/4</td>
-                        <td>女性</td>
-                        <td>うつ病</td>
-                    </tr>
-                    <tr>
                         <td>2</td>
                         <td>田中 太郎</td>
                         <td>1994/2/13</td>

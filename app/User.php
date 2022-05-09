@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Patient; // 追加
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -36,4 +37,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    /**
+     * このユーザーが登録したする利用者一覧（ Userモデルとの1対多の関係を定義）
+     */
+    public function patients()
+    {
+        return $this->hasMany(Patient::class);
+    }
+    
+    
 }
