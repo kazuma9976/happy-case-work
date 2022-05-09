@@ -32,15 +32,13 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     
     // ログイン後のリダイレクト先
-    Route::get('top', function () {
-         return view('top');
-    });
+    Route::get('/top', 'PatientsController@index');
     
     // ログアウト
     Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
     
     // 利用者一覧、詳細表示
-    Route::resource('patients', 'PatientsController', ['only' => ['index', 'show']]);
+    Route::resource('patients', 'PatientsController');
 
 });
 

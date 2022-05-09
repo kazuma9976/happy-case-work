@@ -14,11 +14,10 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        // Patientモデルを使って、全利用者データを取得
-        $patients = Patient::all();
-        
-        // viewの呼び出し
-        return view('patients.index', compact('patients'));
+        // Patientモデルを使って全利用者を取得
+        $patients = Patient::orderBy('id', 'asc')->get();
+        // ビューの呼び出し
+        return view('top', compact('patients'));
     }
 
     /**

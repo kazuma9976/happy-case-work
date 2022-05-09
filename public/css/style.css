@@ -37,6 +37,11 @@ h2 {
     box-shadow: 0 0 10px #444444;
 }
 
+/* 利用者登録情報の画像資料 */
+#patients_img {
+    width: 200px;
+}
+
 /* ケース記録関連の画像　*/
 
 #case_photo {
