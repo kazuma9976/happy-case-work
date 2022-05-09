@@ -40,7 +40,7 @@ class User extends Authenticatable
     
     
     /**
-     * このユーザーが登録したする利用者一覧（ Userモデルとの1対多の関係を定義）
+     * このユーザーが登録した利用者（Patientsモデルとの1対多の関係を定義）
      */
     public function patients()
     {

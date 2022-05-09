@@ -33,7 +33,7 @@ class Patient extends Model
     ];
     
     /**
-     * この利用者を登録するユーザー。（Userモデルとの多対1の関係を定義）
+     * 利用者を登録したユーザー。（Userモデルとの多対1の関係を定義）
      */
     public function user()
     {
