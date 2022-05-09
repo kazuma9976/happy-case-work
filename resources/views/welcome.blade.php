@@ -9,9 +9,9 @@
                 <img src="{{ ('/images/network1.jpg') }}" alt="最初に表示されるtop画面">
             </div>
             <div class="row mt-5">
-                <a href="/signup" class="offset-sm-4 col-sm-4 btn btn-primary">新規職員登録</a>
+                {!! link_to_route('signup.get', '新規職員登録', [], ['class' => 'offset-sm-4 col-sm-4 btn btn-primary']) !!}
             </div>
             <div class="row mt-3">
-                <a href="/login" class="offset-sm-4 col-sm-4 mt-3 btn btn-danger">ログイン</a>
+                {!! link_to_route('login', 'ログイン', [], ['class' => 'offset-sm-4 col-sm-4 mt-3 btn btn-danger']) !!}
             </div>
 @endsection

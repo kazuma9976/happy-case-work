@@ -15,7 +15,7 @@
 Route::group(['middleware' => ['guest']], function () {
     
     // プレビューした瞬間の設定
-    Route::get('/', 'ToppagesController@index');
+    Route::get('/', 'ToppagesController@index')->name('index');
     
     // ログイン認証系
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

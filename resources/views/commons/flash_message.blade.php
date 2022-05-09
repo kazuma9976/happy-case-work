@@ -1,3 +1,5 @@
 @if (session('flash_message'))
-  <p class="alert alert-success" role="alert">{{ session('flash_message') }}</p>
+    <div class="offset-sm-3 col-sm-6">
+        <p class="alert alert-success" role="alert">{{ session('flash_message') }}</p>
+    </div>
 @endif
