@@ -59,6 +59,7 @@ class PatientsController extends Controller
         $phone_number = $request->input('phone_number');
         $email = $request->input('email');
         $emergency_contact = $request->input('emergency_contact');
+        $emergency_contact = $request->input('emergency_contact_address');
         $family_hospital = $request->input('family_hospital');
         $disease_name = $request->input('disease_name');
         $clinical_history = $request->input('clinical_history');

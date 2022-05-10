@@ -22,11 +22,11 @@
             <div class="form-group mt-4">
                 {!! Form::label('gender', '性別 :') !!}
                 <div class="form-check form-check-inline offset-2">
-                    {{ Form::radio('gender', 'male', true, ['class'=>'form-check-input', 'for' => 'inlineCheckbox1']) }}
+                    {{ Form::radio('gender', '男性', true, ['class'=>'form-check-input', 'for' => 'inlineCheckbox1']) }}
                     {!! Form::label('gender', '男性' , ['class' => 'form-check-label']) !!}
                 </div>
                 <div class="form-check form-check-inline offset-2">
-                    {{ Form::radio('gender', 'female', false, ['class'=>'form-check-input', 'for' => 'inlineCheckbox2']) }}
+                    {{ Form::radio('gender', '女性', false, ['class'=>'form-check-input', 'for' => 'inlineCheckbox2']) }}
                     {!! Form::label('gender', '女性', ['class' => 'form-check-label']) !!}
                 </div>
             </div>
@@ -59,6 +59,12 @@
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact', '緊急連絡先 : ') !!}
                 {!! Form::text('emergency_contact', old('emergency_contact'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('emergency_contact_address', '緊急連絡先の住所 : ') !!}
+                {!! Form::textarea('emergency_contact_address', old('emergency_contact_address'), ['class' => 'form-control', 'rows' => '2']) !!}
             </div>
             
             <!-- 1行 -->
