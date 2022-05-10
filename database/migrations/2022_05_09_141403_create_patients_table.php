@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->string('gender');
             $table->string('postal_code', 7);
             $table->string('address');
-            $table->string('phone_number', 11);
+            $table->string('phone_number');
             $table->string('email');
             $table->string('emergency_contact');
             $table->string('family_hospital');

@@ -32,7 +32,7 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     
     // ログイン後のリダイレクト先
-    Route::get('/top', 'PatientsController@index');
+    Route::get('/top', 'PatientsController@index')->name('patients.index');
     
     // ログアウト
     Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');

@@ -27,7 +27,10 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        //
+        // 空のPatientモデル作成
+        $patient = new Patient();
+        // view の呼び出し
+        return view('patients.create', compact('patient'));
     }
 
     /**
