@@ -34,7 +34,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('postal_code', '郵便番号 : ') !!}
-                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control']) !!}
+                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => '123-4567']) !!}
             </div>
             
             <!-- 1行 -->
@@ -100,19 +100,19 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('academic_background', '学歴 :') !!}
-                {!! Form::textarea('academic_background', old('academic_background'), ['class' => 'form-control', 'rows' => '2']) !!}
+                {!! Form::textarea('academic_background', old('academic_background'), ['class' => 'form-control', 'placeholder' => '例: 平成XX年X月 YY大学卒業', 'rows' => '2']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('work_experience', '職歴 :') !!}
-                {!! Form::textarea('work_experience', old('work_experience'), ['class' => 'form-control', 'rows' => '2']) !!}
+                {!! Form::textarea('work_experience', old('work_experience'), ['class' => 'form-control', 'placeholder' => '例: 平成XX年X月～令和YY年Y月  Z会社の事務職として10年勤務', 'rows' => '2']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('economic_condition', '経済状況 :') !!}
-                {!! Form::textarea('economic_condition', old('economic_condition'), ['class' => 'form-control', 'rows' => '2']) !!}
+                {!! Form::textarea('economic_condition', old('economic_condition'), ['class' => 'form-control', 'placeholder' => '例: 就労継続支援A型事業所の収入 10万/月、両親の仕送り 3万/月', 'rows' => '2']) !!}
             </div>
             
             <!-- 1行 -->
@@ -135,7 +135,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('consideration', '支援にあたり配慮すべきこと :') !!}
-                {!! Form::textarea('consideration', old('consideration'), ['class' => 'form-control', 'rows' => '5']) !!}
+                {!! Form::textarea('consideration', old('consideration'), ['class' => 'form-control', 'placeholder' => '障害特性に関わる具体的な内容をできる限り記入', 'rows' => '5']) !!}
             </div>
             
             <!-- 1行 -->
