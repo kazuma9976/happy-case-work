@@ -2,7 +2,7 @@
 @section('title', 'ID: ' . $patient->id . 'の詳細')
 @section('content')           
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">ID: {{ $patient->id }}の登録情報の詳細</h1>
+        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">利用者ID: {{ $patient->id }} の登録情報の詳細</h1>
     </div>
     <div class="row mt-2">
         <p class="col-sm-12 text-left text-danger mt-4">※最終更新日: {{ $patient->updated_at }}</p>
@@ -110,13 +110,14 @@
         {!! link_to_route('patients.edit', '編集', ['id' => $patient->id ], ['class' => 'offset-sm-4 col-sm-4 btn btn-success']) !!}
     </div>
     
-    {!! Form::open(['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
     <div class="row mt-4">
-        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4']) !!}
-    </div>
-    {!! Form::close() !!}
-    <div class="row mt-4 mb-5">
         {!! link_to_route('patients.index', '利用者一覧へ戻る', [], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
     </div>
+    
+    {!! Form::open(['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
+    <div class="row mt-4 mb-5">
+        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4','onClick' => 'return deleteAlert();']) !!}
+    </div>
+    {!! Form::close() !!}
         
 @endsection

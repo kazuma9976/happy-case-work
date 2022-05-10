@@ -4,7 +4,7 @@
     <div class="row mt-3">
         <h1 class="col-sm-12 text-center text-success pb-1 mt-5">新規利用者登録</h1>
     </div>
-    <div class="col-sm-6 offset-sm-3">
+    <div class="col-sm-6 offset-sm-3 mt-3">
         {!! Form::open(['route' => ['patients.store'], 'files' => true]) !!}
             <!-- 1行 -->
             <div class="form-group">
@@ -15,7 +15,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('birthday', '生年月日 : ') !!}
-                {{ Form::date('birthday', null, ['class' => 'form-control']) }}
+                {{ Form::date('birthday', old('birthday'), ['class' => 'form-control']) }}
             </div>
             
             <!-- 1行 -->
@@ -135,7 +135,7 @@
             
             <div class="form-group">
                 {!! Form::label('image', '画像資料 :') !!}
-                {!! Form::file('image', ['class' => 'form-control', 'multiple' => 'multiple']) !!}
+                {!! Form::file('image', ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
