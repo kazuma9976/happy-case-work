@@ -26,12 +26,13 @@ $(function(){
   setInterval(fadein_fadeout, 5000);
   
   // 利用者の登録情報削除時の確認アラート関数
-  function deleteAlert(){
-    if(window.confirm('本当に削除してよろしいですか？')) {
-    
+  $('#delete_patient').on('click', () => {
+    if(window.confirm('この利用者のすべてのデータが消えます。本当に削除してよろしいですか？')) {
+      
     } else {
       return false;
     }
-  }
+    
+  });
   
 });

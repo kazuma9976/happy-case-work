@@ -22,11 +22,11 @@
             <div class="form-group mt-4">
                 {!! Form::label('gender', '性別 :') !!}
                 <div class="form-check form-check-inline offset-2">
-                    {{ Form::radio('gender', '男性', true, ['class'=>'form-check-input', 'for' => 'inlineCheckbox1']) }}
+                    {{ Form::radio('gender', '男性', $patient->gender === '男性' ? true : false, ['class'=>'form-check-input', 'for' => 'inlineCheckbox1']) }}
                     {!! Form::label('gender', '男性' , ['class' => 'form-check-label']) !!}
                 </div>
                 <div class="form-check form-check-inline offset-2">
-                    {{ Form::radio('gender', '女性', false, ['class'=>'form-check-input', 'for' => 'inlineCheckbox2']) }}
+                    {{ Form::radio('gender', '女性', $patient->gender === '女性' ? true : false, ['class'=>'form-check-input', 'for' => 'inlineCheckbox2']) }}
                     {!! Form::label('gender', '女性', ['class' => 'form-check-label']) !!}
                 </div>
             </div>

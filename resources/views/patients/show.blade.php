@@ -10,7 +10,7 @@
     <table class="table table-bordered table-striped">
         <tr>
             <th class="text-center col-3">登録日時</th>
-            <td>{{ $patient->created_at }}</td>
+            <td class="text-primary">{{ $patient->created_at }}</td>
         </tr>
         <tr>
             <th class="text-center col-3">名前</th>
@@ -114,9 +114,10 @@
         {!! link_to_route('patients.index', '利用者一覧へ戻る', [], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
     </div>
     
-    {!! Form::open(['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
+    {!! Form::model($patient, ['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
     <div class="row mt-4 mb-5">
-        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4','onClick' => 'return deleteAlert();']) !!}
+        <!-- 削除確認アラートをつける。 -->
+        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_patient']) !!}
     </div>
     {!! Form::close() !!}
         
