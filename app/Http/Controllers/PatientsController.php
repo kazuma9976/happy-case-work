@@ -199,8 +199,8 @@ class PatientsController extends Controller
             // アップロード処理
             $file->move($target_path, $image);
         }else{
-            // 画像が選択されていなければ空文字をセット
-            $image = '';
+            // 画像が選択されていなければ、元の画像名のまま
+            $image = $patient->image;
         }
         
         // 入力情報をもとにpatientインスタンス情報の更新
