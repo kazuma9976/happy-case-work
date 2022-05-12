@@ -24,7 +24,7 @@ class Record extends Model
     }
     
     /**
-     * 相談記録を所有する(記入した)ユーザー。（Userモデルとの多対1の関係を定義）
+     * 相談記録を所有する(記入した)職員。（Userモデルとの多対1の関係を定義）
      */
     public function user()
     {

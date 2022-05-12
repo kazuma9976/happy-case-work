@@ -17,7 +17,7 @@
             </tr>
             @foreach($patients as $patient)
             <tr>
-                <td>{!! link_to_route('patients.show', $patient->id, ['id' => $patient->id ],['class' => 'btn btn-success']) !!}</td>
+                <td>{!! link_to_route('records.index', $patient->id, ['id' => $patient->id ],['class' => 'btn btn-success']) !!}</td>
                 <td>{{ $patient->name }}</td>
                 <td>{{ $patient->birthday }}</td>
                 <td>{{ $patient->gender }}</td>

@@ -41,7 +41,7 @@ class User extends Authenticatable
     
     
     /**
-     * このユーザーが登録した利用者（Patientsモデルとの1対多の関係を定義）
+     * この職員が登録した利用者（Patientsモデルとの1対多の関係を定義）
      */
     public function patients()
     {
@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
     
     /**
-     * このユーザーが色んな利用者へ書いた相談記録一覧（Recordモデルとの1対多の関係を定義）
+     * この職員が色んな利用者へ書いた相談記録一覧（Recordモデルとの1対多の関係を定義）
      */
     public function records() {
         return $this->hasMany(Record::class);
@@ -66,5 +66,9 @@ class User extends Authenticatable
         $record->save();
     }
     
+    // ログインした職員が記録を書いた利用者一覧を表示
+    public function record_patients() {
+        return $this->belongsToMany(Patient::class, 'records', 'user_id', 'patient_id')->withTimestamps();
+    }
     
 }
