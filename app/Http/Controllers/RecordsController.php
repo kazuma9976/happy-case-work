@@ -83,9 +83,12 @@ class RecordsController extends Controller
      * @param  \App\Record  $record
      * @return \Illuminate\Http\Response
      */
-    public function show(Record $record)
+    public function show($id)
     {
-        //
+        $record = Record::find($id);
+        // view の呼び出し
+        // ある相談記録の詳細を表示させる
+        return view('records.show', compact('record'));
     }
 
     /**

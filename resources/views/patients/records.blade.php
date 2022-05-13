@@ -19,7 +19,7 @@
             </tr>
         @foreach($records as $record)
             <tr>
-                <td>{{ $record->id }}</td>
+                <td>{!! link_to_route('records.show', $record->id, ['id' => $record->id], ['class' => 'btn btn-primary']) !!}</td>
                 <td>{{ $record->content }}</td>
                 <td><img src="/uploads/{{ $record->image }}" alt="画像はありません" id="case_photo"></td>
                 <td>{{ $record->user->name }}</td>
