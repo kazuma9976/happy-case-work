@@ -30,31 +30,68 @@
         </tr>
         <tr>
             <th class="text-center">郵便番号</th>
-            <td>{{ $patient->postal_code }}</td>
+            <td>〒{{ $patient->postal_code }}</td>
         </tr>
         <tr>
             <th class="text-center">住所</th>
             <td>{{ $patient->address }}</td>
         </tr>
         <tr>
-            <th class="text-center">電話番号</th>
-            <td>{{ $patient->phone_number }}</td>
+            <th class="text-center">電話番号⓵</th>
+            <td>{{ $patient->phone_number_1 }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">電話番号⓶</th>
+            <td>{{ $patient->phone_number_2 }}</td>
         </tr>
         <tr>
             <th class="text-center">メールアドレス</th>
             <td>{{ $patient->email }}</td>
         </tr>
         <tr>
-            <th class="text-center">緊急連絡先</th>
-            <td>{{ $patient->emergency_contact }}</td>
+            <th class="text-center">緊急連絡先⓵</th>
+            <td>{{ $patient->emergency_contact_1 }}</td>
         </tr>
         <tr>
-            <th class="text-center">緊急連絡先の住所</th>
-            <td>{{ $patient->emergency_contact_address }}</td>
+            <th class="text-center">緊急連絡先の郵便番号⓵</th>
+            <td>〒{{ $patient->emergency_contact_postal_code_1 }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">緊急連絡先の住所⓵</th>
+            <td>{{ $patient->emergency_contact_address_1 }}</td>
+        </tr>
+        <tr>
+        <tr>
+            <th class="text-center">緊急連絡先⓶</th>
+            <td>{{ $patient->emergency_contact_2 }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">緊急連絡先の郵便番号⓶</th>
+            <td>〒{{ $patient->emergency_contact_postal_code_2 }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">緊急連絡先の住所⓶</th>
+            <td>{{ $patient->emergency_contact_address_2 }}</td>
         </tr>
         <tr>
             <th class="text-center">医療機関</th>
             <td>{{ $patient->family_hospital }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">医療機関の連絡先</th>
+            <td>{{ $patient->family_hospital }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">医療機関の郵便番号</th>
+            <td>〒{{ $patient->family_hospital_postal_code }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">医療機関の住所</th>
+            <td>{{ $patient->family_hospital_address }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">主治医</th>
+            <td>{{ $patient->doctor }}</td>
         </tr>
         <tr>
             <th class="text-center">病名</th>

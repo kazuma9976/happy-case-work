@@ -34,7 +34,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('postal_code', '郵便番号 : ') !!}
-                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => '123-4567']) !!}
+                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
             </div>
             
             <!-- 1行 -->
@@ -45,8 +45,14 @@
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('phone_number', '電話番号 : ') !!}
-                {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx(携帯) / 092-xxx-xxxx(自宅)']) !!}
+                {!! Form::label('phone_number_1', '電話番号⓵ : ') !!}
+                {!! Form::text('phone_number_1', old('phone_number_1'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx(携帯)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('phone_number_2', '電話番号⓶: ') !!}
+                {!! Form::text('phone_number_2', old('phone_number_2'), ['class' => 'form-control', 'placeholder' => '092-xxx-xxxx(自宅)']) !!}
             </div>
             
             <!-- 1行 -->
@@ -55,22 +61,72 @@
                 {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => 'sample@gmail.com']) !!}
             </div>
             
+            
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('emergency_contact', '緊急連絡先 : ') !!}
-                {!! Form::text('emergency_contact', old('emergency_contact'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+                {!! Form::label('emergency_contact_1', '緊急連絡先⓵ : ') !!}
+                {!! Form::text('emergency_contact_1', old('emergency_contact_!'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('emergency_contact_address', '緊急連絡先の住所 : ') !!}
-                {!! Form::textarea('emergency_contact_address', old('emergency_contact_address'), ['class' => 'form-control', 'rows' => '2']) !!}
+                {!! Form::label('emergency_contact_postal_code_1', '緊急連絡先の郵便番号⓵ : ') !!}
+                {!! Form::text('emergency_contact_postal_code_1', old('emergency_contact_postal_code_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('emergency_contact_address_1', '緊急連絡先の住所⓵ : ') !!}
+                {!! Form::text('emergency_contact_address_1', old('emergency_contact_address_1'), ['class' => 'form-control']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('emergency_contact_2', '緊急連絡先⓶ : ') !!}
+                {!! Form::text('emergency_contact_2', old('emergency_contact_2'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+            </div>
+            
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('emergency_contact_postal_code_2', '緊急連絡先の郵便番号⓶ : ') !!}
+                {!! Form::text('emergency_contact_postal_code_2', old('emergency_contact_postal_code_2'), ['class' => 'form-control' , 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('emergency_contact_address_2', '緊急連絡先の住所⓶ : ') !!}
+                {!! Form::text('emergency_contact_address_2', old('emergency_contact_address_2'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital', '医療機関 :') !!}
-                {!! Form::textarea('family_hospital', old('family_hospital'), ['class' => 'form-control', 'placeholder' => '医療機関名、主治医、通院頻度、連絡先などを記入(過去の医療機関や入院歴も分かれば記入)。', 'rows' => '4']) !!}
+                {!! Form::text('family_hospital', old('family_hospital'), ['class' => 'form-control']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('family_hospital_contact', '医療機関の連絡先 :') !!}
+                {!! Form::text('family_hospital_contact', old('family_hospital_contact'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('family_hospital_postal_code', '医療機関の郵便番号 : ') !!}
+                {!! Form::text('family_hospital_postal_code', old('family_hospital_postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('family_hospital_address', '医療機関の住所 : ') !!}
+                {!! Form::text('family_hospital_address', old('family_hospital_address'), ['class' => 'form-control']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('doctor', '主治医 :') !!}
+                {!! Form::text('doctor', old('doctor'), ['class' => 'form-control']) !!}
             </div>
             
              <!-- 1行 -->
