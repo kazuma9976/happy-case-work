@@ -16,7 +16,7 @@ class RecordsController extends Controller
     public function index($id)
     {
         $patient = Patient::find($id);
-        $records = $patient->records()->get();
+        $records = $patient->records()->orderBy('id', 'desc')->get();
         
         // view の呼び出し
         // ある利用者とその相談記録一覧を表示させる
@@ -45,7 +45,6 @@ class RecordsController extends Controller
     {
         // 入力された値の検証
         $this->validate($request, [
-            'recording_date' => 'required',
             'image' => [
                 'file',
                 'mimes:jpeg,jpg,png'
@@ -54,7 +53,6 @@ class RecordsController extends Controller
         
         // 入力情報の取得
         $patient_id = $request->input('patient_id');
-        $recording_date = $request->input('recording_date');
         $content = $request->input('content');
         $file =  $request->image;
         
@@ -73,7 +71,7 @@ class RecordsController extends Controller
         }
         
         // 入力情報をもとに新しいpatientインスタンス作成
-        \Auth::user()->add_record($patient_id, $recording_date, $content, $image);
+        \Auth::user()->add_record($patient_id, $content, $image);
        
         // トップページへリダイレクト
         return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '新規相談記録を作成しました');

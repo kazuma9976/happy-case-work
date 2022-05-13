@@ -56,11 +56,10 @@ class User extends Authenticatable
     } 
     
     // 利用者への相談記録の記入
-    public function add_record($patient_id, $recording_date, $content, $image){
+    public function add_record($patient_id, $content, $image){
         $record = new Record();
         $record->user_id = $this->id;
         $record->patient_id = $patient_id;
-        $record->recording_date = $recording_date;
         $record->content = $content;
         $record->image = $image;
         $record->save();
