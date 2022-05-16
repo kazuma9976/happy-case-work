@@ -11,19 +11,21 @@
             <th>画像資料</th>
             <th>記録した職員</th>
             <th>記録日時</th>
+            <th>更新日時</th>
         </tr>
         <tr>
             <td>{{ $record->id }}</td>
             <td>{{ $record->content }}</td>
             <td><img src="/uploads/{{ $record->image }}" alt="画像はありません" id="case_photo"></td>
             <td>{{ $record->user->name }}</td>
-            <td>{{ $record->created_at }}</td>
+            <td class="text-primary">{{ $record->created_at }}</td>
+            <td class="text-danger">{{ $record->updated_at }}</td>
         </tr>
         
     </table>
     
     <div class="row mt-5">
-        {!! link_to_route('patients.edit', '編集', ['id' => $patient->id ], ['class' => 'offset-sm-4 col-sm-4 btn btn-success']) !!}
+        {!! link_to_route('records.edit', '編集', [$patient->id, $record->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-success']) !!}
     </div>
     
     <div class="row mt-4">

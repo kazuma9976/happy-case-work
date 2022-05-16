@@ -23,7 +23,7 @@
                 <td>{{ $record->content }}</td>
                 <td><img src="/uploads/{{ $record->image }}" alt="画像はありません" id="case_photo"></td>
                 <td>{{ $record->user->name }}</td>
-                <td>{{ $record->created_at }}</td>
+                <td class="text-primary">{{ $record->created_at }}</td>
             </tr>
         @endforeach
     </table>
