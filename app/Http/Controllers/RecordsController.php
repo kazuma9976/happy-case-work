@@ -83,12 +83,13 @@ class RecordsController extends Controller
      * @param  \App\Record  $record
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $record_id)
     {
-        $record = Record::find($id);
+        $patient = Patient::find($id);
+        $record = Record::find($record_id);
         // view の呼び出し
-        // ある相談記録の詳細を表示させる
-        return view('records.show', compact('record'));
+        // ある利用者の相談記録の詳細を表示させる
+        return view('records.show', compact('patient', 'record'));
     }
 
     /**
@@ -99,7 +100,11 @@ class RecordsController extends Controller
      */
     public function edit(Record $record)
     {
-        //
+        $patient = Patient::find($id);
+        $record = Record::find($record_id);
+        // view の呼び出し
+        // ある利用者の相談記録の詳細を表示させる
+        return view('records.edit', compact('patient', 'record'));
     }
 
     /**

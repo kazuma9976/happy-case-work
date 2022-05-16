@@ -34,7 +34,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('postal_code', '郵便番号 : ') !!}
-                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフンなし(例:1234567)']) !!}
             </div>
             
             <!-- 1行 -->

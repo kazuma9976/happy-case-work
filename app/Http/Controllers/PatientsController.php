@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 use Illuminate\Http\Request;
+use App\Rules\Postal_code; // 郵便番号のルール追加
 
 class PatientsController extends Controller
 {
@@ -14,9 +15,9 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        // Patientモデルを使って全利用者を取得
+        // Patientモデルを使って全利用者を昇順で取得
         $patients = Patient::orderBy('id', 'asc')->get();
-        // ビューの呼び出し
+        // viewの呼び出し
         return view('top', compact('patients'));
     }
 
@@ -44,6 +45,7 @@ class PatientsController extends Controller
         // 入力された値の検証
         $this->validate($request, [
             'name' => 'required',
+            'postal_code' => ['nullable', new Postal_code],
             'image' => [
                 'file',
                 'mimes:jpeg,jpg,png'
