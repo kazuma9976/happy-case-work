@@ -4,7 +4,7 @@
     <div class="row mt-3">
         <h1 class="col-sm-12 text-center text-success pb-1 mt-5">新規利用者登録</h1>
     </div>
-    <div class="col-sm-6 offset-sm-3 mt-3">
+    <div class="col-sm-6 offset-sm-3 mt-3 mb-5">
         {!! Form::open(['route' => ['patients.store'], 'files' => true]) !!}
             <!-- 1行 -->
             <div class="form-group">
@@ -216,9 +216,9 @@
                 {!! Form::label('other', 'その他 :') !!}
                 {!! Form::textarea('other', old('other'), ['class' => 'form-control', 'rows' => '3']) !!}
             </div>
-            
-    </div>
-            {!! Form::submit('登録', ['class' => 'offset-sm-4 col-sm-4 mt-5 mb-5 btn btn-primary']) !!}
+            {!! Form::submit('登録', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
+        {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
+    </div>
 @endsection
             

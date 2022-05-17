@@ -7,6 +7,7 @@
     <div class="row mt-3">
         {!! link_to_route('records.create', '新規ケース記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
+        {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     </div>
     <p class="text-danger mt-5">※現在の相談記録 : {{ count($records) }}件</p>
     <table class="table table-bordered table-striped text-center">
@@ -17,9 +18,10 @@
                 <th>記録した職員</th>
                 <th>記録日時</th>
             </tr>
-        @foreach($records as $record)
+        <!-- 各利用者の記録番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
+        @foreach($records as $key => $record)
             <tr>
-                <td>{!! link_to_route('records.show', $record->id, [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
+                <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id, 'index' => $key + 1], ['class' => 'btn btn-success']) !!}</td>
                 <td>{{ $record->content }}</td>
                 <td><img src="/uploads/{{ $record->image }}" alt="画像はありません" id="case_photo"></td>
                 <td>{{ $record->user->name }}</td>

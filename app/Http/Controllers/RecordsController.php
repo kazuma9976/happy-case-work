@@ -15,8 +15,9 @@ class RecordsController extends Controller
      */
     public function index($id)
     {
+        // 注目する利用者とその相談記録一覧の情報を取得
         $patient = Patient::find($id);
-        $records = $patient->records()->orderBy('id', 'desc')->get();
+        $records = $patient->records()->get();
         
         // view の呼び出し
         // ある利用者とその相談記録一覧を表示させる
@@ -30,8 +31,11 @@ class RecordsController extends Controller
      */
     public function create($id)
     {
+        // 新しいRecordインスタンスを作成し、注目する利用者の情報を取得
         $record = new Record();
         $patient = Patient::find($id);
+        
+        // view の呼び出し
         return view('patients.records_create', compact('record', 'patient'));
     }
 
@@ -83,13 +87,16 @@ class RecordsController extends Controller
      * @param  \App\Record  $record
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $record_id)
+    public function show(Request $request, $id, $record_id)
     {
+        // 加工した記録番号の取得
+        $index = $request->input('index');
+        // 注目する利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
         
         // view の呼び出し
-        return view('records.show', compact('patient', 'record'));
+        return view('records.show', compact('patient', 'record', 'index'));
     }
 
     /**
@@ -98,13 +105,14 @@ class RecordsController extends Controller
      * @param  \App\Record  $record
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $record_id)
+    public function edit(Request $request, $id, $record_id)
     {
+        $index = $request->input('index');
         // 注目する利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
         // view の呼び出し
-        return view('records.edit', compact('patient', 'record'));
+        return view('records.edit', compact('patient', 'record', 'index'));
     }
 
     /**
@@ -119,6 +127,9 @@ class RecordsController extends Controller
         // 注目している利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
+        
+        // 加工した記録番号の取得
+        $index = $request->input('index');
         
         // 入力値の検証
         $this->validate($request, [
@@ -155,7 +166,7 @@ class RecordsController extends Controller
         $record->save();
        
         // トップページへリダイレクト
-        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '記録番号: ' . $record->id . ' の相談記録を更新しました');
+        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', $patient->name . 'の記録番号: ' . $index . 'を更新しました');
     }
 
     /**
@@ -169,12 +180,14 @@ class RecordsController extends Controller
         // 注目している利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
-        
         $patient_id = $request->input('patient_id');
+        
+        // 加工した記録番号の取得
+        $index = $request->input('index');
         
         // その相談記録の情報をデータベースから削除
         $record->delete($record_id);
         // リダイレクト
-        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '記録番号: ' . $record->id . 'の相談記録を削除しました');
+        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', $patient->name . 'の相談記録を1件削除しました');
     }
 }
