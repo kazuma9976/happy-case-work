@@ -100,7 +100,7 @@ class RecordsController extends Controller
      */
     public function edit($id, $record_id)
     {
-        // この利用者と記録を
+        // 注目する利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
         // view の呼び出し
