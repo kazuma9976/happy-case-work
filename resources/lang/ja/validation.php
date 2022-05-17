@@ -160,10 +160,19 @@ return [
         'password '  => 'パスワード',
     ],
     
-    'postal_code_validation' => ':attributeハイフンなしの数字7桁で入力してください。',
+    'postal_code_validation' => ':attributeはハイフンなしの数字7桁で入力してください。',
+    'phone_number_validation' => ':attributeはハイフンなしの数字11桁で入力してください。',
 
     'attributes' => [
-        'postal_code' => '郵便番号は',
+        'phone_number_1' => '電話番号⓵(自宅)',
+        'phone_number_2' => '電話番号⓶(携帯)',
+        'emergency_contact_1' => '緊急連絡先⓵',
+        'emergency_contact_2' => '緊急連絡先の住所⓶',
+        'family_hospital_contact' => '医療機関の連絡先',
+        'postal_code' => '郵便番号',
+        'emergency_contact_postal_code_1' => '緊急連絡先⓵の郵便番号',
+        'emergency_contact_postal_code_2' => '緊急連絡先⓶の郵便番号',
+        'family_hospital_postal_code' => '医療機関の郵便番号',
     ],
     
 

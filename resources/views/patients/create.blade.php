@@ -45,14 +45,14 @@
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('phone_number_1', '電話番号⓵ : ') !!}
-                {!! Form::text('phone_number_1', old('phone_number_1'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx(携帯)']) !!}
+                {!! Form::label('phone_number_1', '電話番号⓵(自宅) : ') !!}
+                {!! Form::text('phone_number_1', old('phone_number_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('phone_number_2', '電話番号⓶: ') !!}
-                {!! Form::text('phone_number_2', old('phone_number_2'), ['class' => 'form-control', 'placeholder' => '092-xxx-xxxx(自宅)']) !!}
+                {!! Form::label('phone_number_2', '電話番号⓶(携帯): ') !!}
+                {!! Form::text('phone_number_2', old('phone_number_2'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->
@@ -65,7 +65,13 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_1', '緊急連絡先⓵ : ') !!}
-                {!! Form::text('emergency_contact_1', old('emergency_contact_!'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+                {!! Form::text('emergency_contact_1', old('emergency_contact_!'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('relationship_1', '続柄⓵ : ') !!}
+                {!! Form::text('relationship_1', old('relationship_1'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
@@ -83,9 +89,14 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_2', '緊急連絡先⓶ : ') !!}
-                {!! Form::text('emergency_contact_2', old('emergency_contact_2'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+                {!! Form::text('emergency_contact_2', old('emergency_contact_2'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('relationship_2', '続柄⓶ : ') !!}
+                {!! Form::text('relationship_2', old('relationship_2'), ['class' => 'form-control']) !!}
+            </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
@@ -108,7 +119,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital_contact', '医療機関の連絡先 :') !!}
-                {!! Form::text('family_hospital_contact', old('family_hospital_contact'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx']) !!}
+                {!! Form::text('family_hospital_contact', old('family_hospital_contact'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->

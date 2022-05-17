@@ -37,11 +37,11 @@
             <td>{{ $patient->address }}</td>
         </tr>
         <tr>
-            <th class="text-center">電話番号⓵</th>
+            <th class="text-center">電話番号⓵(自宅)</th>
             <td>{{ $patient->phone_number_1 }}</td>
         </tr>
         <tr>
-            <th class="text-center">電話番号⓶</th>
+            <th class="text-center">電話番号⓶(携帯)</th>
             <td>{{ $patient->phone_number_2 }}</td>
         </tr>
         <tr>
@@ -53,6 +53,10 @@
             <td>{{ $patient->emergency_contact_1 }}</td>
         </tr>
         <tr>
+            <th class="text-center">続柄⓵</th>
+            <td>{{ $patient->relationship_1 }}</td>
+        </tr>
+        <tr>
             <th class="text-center">緊急連絡先の郵便番号⓵</th>
             <td>〒{{ $patient->emergency_contact_postal_code_1 }}</td>
         </tr>
@@ -61,9 +65,12 @@
             <td>{{ $patient->emergency_contact_address_1 }}</td>
         </tr>
         <tr>
-        <tr>
             <th class="text-center">緊急連絡先⓶</th>
             <td>{{ $patient->emergency_contact_2 }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">続柄⓶</th>
+            <td>{{ $patient->relationship_2 }}</td>
         </tr>
         <tr>
             <th class="text-center">緊急連絡先の郵便番号⓶</th>

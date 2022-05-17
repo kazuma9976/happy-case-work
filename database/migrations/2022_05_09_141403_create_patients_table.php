@@ -25,9 +25,11 @@ class CreatePatientsTable extends Migration
             $table->string('phone_number_2')->nullable();
             $table->string('email')->nullable();
             $table->string('emergency_contact_1')->nullable();
+            $table->string('relationship_1')->nullable();
             $table->integer('emergency_contact_postal_code_1')->nullable();
             $table->string('emergency_contact_address_1')->nullable();
             $table->string('emergency_contact_2')->nullable();
+            $table->string('relationship_2')->nullable();
             $table->integer('emergency_contact_postal_code_2')->nullable();
             $table->string('emergency_contact_address_2')->nullable();
             $table->text('family_hospital')->nullable();

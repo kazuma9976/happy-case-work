@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Patient;
 use Illuminate\Http\Request;
 use App\Rules\Postal_code; // 郵便番号のルール追加
+use App\Rules\Phone_number; // 電話番号のルール追加
 
 class PatientsController extends Controller
 {
@@ -46,6 +47,14 @@ class PatientsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'postal_code' => ['nullable', new Postal_code],
+            'phone_number_1' => ['nullable', new Phone_number],
+            'phone_number_2' => ['nullable', new Phone_number],
+            'emergency_contact_1' => ['nullable', new Phone_number],
+            'emergency_contact_postal_code_1' => ['nullable', new Postal_code],
+            'emergency_contact_2' => ['nullable', new Phone_number],
+            'emergency_contact_postal_code_2' => ['nullable', new Postal_code],
+            'family_hospital_contact' => ['nullable', new Phone_number],
+            'family_hospital_postal_code' => ['nullable', new Postal_code],
             'image' => [
                 'file',
                 'mimes:jpeg,jpg,png'
@@ -62,9 +71,11 @@ class PatientsController extends Controller
         $phone_number_2 = $request->input('phone_number_2');
         $email = $request->input('email');
         $emergency_contact_1 = $request->input('emergency_contact_1');
+        $relationship_1 = $request->input('relationship_1');
         $emergency_contact_postal_code_1 = $request->input('emergency_contact_postal_code_1');
         $emergency_contact_address_1 = $request->input('emergency_contact_address_1');
         $emergency_contact_2 = $request->input('emergency_contact_2');
+        $relationship_2 = $request->input('relationship_2');
         $emergency_contact_postal_code_2 = $request->input('emergency_contact_postal_code_2');
         $emergency_contact_address_2 = $request->input('emergency_contact_address_2');
         $family_hospital = $request->input('family_hospital');
@@ -111,9 +122,11 @@ class PatientsController extends Controller
             'phone_number_2' => $phone_number_2,
             'email' => $email,
             'emergency_contact_1' => $emergency_contact_1,
+            'relationship_1' => $relationship_1,
             'emergency_contact_postal_code_1' => $emergency_contact_postal_code_1,
             'emergency_contact_address_1' => $emergency_contact_address_1,
             'emergency_contact_2' => $emergency_contact_2,
+            'relationship_2' => $relationship_2,
             'emergency_contact_postal_code_2' => $emergency_contact_postal_code_2,
             'emergency_contact_address_2' => $emergency_contact_address_2,
             'family_hospital' => $family_hospital,
@@ -178,6 +191,15 @@ class PatientsController extends Controller
         // 入力された値の検証
         $this->validate($request, [
             'name' => 'required',
+            'postal_code' => ['nullable', new Postal_code],
+            'phone_number_1' => ['nullable', new Phone_number],
+            'phone_number_2' => ['nullable', new Phone_number],
+            'emergency_contact_1' => ['nullable', new Phone_number],
+            'emergency_contact_postal_code_1' => ['nullable', new Postal_code],
+            'emergency_contact_2' => ['nullable', new Phone_number],
+            'emergency_contact_postal_code_2' => ['nullable', new Postal_code],
+            'family_hospital_contact' => ['nullable', new Phone_number],
+            'family_hospital_postal_code' => ['nullable', new Postal_code],
             'image' => [
                 'file',
                 'mimes:jpeg,jpg,png'
@@ -194,9 +216,11 @@ class PatientsController extends Controller
         $phone_number_2 = $request->input('phone_number_2');
         $email = $request->input('email');
         $emergency_contact_1 = $request->input('emergency_contact_1');
+        $relationship_1 = $request->input('relationship_1');
         $emergency_contact_postal_code_1 = $request->input('emergency_contact_postal_code_1');
         $emergency_contact_address_1 = $request->input('emergency_contact_address_1');
         $emergency_contact_2 = $request->input('emergency_contact_2');
+        $relationship_2 = $request->input('relationship_2');
         $emergency_contact_postal_code_2 = $request->input('emergency_contact_postal_code_2');
         $emergency_contact_address_2 = $request->input('emergency_contact_address_2');
         $family_hospital = $request->input('family_hospital');
@@ -242,9 +266,11 @@ class PatientsController extends Controller
         $patient->phone_number_2 = $phone_number_2;
         $patient->email = $email;
         $patient->emergency_contact_1 = $emergency_contact_1;
+        $patient->relationship_1 = $relationship_1;
         $patient->emergency_contact_postal_code_1 = $emergency_contact_postal_code_1;
         $patient->emergency_contact_address_1 = $emergency_contact_address_1;
         $patient->emergency_contact_2 = $emergency_contact_2;
+        $patient->relationship_2 = $relationship_2;
         $patient->emergency_contact_postal_code_2 = $emergency_contact_postal_code_2;
         $patient->emergency_contact_address_2 = $emergency_contact_address_2;
         $patient->family_hospital = $family_hospital;
@@ -270,7 +296,7 @@ class PatientsController extends Controller
         $patient->save();
         
         // view の呼び出し
-        return redirect('/top')->with('flash_message', '投稿ID: ' . $patient->id . 'の登録情報を更新しました。');
+        return redirect('/top')->with('flash_message', 'ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を更新しました。');
         
     }
 
@@ -285,6 +311,6 @@ class PatientsController extends Controller
         // データベースから削除
         $patient->delete();
         // リダイレクト
-        return redirect('/top')->with('flash_message', '利用者ID: ' . $patient->id . 'の登録情報を削除しました');
+        return redirect('/top')->with('flash_message', 'ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を削除しました');
     }
 }

@@ -34,105 +34,116 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('postal_code', '郵便番号 : ') !!}
-                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+                {!! Form::text('postal_code',  $patient->postal_code ? $patient->postal_code : old('postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 1234567)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('address', '住所 : ') !!}
-                {!! Form::text('address', old('address'), ['class' => 'form-control']) !!}
+                {!! Form::text('address',  $patient->address ? $patient->address : old('address'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('phone_number_1', '電話番号⓵ : ') !!}
-                {!! Form::text('phone_number_1', old('phone_number_1'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx(携帯)']) !!}
+                {!! Form::label('phone_number_1', '電話番号⓵(自宅) : ') !!}
+                {!! Form::text('phone_number_1',  $patient->phone_number_1 ? $patient->phone_number_1 : old('phone_number_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('phone_number_2', '電話番号⓶: ') !!}
-                {!! Form::text('phone_number_2', old('phone_number_2'), ['class' => 'form-control', 'placeholder' => '092-xxx-xxxx(自宅)']) !!}
+                {!! Form::label('phone_number_2', '電話番号⓶(携帯): ') !!}
+                {!! Form::text('phone_number_2', $patient->phone_number_2 ? $patient->phone_number_2 : old('phone_number_2'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('email', 'メールアドレス : ') !!}
-                {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => 'sample@gmail.com']) !!}
+                {!! Form::text('email', $patient->email ? $patient->email : old('email'), ['class' => 'form-control', 'placeholder' => 'sample@gmail.com']) !!}
             </div>
             
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_1', '緊急連絡先⓵ : ') !!}
-                {!! Form::text('emergency_contact_1', old('emergency_contact_!'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+                {!! Form::text('emergency_contact_1', $patient->emergency_contact_1 ? $patient->emergency_contact_1 : old('emergency_contact_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('relationship_1', '続柄⓵ : ') !!}
+                {!! Form::text('relationship_1', $patient->relationship_1 ? $patient->relationship_1 : old('relationship_1'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_postal_code_1', '緊急連絡先の郵便番号⓵ : ') !!}
-                {!! Form::text('emergency_contact_postal_code_1', old('emergency_contact_postal_code_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+                {!! Form::text('emergency_contact_postal_code_1', $patient->emergency_contact_postal_code_1 ? $patient->emergency_contact_postal_code_1 : old('emergency_contact_postal_code_1'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_address_1', '緊急連絡先の住所⓵ : ') !!}
-                {!! Form::text('emergency_contact_address_1', old('emergency_contact_address_1'), ['class' => 'form-control']) !!}
+                {!! Form::text('emergency_contact_address_1', $patient->emergency_contact_address_1 ? $patient->emergency_contact_address_1 : old('emergency_contact_address_1'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_2', '緊急連絡先⓶ : ') !!}
-                {!! Form::text('emergency_contact_2', old('emergency_contact_2'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx / 092-xxx-xxxx(両親、配偶者など)']) !!}
+                {!! Form::text('emergency_contact_2', $patient->emergency_contact_2 ? $patient->emergency_contact_2 : old('emergency_contact_2'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('relationship_2', '続柄⓶ : ') !!}
+                {!! Form::text('relationship_2', $patient->relationship_2 ? $patient->relationship_2 : old('relationship_2'), ['class' => 'form-control']) !!}
+            </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_postal_code_2', '緊急連絡先の郵便番号⓶ : ') !!}
-                {!! Form::text('emergency_contact_postal_code_2', old('emergency_contact_postal_code_2'), ['class' => 'form-control' , 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+                {!! Form::text('emergency_contact_postal_code_2', $patient->emergency_contact_postal_code_2 ? $patient->emergency_contact_postal_code_2 : old('emergency_contact_postal_code_2'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('emergency_contact_address_2', '緊急連絡先の住所⓶ : ') !!}
-                {!! Form::text('emergency_contact_address_2', old('emergency_contact_address_2'), ['class' => 'form-control']) !!}
+                {!! Form::text('emergency_contact_address_2', $patient->emergency_contact_address_2 ? $patient->emergency_contact_address_2 : old('emergency_contact_address_2'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital', '医療機関 :') !!}
-                {!! Form::text('family_hospital', old('family_hospital'), ['class' => 'form-control']) !!}
+                {!! Form::text('family_hospital', $patient->family_hospital ? $patient->family_hospital : old('family_hospital'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital_contact', '医療機関の連絡先 :') !!}
-                {!! Form::text('family_hospital_contact', old('family_hospital_contact'), ['class' => 'form-control', 'placeholder' => '090-xxx-xxxx']) !!}
+                {!! Form::text('family_hospital_contact', $patient->family_hospital_contact ? $patient->family_hospital_contact : old('family_hospital_contact'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例: 09012345678)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital_postal_code', '医療機関の郵便番号 : ') !!}
-                {!! Form::text('family_hospital_postal_code', old('family_hospital_postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
+                {!! Form::text('family_hospital_postal_code', $patient->family_hospital_postal_code ? $patient->family_hospital_postal_code : old('family_hospital_postal_code'), ['class' => 'form-control', 'placeholder' => 'ハイフン不要(例:1234567)']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('family_hospital_address', '医療機関の住所 : ') !!}
-                {!! Form::text('family_hospital_address', old('family_hospital_address'), ['class' => 'form-control']) !!}
+                {!! Form::text('family_hospital_address', $patient->family_hospital_address ? $patient->family_hospital_address : old('family_hospital_address'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('doctor', '主治医 :') !!}
-                {!! Form::text('doctor', old('doctor'), ['class' => 'form-control']) !!}
+                {!! Form::text('doctor', $patient->doctor ? $patient->doctor : old('doctor'), ['class' => 'form-control']) !!}
             </div>
             
              <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('disease_name', '病名 : ') !!}
-                {!! Form::text('disease_name', old('disease_name'), ['class' => 'form-control']) !!}
+                {!! Form::text('disease_name', $patient->disease_name ? $patient->disease_name : old('disease_name'), ['class' => 'form-control']) !!}
             </div>
             
             <!-- 1行 -->
