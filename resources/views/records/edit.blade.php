@@ -21,7 +21,7 @@
             {!! Form::submit('更新', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
         
-        {!! link_to_route('records.show', $patient->name . 'の記録番号:' . $record->id . 'の詳細へ戻る', [$patient->id, $record->id], ['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
+        {!! link_to_route('records.show', $patient->name . 'の記録番号: ' . $record->id . ' の詳細へ戻る', [$patient->id, $record->id], ['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
     </div>
 @endsection
             

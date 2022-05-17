@@ -35,4 +35,14 @@ $(function(){
     
   });
   
+  // 利用者の登録情報削除時の確認アラート関数
+  $('#delete_record').on('click', () => {
+    if(window.confirm('この相談記録のデータが消えます。本当に削除してよろしいですか？')) {
+      
+    } else {
+      return false;
+    }
+    
+  });
+  
 });

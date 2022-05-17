@@ -11,7 +11,6 @@
             <th>画像資料</th>
             <th>記録した職員</th>
             <th>記録日時</th>
-            <th>更新日時</th>
         </tr>
         <tr>
             <td>{{ $record->id }}</td>
@@ -19,7 +18,6 @@
             <td><img src="/uploads/{{ $record->image }}" alt="画像はありません" id="case_photo"></td>
             <td>{{ $record->user->name }}</td>
             <td class="text-primary">{{ $record->created_at }}</td>
-            <td class="text-danger">{{ $record->updated_at }}</td>
         </tr>
         
     </table>
@@ -29,14 +27,15 @@
     </div>
     
     <div class="row mt-4">
-        {!! link_to_route('records.index', $patient->name. 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
+        {!! link_to_route('records.index', $patient->name . 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
     </div>
     
-    {!! Form::model($patient, ['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
+    {!! Form::model($record, ['route' => ['records.destroy', $patient->id, $record->id], 'method' => 'DELETE']) !!}
     <div class="row mt-4 mb-5">
         <!-- 削除確認アラートをつける。 -->
-        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_patient']) !!}
+        {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_record']) !!}
     </div>
+    <input type="hidden" name="patient_id" value="{{ $patient->id }}">
     {!! Form::close() !!}
         
 @endsection

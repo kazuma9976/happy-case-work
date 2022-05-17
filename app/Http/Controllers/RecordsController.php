@@ -116,6 +116,10 @@ class RecordsController extends Controller
      */
     public function update(Request $request, $id, $record_id)
     {
+        // 注目している利用者とその相談記録の情報を取得
+        $patient = Patient::find($id);
+        $record = Record::find($record_id);
+        
         // 入力値の検証
         $this->validate($request, [
             'image' => [
@@ -151,7 +155,7 @@ class RecordsController extends Controller
         $record->save();
        
         // トップページへリダイレクト
-        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '記録番号: ' . $record->id . 'の相談記録を更新しました');
+        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '記録番号: ' . $record->id . ' の相談記録を更新しました');
     }
 
     /**
@@ -160,8 +164,17 @@ class RecordsController extends Controller
      * @param  \App\Record  $record
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Record $record)
+    public function destroy(Request $request, $id, $record_id)
     {
-        //
+        // 注目している利用者とその相談記録の情報を取得
+        $patient = Patient::find($id);
+        $record = Record::find($record_id);
+        
+        $patient_id = $request->input('patient_id');
+        
+        // その相談記録の情報をデータベースから削除
+        $record->delete($record_id);
+        // リダイレクト
+        return redirect('/patients/' . $patient_id . '/records')->with('flash_message', '記録番号: ' . $record->id . 'の相談記録を削除しました');
     }
 }
