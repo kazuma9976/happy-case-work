@@ -34,11 +34,6 @@
                     <li class="nav-item"><a href="log.php" class="nav-link">業務日誌</a></li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
-                <!-- 利用者検索 -->
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="利用者検索" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </nav>
         @endif

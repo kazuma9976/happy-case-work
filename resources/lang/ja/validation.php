@@ -158,6 +158,7 @@ return [
         'name'  => '名前',
         'email'  => 'メールアドレス',
         'password '  => 'パスワード',
+        'keyword '  => 'キーワード',
     ],
     
     'postal_code_validation' => ':attributeはハイフンなしの数字7桁で入力してください。',

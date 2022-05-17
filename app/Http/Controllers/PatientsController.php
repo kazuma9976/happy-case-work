@@ -313,4 +313,23 @@ class PatientsController extends Controller
         // リダイレクト
         return redirect('/top')->with('flash_message', 'ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を削除しました');
     }
+    
+    // キーワード検索
+    public function search(Request $request){
+        
+        // validation
+        $this->validate($request, ['keyword' => 'required']);
+        
+        // 入力された検索キーワードを取得
+        $keyword = $request->input('keyword');
+
+        // 検索
+        $patients = Patient::where('id','like', '%' . $keyword . '%')->orWhere('name', 'like', '%' . $keyword . '%')->paginate(10);
+        // フラッシュメッセージのセット
+        $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
+        
+        // view の呼び出し
+        return view('top', compact('patients', 'flash_message'));
+    }
+
 }
