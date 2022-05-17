@@ -9,7 +9,9 @@
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
         {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     </div>
-    <p class="text-danger mt-5">※現在の相談記録 : {{ count($records) }}件</p>
+    
+    @if($records->total() !== 0)
+    <p class="text-danger mt-5">※現在の相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center">
             <tr>
                 <th>記録番号</th>
@@ -29,4 +31,9 @@
             </tr>
         @endforeach
     </table>
+    {{ $records->links('pagination::bootstrap-4') }}
+    
+    @else
+        <h2 class="mt-5 text-center text-danger">※相談記録はまだありません</h2>
+    @endif
 @endsection           

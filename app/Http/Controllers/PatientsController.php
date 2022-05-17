@@ -17,7 +17,7 @@ class PatientsController extends Controller
     public function index()
     {
         // Patientモデルを使って全利用者を昇順で取得
-        $patients = Patient::orderBy('id', 'asc')->get();
+        $patients = Patient::orderBy('id', 'asc')->paginate(10);
         // viewの呼び出し
         return view('top', compact('patients'));
     }

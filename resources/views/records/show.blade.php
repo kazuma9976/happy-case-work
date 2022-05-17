@@ -31,7 +31,6 @@
     </div>
     
     {!! Form::model($record, ['route' => ['records.destroy', $patient->id, $record->id, 'index' => $index], 'method' => 'DELETE']) !!}
-    @csrf
     <div class="row mt-4 mb-5">
         <!-- 削除確認アラートをつける。 -->
         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_record']) !!}

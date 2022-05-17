@@ -4,8 +4,9 @@
     <div class="row mt-5">
         <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
     </div>
+    @if($patients->total() !== 0)
     <div class="row">
-        <p class="col-sm-12 text-left text-danger mt-2">※現在の登録利用者: {{ count($patients) }}人</p>
+        <p class="col-sm-12 text-left text-danger mt-2">※現在の登録利用者: {{ $patients->total() }}人</p>
     </div>
     <table class="table table-bordered table-striped text-center">
             <tr>
@@ -25,4 +26,8 @@
             </tr>
             @endforeach
     </table>
+    {{ $patients->links('pagination::bootstrap-4') }}
+    @else
+        <h2 class="mt-3 text-center text-danger">※登録利用者はまだいません</h2>
+    @endif
 @endsection           

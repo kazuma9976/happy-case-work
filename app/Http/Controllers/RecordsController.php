@@ -17,7 +17,7 @@ class RecordsController extends Controller
     {
         // 注目する利用者とその相談記録一覧の情報を取得
         $patient = Patient::find($id);
-        $records = $patient->records()->get();
+        $records = $patient->records()->paginate(10);
         
         // view の呼び出し
         // ある利用者とその相談記録一覧を表示させる
