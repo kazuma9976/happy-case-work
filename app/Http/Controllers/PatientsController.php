@@ -321,7 +321,7 @@ class PatientsController extends Controller
         $this->validate($request, ['keyword' => 'required']);
         
         // 入力された検索キーワードを取得
-        $keyword_1 = $request->input('keyword');
+        $keyword = $request->input('keyword');
 
         // 検索(ID, 利用者名、病名で検索可能にする)
         $patients = Patient::where('id','like', '%' . $keyword . '%')

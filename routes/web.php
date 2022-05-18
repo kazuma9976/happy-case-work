@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     // ネスト
     Route::group(['prefix' => 'patients/{id}'], function () {
+        
         // 利用者に対する相談記録
         Route::resource('records', 'RecordsController');
         
