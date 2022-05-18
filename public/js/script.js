@@ -45,4 +45,14 @@ $(function(){
     
   });
   
+  // 業務日誌の削除時の確認アラート関数
+  $('#delete_log').on('click', () => {
+    if(window.confirm('この業務日誌のデータが消えます。本当に削除してよろしいですか？')) {
+      
+    } else {
+      return false;
+    }
+    
+  });
+  
 });

@@ -5,6 +5,8 @@
         <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">業務日誌一覧</h1>
     </div>
     
+    {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
+    
     @if(count($logs) !== 0)
     <div class="row mt-4">
         <p class="col-sm-12 text-left text-danger mt-2">※業務日誌: {{ $logs->total() }}件</p>

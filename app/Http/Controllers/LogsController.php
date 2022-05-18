@@ -17,7 +17,7 @@ class LogsController extends Controller
         // Logモデルを使って全投稿を取得
         $logs = Log::orderBy('id', 'desc')->paginate(10);;
         
-        // ビューの呼び出し
+        // viewの呼び出し
         return view('logs', compact('logs'));
     }
 
@@ -50,7 +50,8 @@ class LogsController extends Controller
      */
     public function show(Log $log)
     {
-        //
+        // viewの呼び出し
+        return view('logs.show', compact('log'));
     }
 
     /**

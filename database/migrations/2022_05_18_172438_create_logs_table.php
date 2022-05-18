@@ -19,11 +19,11 @@ class CreateLogsTable extends Migration
             $table->string('date');
             $table->string('weather')->nullable();
             $table->string('staff')->nullable();
-            $table->string('notice')->nullable();
-            $table->string('meeting')->nullable();
-            $table->string('business_trip')->nullable();
+            $table->text('notice')->nullable();
+            $table->text('meeting')->nullable();
+            $table->text('business_trip')->nullable();
             $table->string('image')->nullable();
-            $table->string('other')->nullable();
+            $table->text('other')->nullable();
             $table->timestamps();
             
             // 外部キー制約
