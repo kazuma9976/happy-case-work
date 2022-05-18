@@ -43,6 +43,9 @@ Route::group(['middleware' => ['auth']], function () {
     // 利用者のキーワード検索
     Route::get('search', 'PatientsController@search')->name('patients.search');
     
+    // 業務日誌関係
+    Route::resource('logs', 'LogsController');
+    
     // ネスト
     Route::group(['prefix' => 'patients/{id}'], function () {
         

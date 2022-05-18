@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav" id="nav">
                     <li class="nav-item">{!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item"><a href="log.php" class="nav-link">業務日誌</a></li>
+                    <li class="nav-item">{!! link_to_route('logs.index', '業務日誌', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
