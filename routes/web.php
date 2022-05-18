@@ -49,6 +49,9 @@ Route::group(['middleware' => ['auth']], function () {
         // 利用者に対する相談記録
         Route::resource('records', 'RecordsController');
         
+        // 利用者のキーワード検索
+        Route::get('search', 'RecordsController@search')->name('records.search');
+        
     });
 
 });

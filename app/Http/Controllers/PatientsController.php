@@ -296,7 +296,7 @@ class PatientsController extends Controller
         $patient->save();
         
         // view の呼び出し
-        return redirect('/top')->with('flash_message', 'ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を更新しました。');
+        return redirect('/top')->with('flash_message', '利用者ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を更新しました。');
         
     }
 
@@ -311,7 +311,7 @@ class PatientsController extends Controller
         // データベースから削除
         $patient->delete();
         // リダイレクト
-        return redirect('/top')->with('flash_message', 'ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を削除しました');
+        return redirect('/top')->with('flash_message', '利用者ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を削除しました');
     }
     
     // 利用者のキーワード検索
@@ -333,7 +333,7 @@ class PatientsController extends Controller
         $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
         
         // view の呼び出し
-        return view('top', compact('patients', 'flash_message'));
+        return view('/top', compact('patients', 'flash_message'));
     }
 
 }

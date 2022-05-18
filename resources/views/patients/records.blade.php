@@ -9,6 +9,19 @@
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
         {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     </div>
+    
+    <!-- 相談記録のキーワード検索 -->
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            {!! Form::open(['route' => ['records.search', $patient->id, $records->id], 'method' => 'get']) !!}
+                <div class="form-group">
+                    {!! Form::label('keyword', 'キーワード') !!}
+                    {!! Form::text('keyword', old('content'), ['class' => 'form-control']) !!}
+                </div>
+                {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
 
     @if($records->total() !== 0)
     <p class="text-danger mt-5">※現在の相談記録 : {{ $records->total() }}件</p>
