@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Patients;
+use App\Patients; // 追加
+use App\Records; // 追加
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -82,4 +83,5 @@ class UsersController extends Controller
     {
         //
     }
+
 }

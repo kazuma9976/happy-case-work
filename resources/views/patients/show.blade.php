@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <th class="text-center">郵便番号</th>
-            <td>〒{{ $patient->postal_code }}</td>
+            <td>{{ $patient->postal_code }}</td>
         </tr>
         <tr>
             <th class="text-center">住所</th>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <th class="text-center">緊急連絡先の郵便番号⓵</th>
-            <td>〒{{ $patient->emergency_contact_postal_code_1 }}</td>
+            <td>{{ $patient->emergency_contact_postal_code_1 }}</td>
         </tr>
         <tr>
             <th class="text-center">緊急連絡先の住所⓵</th>
@@ -74,7 +74,7 @@
         </tr>
         <tr>
             <th class="text-center">緊急連絡先の郵便番号⓶</th>
-            <td>〒{{ $patient->emergency_contact_postal_code_2 }}</td>
+            <td>{{ $patient->emergency_contact_postal_code_2 }}</td>
         </tr>
         <tr>
             <th class="text-center">緊急連絡先の住所⓶</th>
@@ -90,7 +90,7 @@
         </tr>
         <tr>
             <th class="text-center">医療機関の郵便番号</th>
-            <td>〒{{ $patient->family_hospital_postal_code }}</td>
+            <td>{{ $patient->family_hospital_postal_code }}</td>
         </tr>
         <tr>
             <th class="text-center">医療機関の住所</th>

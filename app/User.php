@@ -3,6 +3,7 @@
 namespace App;
 use App\Patient; // 追加
 use App\Record; // 追加
+use App\Log; // 追加
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -68,6 +69,14 @@ class User extends Authenticatable
     // ログインした職員が記録を書いた利用者一覧を表示
     public function record_patients() {
         return $this->belongsToMany(Patient::class, 'records', 'user_id', 'patient_id')->withTimestamps();
+    }
+    
+    /**
+     * このユーザーが記録した業務日誌一覧　(Logモデルとの1対多の関係を定義)
+     */
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
     }
     
 }
