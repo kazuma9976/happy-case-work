@@ -190,4 +190,5 @@ class RecordsController extends Controller
         // リダイレクト
         return redirect('/patients/' . $patient_id . '/records')->with('flash_message', $patient->name . 'の相談記録を1件削除しました');
     }
+    
 }

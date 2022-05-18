@@ -40,13 +40,14 @@ Route::group(['middleware' => ['auth']], function () {
     // 利用者一覧、詳細表示
     Route::resource('patients', 'PatientsController');
     
-    // キーワード検索
+    // 利用者のキーワード検索
     Route::get('search', 'PatientsController@search')->name('patients.search');
     
     // ネスト
     Route::group(['prefix' => 'patients/{id}'], function () {
         // 利用者に対する相談記録
         Route::resource('records', 'RecordsController');
+        
     });
 
 });
