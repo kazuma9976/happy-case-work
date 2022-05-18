@@ -13,7 +13,7 @@
     <!-- 相談記録のキーワード検索 -->
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::open(['route' => ['records.search', $patient->id, $records->id], 'method' => 'get']) !!}
+            {!! Form::open(['route' => ['records.search', $patient->id, $record->id], 'method' => 'get']) !!}
                 <div class="form-group">
                     {!! Form::label('keyword', 'キーワード') !!}
                     {!! Form::text('keyword', old('content'), ['class' => 'form-control']) !!}
