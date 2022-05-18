@@ -11,7 +11,7 @@
             {!! Form::open(['route' => ['patients.search'], 'method' => 'get']) !!}
                 <div class="form-group">
                     {!! Form::label('keyword', '利用者検索: ', ['class' => 'text-primary'] ) !!}
-                    {!! Form::text('keyword', old('id'), ['class' => 'form-control', 'placeholder' => '利用者ID(半角数字)、利用者名、病名のいずれかで検索可能']) !!}
+                    {!! Form::text('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '利用者ID(半角数字)、利用者名、病名のいずれかで検索可能']) !!}
                 </div>
                 {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block mt-4']) !!}
             {!! Form::close() !!}

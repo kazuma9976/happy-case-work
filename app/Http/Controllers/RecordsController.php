@@ -19,9 +19,12 @@ class RecordsController extends Controller
         $patient = Patient::find($id);
         $records = $patient->records()->paginate(10);
         
+         // キーワードは空文字の設定
+        $keyword = '';
+        
         // view の呼び出し
         // ある利用者とその相談記録一覧を表示させる
-        return view('patients.records', compact('patient', 'records'));
+        return view('patients.records', compact('patient', 'records', 'keyword'));
     }
 
     /**
@@ -192,7 +195,7 @@ class RecordsController extends Controller
     }
     
     // 相談記録のキーワード検索
-    public function search(Request $request){
+    public function search(Request $request, $id){
         
         // 注目する利用者とその相談記録一覧の情報を取得
         $patient = Patient::find($id);
@@ -203,16 +206,15 @@ class RecordsController extends Controller
         
         // 入力された検索キーワードを取得
         $keyword = $request->input('keyword');
-        $record_name = $record->user->name;
 
         // 検索
-        $records = Record::where('content','like', '%' . $keyword . '%')->orWhere($record_name, 'like', '%' . $keyword . '%')->paginate(10);
+        $records = Record::where('content','like', '%' . $keyword . '%')->paginate(10);
         
         // フラッシュメッセージのセット
         $flash_message = '検索キーワード: 『' . $keyword . '』に' . $records->count() . '件ヒットしました';
         
         // view の呼び出し
-        return view('top', compact('patients.records', 'flash_message'));
+        return view('top', compact('records.search', 'patient','records', 'keyword', 'flash_message'));
 
     }
 }

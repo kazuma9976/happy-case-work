@@ -11,12 +11,12 @@
     </div>
     
     <!-- 相談記録のキーワード検索 -->
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::open(['route' => ['records.search', $patient->id, $record->id], 'method' => 'get']) !!}
+            {!! Form::open(['route' => ['records.search', $patient->id], 'method' => 'get']) !!}
                 <div class="form-group">
-                    {!! Form::label('keyword', 'キーワード') !!}
-                    {!! Form::text('keyword', old('content'), ['class' => 'form-control']) !!}
+                    {!! Form::label('keyword', '相談記録検索: ', ['class' => 'text-primary']) !!}
+                    {!! Form::text('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '内容、記録した職員のどちらかで検索可能']) !!}
                 </div>
                 {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block']) !!}
             {!! Form::close() !!}
@@ -24,7 +24,7 @@
     </div>
 
     @if($records->total() !== 0)
-    <p class="text-danger mt-5">※現在の相談記録 : {{ $records->total() }}件</p>
+    <p class="text-danger mt-4">※現在の相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center">
             <tr>
                 <th>記録番号</th>

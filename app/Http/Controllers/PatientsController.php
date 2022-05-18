@@ -18,8 +18,12 @@ class PatientsController extends Controller
     {
         // Patientモデルを使って全利用者を昇順で取得
         $patients = Patient::orderBy('id', 'asc')->paginate(10);
+        
+        // キーワードは空文字の設定
+        $keyword = '';
+        
         // viewの呼び出し
-        return view('top', compact('patients'));
+        return view('top', compact('patients', 'keyword'));
     }
 
     /**
@@ -333,7 +337,7 @@ class PatientsController extends Controller
         $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
         
         // view の呼び出し
-        return view('/top', compact('patients', 'flash_message'));
+        return view('top', compact('patients', 'keyword', 'flash_message'));
     }
 
 }
