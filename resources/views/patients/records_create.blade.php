@@ -8,7 +8,7 @@
         {!! Form::open(['route' => ['records.store', 'id' => $patient->id], 'files' => true]) !!}
         <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('content', '内容 :') !!}
+                {!! Form::label('content', '記録内容 :') !!}
                 {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '5']) !!}
             </div>
             

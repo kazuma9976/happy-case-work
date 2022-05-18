@@ -197,24 +197,25 @@ class RecordsController extends Controller
     // 相談記録のキーワード検索
     public function search(Request $request, $id){
         
-        // 注目する利用者とその相談記録一覧の情報を取得
+        // 注目する利用者の情報を取得
         $patient = Patient::find($id);
-        $records = $patient->records()->get();
-        
-        // validation
-        $this->validate($request, ['keyword' => 'required']);
         
         // 入力された検索キーワードを取得
         $keyword = $request->input('keyword');
 
-        // 検索
-        $records = Record::where('content','like', '%' . $keyword . '%')->paginate(10);
+        // 相談記録のキーワード検索(注目する利用者IDの記録内容を検索できるように設定)
+        $records = Record::where('content', 'like', '%' . $keyword . '%')->where('patient_id', $id)->paginate(10);
         
-        // フラッシュメッセージのセット
-        $flash_message = '検索キーワード: 『' . $keyword . '』に' . $records->count() . '件ヒットしました';
+         // キーワードがなければフラッシュメッセージをnull
+        if($keyword === null) {
+            $flash_message = null;
+        } else {
+            // フラッシュメッセージのセット
+            $flash_message = '検索キーワード: 『' . $keyword . '』に' . $records->count() . '件ヒットしました';
+        }
         
         // view の呼び出し
-        return view('top', compact('records.search', 'patient','records', 'keyword', 'flash_message'));
+        return view('patients.records', compact('patient', 'records', 'keyword', 'flash_message'));
 
     }
 }

@@ -11,7 +11,7 @@
             {!! Form::open(['route' => ['patients.search'], 'method' => 'get']) !!}
                 <div class="form-group">
                     {!! Form::label('keyword', '利用者検索: ', ['class' => 'text-primary'] ) !!}
-                    {!! Form::text('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '利用者ID(半角数字)、利用者名、病名のいずれかで検索可能']) !!}
+                    {!! Form::search('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '利用者ID(半角数字)、利用者名、病名のいずれかで検索可能']) !!}
                 </div>
                 {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block mt-4']) !!}
             {!! Form::close() !!}
@@ -20,7 +20,7 @@
     
     @if($patients->total() !== 0)
     <div class="row mt-4">
-        <p class="col-sm-12 text-left text-danger mt-2">※登録利用者: {{ $patients->total() }}人</p>
+        <p class="col-sm-12 text-left text-danger mt-2">※利用者: {{ $patients->total() }}人</p>
     </div>
     <table class="table table-bordered table-striped text-center">
             <tr>

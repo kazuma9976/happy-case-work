@@ -8,7 +8,7 @@
         {!! Form::open(['route' => ['records.update', $patient->id, $record->id, 'index' => $index], 'files' => true, 'method' => 'PUT']) !!}
         <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('content', '内容 :') !!}
+                {!! Form::label('content', '記録内容 :') !!}
                 {!! Form::textarea('content', $record->content ? $record->content : old('content'), ['class' => 'form-control' , 'rows' => '5']) !!}
             </div>
             

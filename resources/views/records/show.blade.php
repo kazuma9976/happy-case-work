@@ -7,7 +7,7 @@
     <table class="table table-bordered table-striped text-center mt-4">
         <tr>
             <th>記録番号</th>
-            <th>内容</th>
+            <th>記録内容</th>
             <th>画像資料</th>
             <th>記録した職員</th>
             <th>記録日時</th>

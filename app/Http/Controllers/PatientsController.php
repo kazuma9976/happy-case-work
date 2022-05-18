@@ -321,9 +321,6 @@ class PatientsController extends Controller
     // 利用者のキーワード検索
     public function search(Request $request){
         
-        // validation
-        $this->validate($request, ['keyword' => 'required']);
-        
         // 入力された検索キーワードを取得
         $keyword = $request->input('keyword');
 
@@ -333,11 +330,16 @@ class PatientsController extends Controller
                     ->orWhere('disease_name', 'like', '%' . $keyword . '%')
                     ->paginate(10);
        
-        // フラッシュメッセージのセット
-        $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
-        
-        // view の呼び出し
-        return view('top', compact('patients', 'keyword', 'flash_message'));
+        // キーワードがなければフラッシュメッセージをnull
+        if($keyword === null) {
+           $flash_message = null;
+        } else {
+            // フラッシュメッセージのセット
+            $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
+        }
+       
+         // view の呼び出し
+         return view('/top', compact('patients', 'keyword', 'flash_message'));
     }
 
 }
