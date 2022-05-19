@@ -17,8 +17,11 @@ class LogsController extends Controller
         // Logモデルを使って全投稿を取得
         $logs = Log::orderBy('id', 'desc')->paginate(10);
         
+        // キーワードは空文字の設定
+        $keyword = '';
+        
         // viewの呼び出し
-        return view('logs', compact('logs'));
+        return view('logs', compact('logs', 'keyword'));
     }
 
     /**
@@ -207,5 +210,30 @@ class LogsController extends Controller
         
         // 業務日誌一覧へリダイレクト
         return redirect('logs')->with('flash_message', '記録番号: ' . $log->id . 'の業務日誌を削除しました');
+    }
+    
+    // 業務日誌のキーワード検索
+    public function search(Request $request){
+        
+        // 入力された検索キーワードを取得
+        $keyword = $request->input('keyword');
+
+        // 検索(ID, 職員、で検索可能にする)
+        $logs = Log::where('id','like', '%' . $keyword . '%')
+                    ->orWhere('staff', 'like', '%' . $keyword . '%')
+                    ->orWhere('weather', 'like', '%' . $keyword . '%')
+                    ->orWhere('date', 'like', '%' . $keyword . '%')
+                    ->paginate(10);
+       
+        // キーワードがなければフラッシュメッセージをnull
+        if($keyword === null) {
+           $flash_message = null;
+        } else {
+            // フラッシュメッセージのセット
+            $flash_message = '検索キーワード: 『' . $keyword . '』に' . $logs->count() . '件ヒットしました';
+        }
+       
+         // view の呼び出し
+         return view('logs', compact('logs', 'keyword', 'flash_message'));
     }
 }

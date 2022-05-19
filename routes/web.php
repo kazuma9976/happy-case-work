@@ -46,13 +46,16 @@ Route::group(['middleware' => ['auth']], function () {
     // 業務日誌関係
     Route::resource('logs', 'LogsController');
     
+    // 業務日誌のキーワード検索
+    Route::get('logs.search', 'LogsController@search')->name('logs.search');
+    
     // ネスト
     Route::group(['prefix' => 'patients/{id}'], function () {
         
         // 利用者に対する相談記録
         Route::resource('records', 'RecordsController');
         
-        // 利用者のキーワード検索
+        // 相談記録のキーワード検索
         Route::get('search', 'RecordsController@search')->name('records.search');
         
     });
