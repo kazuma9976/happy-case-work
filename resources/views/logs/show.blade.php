@@ -1,45 +1,53 @@
 @extends('layouts.app')
-@section('title', '記録番号: ' . $log->id . 'の業務日誌詳細')
+@section('title', '記録番号: ' . $log->id . 'の業務日誌の詳細')
 @section('content')
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">記録番号: {{ $log->id }}の業務日誌詳細</h1>
+        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">記録番号: {{ $log->id }}の業務日誌の詳細</h1>
     </div>
     <p class="text-primary mt-4">※登録日時 : {{ $log->created_at }}</p>
-    <table class="table table-bordered table-striped text-center mt-3">
+    <table class="table table-bordered table-striped mt-3">
         <tr>
-            <th>記録番号</th>
-            <td>{{ $log->id }}</td>
-        </tr>
-        <tr>
-            <th>日付</th>
+            <th class="text-center">日付</th>
             <td>{{ $log->date }}</td>
         </tr>
         <tr>
-            <th>天気</th>
+            <th class="text-center">天気</th>
             <td>{{ $log->weather }}</td>
         </tr>
         <tr>
-            <th>職員</th>
+            <th class="text-center">職員</th>
             <td>{{ $log->staff }}</td>
         </tr>
         <tr>
-            <th>特記事項</th>
+            <th class="text-center">特記事項</th>
             <td>{{ $log->notice }}</td>
         </tr>
         <tr>
-            <th>会議</th>
+            <th class="text-center">電話記録</th>
+            <td>{{ $log->phone_record }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">メール記録</th>
+            <td>{{ $log->mail_record }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">会議</th>
             <td>{{ $log->meeting }}</td>
         </tr>
         <tr>
-            <th>出張・研修</th>
+            <th class="text-center">出張</th>
             <td>{{ $log->business_trip }}</td>
         </tr>
         <tr>
-            <th>画像資料</th>
-            <td>{{ $log->image }}</td>
+            <th class="text-center">研修</th>
+            <td>{{ $log->training }}</td>
         </tr>
         <tr>
-            <th>その他</th>
+            <th class="text-center">画像資料</th>
+            <td><img src="/uploads/{{ $log->image }}" alt="画像はありません" id="log_photo"></td>
+        </tr>
+        <tr>
+            <th class="text-center">その他</th>
             <td>{{ $log->other }}</td>
         </tr>
     </table>

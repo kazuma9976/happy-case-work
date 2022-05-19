@@ -6,12 +6,13 @@
     </div>
     <div class="col-sm-6 offset-sm-3 mt-3 mb-5">
         {!! Form::open(['route' => ['records.store', 'id' => $patient->id], 'files' => true]) !!}
-        <!-- 1行 -->
+            <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('content', '記録内容 :') !!}
                 {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '5']) !!}
             </div>
             
+            <!-- 1行 -->
             <div class="form-group">
                 {!! Form::label('image', '画像資料 :') !!}
                 {!! Form::file('image', ['class' => 'form-control']) !!}

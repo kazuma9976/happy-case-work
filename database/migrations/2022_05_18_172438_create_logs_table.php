@@ -17,11 +17,14 @@ class CreateLogsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('date');
-            $table->string('weather')->nullable();
-            $table->string('staff')->nullable();
+            $table->string('weather');
+            $table->string('staff');
             $table->text('notice')->nullable();
+            $table->text('phone_record')->nullable();
+            $table->text('mail_record')->nullable();
             $table->text('meeting')->nullable();
             $table->text('business_trip')->nullable();
+            $table->text('training')->nullable();
             $table->string('image')->nullable();
             $table->text('other')->nullable();
             $table->timestamps();

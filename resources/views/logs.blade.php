@@ -5,6 +5,7 @@
         <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">業務日誌一覧</h1>
     </div>
     
+    {!! link_to_route('logs.create', '新規業務日誌作成', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
     {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
     
     @if(count($logs) !== 0)
@@ -15,13 +16,11 @@
         <tr>
             <th>記録番号</th>
             <th>日付</th>
-            <th>登録日時</th>
         </tr>
         @foreach($logs as $log)
         <tr>
             <td>{!! link_to_route('logs.show', $log->id, ['id' => $log->id ], ['class' => 'btn btn-success']) !!}</td>
             <td>{{ $log->date }}</td>
-            <td>{{ $log->created_at }}</td>
         </tr>
         @endforeach
     </table>

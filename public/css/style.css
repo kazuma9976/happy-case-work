@@ -43,8 +43,7 @@ h2 {
     border-radius: 10px;
 }
 
-/* ケース記録関連の画像　*/
-
+/* 相談記録関連の画像　*/
 #case_photo {
     width: 75px;
     height: 40px;
@@ -57,7 +56,14 @@ h2 {
     border-radius: 10px;
 }
 
-/* ケース記録文字列 */
+/* 相談記録文字列 */
 #case {
     text-align: left;
+}
+
+/* 業務日誌の画像資料 */
+#log_photo {
+    width: 230px;
+    height: 170px;
+    border-radius: 10px;
 }

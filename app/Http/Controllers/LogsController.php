@@ -28,7 +28,10 @@ class LogsController extends Controller
      */
     public function create()
     {
-        //
+        // 空のLogモデル作成
+        $log = new Log();
+        // view の呼び出し
+        return view('logs.create', compact('log')); 
     }
 
     /**
@@ -39,7 +42,63 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        //for image ref) https://qiita.com/maejima_f/items/7691aa9385970ba7e3ed
+        $this->validate($request, [
+            'date' => 'required',
+            'weather' => 'required',
+            'staff' => 'required',
+            'image' => [
+                'file',
+                'mimes:jpeg,jpg,png'
+            ]
+        ]);
+        
+        // 入力情報の取得
+        $date = $request->input('date');
+        $weather = $request->input('weather');
+        $staff = $request->input('staff');
+        $notice = $request->input('notice');
+        $phone_record = $request->input('phone_record');
+        $mail_record = $request->input('mail_record');
+        $meeting = $request->input('meeting');
+        $business_trip = $request->input('business_trip');
+        $training = $request->input('training');
+        $file =  $request->image;
+        $other = $request->input('other');
+        
+        // 画像のアップロード
+        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+        if($file){
+            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
+            $image = time() . $file->getClientOriginalName();
+            // アップロードするフォルダ名取得
+            $target_path = public_path('uploads/');
+            // アップロード処理
+            $file->move($target_path, $image);
+        }else{
+            // 画像が選択されていなければ空文字をセット
+            $image = '';
+        }
+        
+        
+        // 入力情報をもとに新しいインスタンス作成
+        \Auth::user()->logs()->create([
+            'date' => $date,
+            'weather' => $weather,
+            'staff' => $staff,
+            'notice' => $notice,
+            'phone_record' => $phone_record,
+            'mail_record' => $mail_record,
+            'meeting' => $meeting,
+            'business_trip' => $business_trip,
+            'training' => $training,
+            'image' => $image,
+            'other' => $other
+        ]);
+        
+        // 業務日誌一覧へリダイレクト
+        return redirect('logs')->with('flash_message', '新規業務日誌を登録しました');
     }
 
     /**
