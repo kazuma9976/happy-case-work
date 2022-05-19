@@ -121,7 +121,8 @@ class LogsController extends Controller
      */
     public function edit(Log $log)
     {
-        //
+        // viewの呼び出し
+        return view('logs.edit', compact('log'));
     }
 
     /**
@@ -133,7 +134,64 @@ class LogsController extends Controller
      */
     public function update(Request $request, Log $log)
     {
-        //
+        // validation
+        //for image ref) https://qiita.com/maejima_f/items/7691aa9385970ba7e3ed
+        $this->validate($request, [
+            'date' => 'required',
+            'weather' => 'required',
+            'staff' => 'required',
+            'image' => [
+                'file',
+                'mimes:jpeg,jpg,png'
+            ]
+        ]);
+        
+        // 入力情報の取得
+        $date = $request->input('date');
+        $weather = $request->input('weather');
+        $staff = $request->input('staff');
+        $notice = $request->input('notice');
+        $phone_record = $request->input('phone_record');
+        $mail_record = $request->input('mail_record');
+        $meeting = $request->input('meeting');
+        $business_trip = $request->input('business_trip');
+        $training = $request->input('training');
+        $file =  $request->image;
+        $other = $request->input('other');
+        
+        // 画像のアップロード
+        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+        if($file){
+            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
+            $image = time() . $file->getClientOriginalName();
+            // アップロードするフォルダ名取得
+            $target_path = public_path('uploads/');
+            // アップロード処理
+            $file->move($target_path, $image);
+        }else{
+            // 画像が選択されていなければ、元の画像名のまま
+            $image = $log->image;
+        }
+        
+        
+        // 入力情報をもとにインスタンス情報の更新
+        $log->date = $date;
+        $log->weather = $weather;
+        $log->staff = $staff;
+        $log->notice = $notice;
+        $log->phone_record = $phone_record;
+        $log->mail_record = $mail_record;
+        $log->meeting = $meeting;
+        $log->business_trip = $business_trip;
+        $log->training = $training;
+        $log->image = $image;
+        $log->other = $other;
+        
+        // データベースを更新
+        $log->save();
+        
+        // 業務日誌一覧へリダイレクト
+        return redirect('logs')->with('flash_message', '記録番号: ' . $log->id . 'の業務日誌を更新しました');
     }
 
     /**
@@ -144,6 +202,10 @@ class LogsController extends Controller
      */
     public function destroy(Log $log)
     {
-        //
+        // データベースから削除
+        $log->delete();
+        
+        // 業務日誌一覧へリダイレクト
+        return redirect('logs')->with('flash_message', '記録番号: ' . $log->id . 'の業務日誌を削除しました');
     }
 }

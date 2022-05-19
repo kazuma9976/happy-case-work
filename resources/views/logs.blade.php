@@ -27,7 +27,7 @@
     {{ $logs->links('pagination::bootstrap-4') }}
     
     @else
-        <h2 class="mt-3 text-center text-danger">※業務日誌はありません</h2>
+        <h2 class="mt-5 text-center text-danger">※業務日誌はありません</h2>
     @endif
     
 @endsection

@@ -70,7 +70,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('other', 'その他 :') !!}
-                {!! Form::textarea('other', old('business_trip'), ['class' => 'form-control', 'rows' => '3']) !!}
+                {!! Form::textarea('other', old('other'), ['class' => 'form-control', 'rows' => '3']) !!}
             </div>
             
             {!! Form::submit('登録', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
