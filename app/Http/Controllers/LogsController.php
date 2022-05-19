@@ -218,11 +218,11 @@ class LogsController extends Controller
         // 入力された検索キーワードを取得
         $keyword = $request->input('keyword');
 
-        // 検索(ID, 職員、で検索可能にする)
+        // 検索(ID, 日付、天気、職員で検索可能にする)
         $logs = Log::where('id','like', '%' . $keyword . '%')
-                    ->orWhere('staff', 'like', '%' . $keyword . '%')
-                    ->orWhere('weather', 'like', '%' . $keyword . '%')
                     ->orWhere('date', 'like', '%' . $keyword . '%')
+                    ->orWhere('weather', 'like', '%' . $keyword . '%')
+                    ->orWhere('staff', 'like', '%' . $keyword . '%')
                     ->paginate(10);
        
         // キーワードがなければフラッシュメッセージをnull
