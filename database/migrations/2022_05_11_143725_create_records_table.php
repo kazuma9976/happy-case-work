@@ -17,7 +17,7 @@ class CreateRecordsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('patient_id');
-            $table->text('content')->nullable();
+            $table->text('content');
             $table->string('image')->nullable();
             $table->timestamps();
             
