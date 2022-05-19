@@ -93,12 +93,22 @@ class RecordsController extends Controller
      */
     public function show(Request $request, $id, $record_id)
     {
+        // $index = session('index');
+        // $request->session()->forget('index');
+        
+        // if($index === null) {
+        //     // 加工した記録番号の取得
+        //     $index = $request->input('index');
+        // }
+        
+        // session(['index' => $index]);
+        
         // 注目する利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
         // 加工した記録番号の取得
         $index = $request->input('index');
-        
+
         // view の呼び出し
         return view('records.show', compact('patient', 'record', 'index'));
     }
