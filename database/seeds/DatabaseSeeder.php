@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       // 
+        // MessagesTableSeeder の呼び出し
+        $this->call([LogsTableSeeder::class]);
     }
 }

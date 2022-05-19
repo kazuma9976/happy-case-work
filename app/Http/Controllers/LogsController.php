@@ -15,7 +15,7 @@ class LogsController extends Controller
     public function index()
     {
         // Logモデルを使って全投稿を取得
-        $logs = Log::orderBy('id', 'desc')->paginate(10);;
+        $logs = Log::orderBy('id', 'desc')->paginate(10);
         
         // viewの呼び出し
         return view('logs', compact('logs'));
