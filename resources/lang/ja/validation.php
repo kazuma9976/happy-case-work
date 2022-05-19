@@ -158,6 +158,7 @@ return [
         'name'  => '名前',
         'email'  => 'メールアドレス',
         'password'  => 'パスワード',
+        'content'  => '内容',
         'keyword'  => 'キーワード',
         'date'  => '日付',
         'weather'  => '天気',

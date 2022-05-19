@@ -5,7 +5,7 @@
         <h1 id="title" class="col-sm-12 text-center text-success mt-5 mb-3">{{ $patient->name }} の相談記録一覧</h1>
     </div>
     <div class="row mt-3">
-        {!! link_to_route('records.create', '新規ケース記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
+        {!! link_to_route('records.create', '新規相談記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
         {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     </div>

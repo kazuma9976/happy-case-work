@@ -22,20 +22,22 @@
         
     </table>
     
+    @if($record->user->id === Auth::id())
     <div class="row mt-5">
         {!! link_to_route('records.edit', '編集', [$patient->id, $record->id, 'index' => $index], ['class' => 'offset-sm-4 col-sm-4 btn btn-success']) !!}
     </div>
     
-    <div class="row mt-4">
-        {!! link_to_route('records.index', $patient->name . 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
-    </div>
     
     {!! Form::model($record, ['route' => ['records.destroy', $patient->id, $record->id, 'index' => $index], 'method' => 'DELETE']) !!}
-    <div class="row mt-4 mb-5">
+    <div class="row mt-4">
         <!-- 削除確認アラートをつける。 -->
         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_record']) !!}
     </div>
     <input type="hidden" name="patient_id" value="{{ $patient->id }}">
     {!! Form::close() !!}
-        
+    @endif
+    
+    <div class="row mt-5">
+        {!! link_to_route('records.index', $patient->name . 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
+    </div>
 @endsection

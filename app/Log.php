@@ -12,9 +12,12 @@ class Log extends Model
         'date', 
         'weather', 
         'staff',
+        'phone_record',
+        'mail_record',
         'notice', 
         'meeting', 
         'business_trip',
+        'training',
         'image',
         'other',
     ];
