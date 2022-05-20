@@ -227,12 +227,10 @@ class LogsController extends Controller
         if($keyword === null) {
            $flash_message = null;
            
-        // キーワードがヒットしなければ、エラーメッセージをセット  
+        // キーワードがヒットしなければ  
         } else if($logs->count() === 0) {
-            $error = '検索キーワードに何もヒットしませんでした。';
-            // view の呼び出し
-            return view('logs', compact('logs', 'keyword', 'error'));
-            
+            $flash_message = '検索キーワードに何もヒットしませんでした。';
+           
         } else {
             // フラッシュメッセージのセット
             $flash_message = '検索キーワード: 『' . $keyword . '』に' . $logs->count() . '件ヒットしました';

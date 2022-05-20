@@ -153,6 +153,9 @@ return [
       | 読みやすいものと交換するために使用されます。
       |
     */
+    
+    'postal_code_validation' => ':attributeはハイフンなしの数字7桁で入力してください。',
+    'phone_number_validation' => ':attributeはハイフンなしの数字11桁で入力してください。',
 
     'attributes' => [
         'name'  => '名前',
@@ -163,12 +166,6 @@ return [
         'date'  => '日付',
         'weather'  => '天気',
         'staff'  => '職員',
-    ],
-    
-    'postal_code_validation' => ':attributeはハイフンなしの数字7桁で入力してください。',
-    'phone_number_validation' => ':attributeはハイフンなしの数字11桁で入力してください。',
-
-    'attributes' => [
         'phone_number_1' => '電話番号⓵(自宅)',
         'phone_number_2' => '電話番号⓶(携帯)',
         'emergency_contact_1' => '緊急連絡先⓵',

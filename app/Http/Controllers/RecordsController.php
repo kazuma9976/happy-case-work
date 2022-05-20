@@ -243,11 +243,9 @@ class RecordsController extends Controller
         if($keyword === null) {
             $flash_message = null;
         
-        // キーワードがヒットしなければ、エラーメッセージをセット
+        // キーワードがヒットしなければ
         } else if($records->count() === 0) {
-            $error = '検索キーワードに何もヒットしませんでした。';
-            // view の呼び出し
-            return view('patients.records', compact('patient', 'records', 'keyword', 'error'));
+            $flash_message = '検索キーワードに何もヒットしませんでした。';
             
         } else {
             // フラッシュメッセージのセット
