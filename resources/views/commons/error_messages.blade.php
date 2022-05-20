@@ -7,3 +7,8 @@
         </ul>
     </div>
 @endif
+@if(isset($error))
+    <div class="offset-sm-3 col-sm-6 mt-5">
+        <p class="alert alert-danger" role="alert">{{ $error }}</p>
+    </div>
+@endif

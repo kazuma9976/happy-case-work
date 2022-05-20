@@ -40,20 +40,17 @@ h2 {
 /* 利用者登録情報の画像資料 */
 #patients_img {
     width: 150px;
-    border-radius: 10px;
 }
 
 /* 相談記録関連の画像　*/
 #case_photo {
-    width: 75px;
-    height: 40px;
-    border-radius: 10px;
+    width: 80px;
+    height: 70px;
 }
 
 #case_detail_photo {
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
+    width: 200px;
+    height: 150px;
 }
 
 /* 相談記録文字列 */
@@ -65,5 +62,4 @@ h2 {
 #log_photo {
     width: 230px;
     height: 170px;
-    border-radius: 10px;
 }

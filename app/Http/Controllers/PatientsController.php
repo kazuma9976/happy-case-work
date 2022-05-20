@@ -333,13 +333,20 @@ class PatientsController extends Controller
         // キーワードがなければフラッシュメッセージをnull
         if($keyword === null) {
            $flash_message = null;
+        
+        // キーワードがヒットしなければ、エラーメッセージをセット
+        } else if($patients->count() === 0) {
+            $error = '検索キーワードに何もヒットしませんでした。';
+            // view の呼び出し
+            return view('/top', compact('patients', 'keyword', 'error'));
+            
         } else {
             // フラッシュメッセージのセット
             $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
         }
-       
-         // view の呼び出し
-         return view('/top', compact('patients', 'keyword', 'flash_message'));
+        
+        // view の呼び出し
+        return view('/top', compact('patients', 'keyword', 'flash_message'));
     }
 
 }

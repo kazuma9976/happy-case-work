@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', '記録番号: ' . $log->id . 'の業務日誌の詳細')
+@section('title', '記録番号: ' . $log->id . ' の業務日誌の詳細')
 @section('content')
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">記録番号: {{ $log->id }}の業務日誌の詳細</h1>
+        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">記録番号: {{ $log->id }} の業務日誌の詳細</h1>
     </div>
     <table class="table table-bordered table-striped mt-4">
         <tr>
@@ -43,7 +43,13 @@
         </tr>
         <tr>
             <th class="text-center">画像資料</th>
-            <td><img src="/uploads/{{ $log->image }}" alt="画像はありません" id="log_photo"></td>
+            <td class="text-center">
+                @if($log->image)
+                <img src="/uploads/{{ $log->image }}" alt="画像はありません" id="log_photo">
+                @else
+                <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="log_photo">
+                @endif
+            </td>
         </tr>
         <tr>
             <th class="text-center">その他</th>

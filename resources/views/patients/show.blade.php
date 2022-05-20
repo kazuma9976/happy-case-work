@@ -142,7 +142,13 @@
         </tr>
         <tr>
             <th class="text-center">画像資料</th>
-            <td class="text-center"><img src="{{ asset('uploads')}}/{{ $patient->image }}" alt="{{ $patient->image }}" id="patients_img"></td>
+            <td class="text-center">
+                @if($patient->image)
+                <img src="{{ asset('uploads')}}/{{ $patient->image }}" alt="{{ $patient->image }}" id="patients_img">
+                @else
+                <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="patients_img">
+                @endif
+            </td>
         </tr>
         <tr>
             <th class="text-center">支援にあたって配慮すべき点</th>
