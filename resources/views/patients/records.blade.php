@@ -35,7 +35,7 @@
         <!-- 各利用者の記録番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
         @foreach($records as $key => $record)
             <tr>
-                <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id, 'index' => $key + 1], ['class' => 'btn btn-success']) !!}</td>
+                <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
                 <td>{{ $record->content }}</td>
                 <td>
                     @if($record->image)

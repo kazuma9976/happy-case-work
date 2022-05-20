@@ -93,21 +93,20 @@ class RecordsController extends Controller
      */
     public function show(Request $request, $id, $record_id)
     {
-        // $index = session('index');
-        // $request->session()->forget('index');
-        
-        // if($index === null) {
-        //     // 加工した記録番号の取得
-        //     $index = $request->input('index');
-        // }
-        
-        // session(['index' => $index]);
-        
         // 注目する利用者とその相談記録の情報を取得
         $patient = Patient::find($id);
         $record = Record::find($record_id);
-        // 加工した記録番号の取得
-        $index = $request->input('index');
+        
+        // その利用者に紐づいた記録一覧を取得
+        $records = $patient->records()->get();
+        
+        // 注目している$recordが$recordsの何番目の配列要素か取得
+        foreach($records as $key => $r){
+            if($r->id === $record->id){
+                $index = $key + 1;
+                break;
+            }
+        }
 
         // view の呼び出し
         return view('records.show', compact('patient', 'record', 'index'));
