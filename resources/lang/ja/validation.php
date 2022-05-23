@@ -161,6 +161,8 @@ return [
         'name'  => '名前',
         'email'  => 'メールアドレス',
         'password'  => 'パスワード',
+        'nickname'  => 'ニックネーム',
+        'introduction'  => '自己紹介',
         'content'  => '内容',
         'open_flag'  => 'コメントの公開範囲',
         'keyword'  => 'キーワード',
