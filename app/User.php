@@ -5,6 +5,7 @@ use App\Patient; // 追加
 use App\Record; // 追加
 use App\Log; // 追加
 use App\Comment; // 追加
+use App\Profile; // 追記
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -96,5 +97,12 @@ class User extends Authenticatable
         $comment->open_flag = $open_flag;
         $comment->save();
         
+    }
+    
+    // Profileモデルと1対1のリレーションを張る
+    public function profile()
+    {
+        // Profileモデルのデータを引っ張てくる
+        return $this->hasOne(Profile::class);
     }
 }
