@@ -30,6 +30,7 @@
                 <th>記録番号</th>
                 <th>記録内容</th>
                 <th>画像資料</th>
+                <th>記録した職員</th>
                 <th>記録日時</th>
             </tr>
         <!-- 各利用者の記録番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
@@ -44,6 +45,7 @@
                     <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
                     @endif
                 </td>
+                <td>{{ $record->user->name }}</td>
                 <td class="text-primary">{{ $record->created_at }}</td>
             </tr>
         @endforeach

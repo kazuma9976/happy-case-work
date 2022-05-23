@@ -336,11 +336,11 @@ class PatientsController extends Controller
         
         // キーワードがヒットしなければ
         } else if($patients->count() === 0) {
-            $flash_message = '検索キーワードに何もヒットしませんでした。';
+            $flash_message = '検索キーワード: 『 ' . $keyword . ' 』に何もヒットしませんでした';
             
         } else {
             // フラッシュメッセージのセット
-            $flash_message = '検索キーワード: 『' . $keyword . '』に' . $patients->count() . '件ヒットしました';
+            $flash_message = '検索キーワード: 『 ' . $keyword . ' 』に' . $patients->count() . '件ヒットしました';
         }
         
         // view の呼び出し

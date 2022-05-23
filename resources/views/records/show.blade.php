@@ -6,10 +6,6 @@
     </div>
     <table class="table table-bordered table-striped mt-4">
         <tr>
-            <th class="text-center">記録した職員</th>
-            <td>{{ $record->user->name }}</td>
-        </tr>
-        <tr>
             <th class="text-center">記録内容</th>
             <td>{{ $record->content }}</td>
         </tr>
@@ -22,6 +18,10 @@
                 <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_detail_photo">
                 @endif
             </td>
+        </tr>
+        <tr>
+            <th class="text-center">記録した職員</th>
+            <td>{{ $record->user->name }}</td>
         </tr>
         <tr>
             <th class="text-center">記録日時</th>

@@ -244,11 +244,11 @@ class RecordsController extends Controller
         
         // キーワードがヒットしなければ
         } else if($records->count() === 0) {
-            $flash_message = '検索キーワードに何もヒットしませんでした。';
+            $flash_message = '検索キーワード: 『 ' . $keyword . ' 』に何もヒットしませんでした';
             
         } else {
             // フラッシュメッセージのセット
-            $flash_message = '検索キーワード: 『' . $keyword . '』に' . $records->count() . '件ヒットしました';
+            $flash_message = '検索キーワード: 『 ' . $keyword . ' 』に' . $records->count() . '件ヒットしました';
         }
         
         // view の呼び出し
