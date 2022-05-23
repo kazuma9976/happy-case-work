@@ -5,7 +5,7 @@ use App\Patient; // 追加
 use App\Record; // 追加
 use App\Log; // 追加
 use App\Comment; // 追加
-use App\Profile; // 追記
+use App\Profile; // 追加
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

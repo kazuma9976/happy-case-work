@@ -24,7 +24,6 @@ h2 {
 
 
 /* メイン画像 */
-
 #mainVisual {
     width: 370px;
     margin: 40px auto;
@@ -36,6 +35,13 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 0 10px #444444;
 }
+
+/* 職員のプロフィール画像 */
+#image_icon {
+    width: 200px;
+    border-radius: 10px;
+}
+
 
 /* 利用者登録情報の画像資料 */
 #patients_img {

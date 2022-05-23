@@ -19,6 +19,7 @@
         <script src="{{ asset('/js/script.js') }}"></script>
     </head>
     <body>
+        // ログイン認証している場合のみ
         @if(Auth::check())
         <nav id="menu" class="navbar navbar-expand-sm navbar-light bg-white">
             <!-- 利用者一覧 -->
@@ -31,6 +32,13 @@
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav" id="nav">
                     <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
+                    <!--プロフィールを新規登録していなければ-->
+                    @if(!Auth::user()->profile()->get()->first())
+                    <li>{!! link_to_route('profiles.create', 'プロフィール登録', [], ['class' => 'nav-link']) !!}</li>
+                    <!-- プロフィールをすでに登録している場合 -->
+                    @else
+                    <li>{!! link_to_route('profiles.edit', 'プロフィール編集', ['id' => Auth::user()->profile()->get()->first()->id ], ['class' => 'nav-link']) !!}</li>
+                    @endif
                     <li class="nav-item">{!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>

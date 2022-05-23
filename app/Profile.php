@@ -13,7 +13,7 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
-        'nickname', 'gender', 'introduction', 'image',
+        'nickname', 'gender', 'introduction', 'image'
     ];
     
     // Userモデルと1対1のリレーションを張る

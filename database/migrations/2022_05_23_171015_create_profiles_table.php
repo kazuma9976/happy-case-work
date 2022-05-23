@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('nickname');
             $table->string('gender');
             $table->text('introduction');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             // 外部キー制約
