@@ -14,7 +14,7 @@
             <td>{{ $log->weather }}</td>
         </tr>
         <tr>
-            <th class="text-center">職員</th>
+            <th class="text-center">出勤した職員</th>
             <td>{{ $log->staff }}</td>
         </tr>
         <tr>

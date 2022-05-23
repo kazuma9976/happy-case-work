@@ -4,6 +4,7 @@ namespace App;
 use App\Patient; // 追加
 use App\Record; // 追加
 use App\Log; // 追加
+use App\Comment; // 追加
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -79,4 +80,20 @@ class User extends Authenticatable
         return $this->hasMany(Log::class);
     }
     
+    /**
+     * この職員が所有するコメント(利用者の相談記録に対してのコメント)一覧（Commentモデルとの1対多の関係を定義）
+     */
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+    
+    // コメント投稿
+    public function add_comment($record_id, $content){
+        $comment = new Comment();
+        $comment->user_id = $this->id;
+        $comment->record_id = $record_id;
+        $comment->content = $content;
+        $comment->save();
+        
+    }
 }

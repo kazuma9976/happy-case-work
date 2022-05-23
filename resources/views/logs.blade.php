@@ -29,7 +29,7 @@
         <tr>
             <th>記録番号</th>
             <th>日付</th>
-            <th>職員</th>
+            <th>出勤した職員</th>
         </tr>
         @foreach($logs as $log)
         <tr>
