@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('record_id');
             $table->text('content');
+            $table->string('open_flag');
             $table->timestamps();
             
             // 外部キー制約

@@ -88,11 +88,12 @@ class User extends Authenticatable
     }
     
     // コメント投稿
-    public function add_comment($record_id, $content){
+    public function add_comment($record_id, $content, $open_flag){
         $comment = new Comment();
         $comment->user_id = $this->id;
         $comment->record_id = $record_id;
         $comment->content = $content;
+        $comment->open_flag = $open_flag;
         $comment->save();
         
     }

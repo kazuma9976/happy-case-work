@@ -98,7 +98,7 @@ class RecordsController extends Controller
         $patient = Patient::find($id);
         $record = Record::find($record_id);
         
-        // その利用者に紐づいた記録一覧を取得
+        // その利用者に紐づいた記録一覧を降順で取得
         $records = $patient->records()->get();
         
         // 注目している$recordが$recordsの何番目の配列要素か取得
@@ -111,8 +111,8 @@ class RecordsController extends Controller
         
         // 空のCommentモデル作成
         $comment = new Comment();
-        // 注目する相談記録に紐づいたコメント一覧を取得
-        $comments = $record->comments()->get();
+        // 注目する相談記録に紐づいたコメント一覧を降順で取得
+        $comments = $record->comments()->orderBy('id', 'desc')->get();
 
         // view の呼び出し
         return view('records.show', compact('patient', 'record', 'index', 'comments'));

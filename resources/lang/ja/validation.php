@@ -162,6 +162,7 @@ return [
         'email'  => 'メールアドレス',
         'password'  => 'パスワード',
         'content'  => '内容',
+        'open_flag'  => 'コメントの公開範囲',
         'keyword'  => 'キーワード',
         'date'  => '日付',
         'weather'  => '天気',

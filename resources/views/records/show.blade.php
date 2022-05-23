@@ -59,28 +59,38 @@
     <div class="row mt-3">
         <div class="col-sm-6 offset-sm-3">
 
-            {!! Form::open(['route' => ['comments.store', 'id' => $record->id, $patient->id]]) !!}
+            {!! Form::open(['route' => ['comment.store', 'patient_id' => $patient->id, 'record_id' => $record->id]]) !!}
                 <div class="form-group">
-                    {!! Form::label('content', 'コメント: ', ['class' => 'text-primary']) !!}
+                    {!! Form::label('content', 'コメント: ') !!}
                     {!! Form::text('content', old('content'), ['class' => 'form-control']) !!}
+                    {!! Form::label('open_flag', 'コメントの公開範囲 :', ['class' => 'mt-4']) !!}
+                    {{ Form::select('open_flag', ['自分のみ閲覧' => '自分のみ閲覧', '全体に公開' => '全体に公開'], old('open_flag'), ['class' => 'form-control', 'placeholder'=>'コメントの公開範囲を選択してください']) }}
                 </div>
-                {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block mt-5']) !!}
             {!! Form::close() !!}
         </div>
     </div>
     @if(count($comments) !== 0)
     <table class="table table-bordered table-striped mt-5">
         <tr class="text-center">
-            <th>コメントした職員</th>
+            <th>ID</th>
+            <th>職員</th>
             <th>コメント内容</th>
+            <th>コメントの公開範囲</th>
             <th>投稿日時</th>
         </tr>
+        <!-- 相談記録に対するコメントの番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
         @foreach($comments as $comment)
+        <!--そのコメントがログインしている職員のもので、または全体に公開設定されているコメントならば-->
+        @if($comment->user->id === Auth::id() || $comment->open_flag === '全体に公開')
         <tr>
+            <td class="text-center">{{ $comment->id }}</td>
             <td class="text-center">{{ $comment->user->name }}</td>
             <td>{{ $comment->content }}</td>
-            <td class="text-center">{{ $comment->created_at }}</td>
+            <td class="text-center">{{ $comment->open_flag  }}</td>
+            <td class="text-center text-primary">{{ $comment->created_at }}</td>
         </tr>
+        @endif
         @endforeach
     </table>
     @else
