@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Patients; // 追加
-use App\Records; // 追加
+use App\User; // 追加
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -15,73 +14,22 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        // Userモデルを使って、全ユーザーデータを取得
+        $users = User::all();
+        // viewの呼び出し
+        return view('users.index', compact('users'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Patients  $patients
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Patients $patients)
+    public function show(User $user)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Patients  $patients
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Patients $patients)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Patients  $patients
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Patients $patients)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Patients  $patients
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Patients $patients)
-    {
-        //
+        // view の呼び出し
+        return view('users.show', compact('user'));
     }
 
 }

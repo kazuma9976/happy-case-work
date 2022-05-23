@@ -37,6 +37,12 @@ Route::group(['middleware' => ['auth']], function () {
     // ログアウト
     Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
     
+    // ユーザー一覧、詳細表示
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    
+    // プロフィール関係
+    Route::resource('profiles', 'ProfilesController');
+    
     // 利用者一覧、詳細表示
     Route::resource('patients', 'PatientsController');
     

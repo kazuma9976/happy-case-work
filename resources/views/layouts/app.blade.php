@@ -30,6 +30,7 @@
             <!-- メニュー -->
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav" id="nav">
+                    <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
