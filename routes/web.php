@@ -57,8 +57,14 @@ Route::group(['middleware' => ['auth']], function () {
         
         // 相談記録のキーワード検索
         Route::get('search', 'RecordsController@search')->name('records.search');
-        
     });
+    
+    // ネスト
+    Route::group(['prefix' => 'records/{id}'], function () {
+        // 相談記録に対するコメント
+        Route::post('comment', 'CommentsController@store')->name('comments.store');
+    });
+    
 
 });
 

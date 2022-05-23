@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Record;
 use App\Patient; // 追加
+use App\Comment; // 追加
 use Illuminate\Http\Request;
 
 class RecordsController extends Controller
@@ -107,9 +108,14 @@ class RecordsController extends Controller
                 break;
             }
         }
+        
+        // 空のCommentモデル作成
+        $comment = new Comment();
+        // 注目する相談記録に紐づいたコメント一覧を取得
+        $comments = $record->comments()->get();
 
         // view の呼び出し
-        return view('records.show', compact('patient', 'record', 'index'));
+        return view('records.show', compact('patient', 'record', 'index', 'comments'));
     }
 
     /**

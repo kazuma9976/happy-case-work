@@ -3,6 +3,7 @@
 namespace App;
 use App\User; // 追加
 use App\Patient; // 追加 
+use App\Comment; // 追加
 
 use Illuminate\Database\Eloquent\Model;
 

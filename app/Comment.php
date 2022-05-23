@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['user_id', 'record_id', 'content', ];
+    protected $fillable = ['user_id', 'record_id', 'content'];
     
     /**
      * このコメントを所有する相談記録。(Recordモデルとの多対1の関係を定義)
