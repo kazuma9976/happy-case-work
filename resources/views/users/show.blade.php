@@ -52,6 +52,7 @@
             <th>生年月日</th>
             <th>性別</th>
             <th>病名</th>
+            <th>相談記録の件数</th>
         </tr>
         @foreach($patients as $patient)
             <tr>
@@ -60,6 +61,7 @@
                 <td>{{ $patient->birthday }}</td>
                 <td>{{ $patient->gender }}</td>
                 <td>{{ $patient->disease_name }}</td>
+                <td>{{ $patient->records()->count() }} 件</td>
             </tr>
         @endforeach
     </table>
@@ -116,13 +118,13 @@
         <tr>
             <th>記録番号</th>
             <th>日付</th>
-            <th>出勤した職員</th>
+            <th>業務日誌の作成者</th>
         </tr>
         @foreach($logs as $log)
             <tr>
                 <td>{!! link_to_route('logs.show', $log->id, [$log->id], ['class' => 'btn btn-success']) !!}</td>
                 <td>{{ $log->date }}</td>
-                <td>{{ $log->staff }}</td>
+                <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], []) !!}</td>
             </tr>
         @endforeach
     </table>

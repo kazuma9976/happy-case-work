@@ -28,13 +28,13 @@
         <tr>
             <th>記録番号</th>
             <th>日付</th>
-            <th>出勤した職員</th>
+            <th>業務日誌の作成者</th>
         </tr>
         @foreach($logs as $log)
         <tr>
             <td>{!! link_to_route('logs.show', $log->id, ['id' => $log->id ], ['class' => 'btn btn-success']) !!}</td>
             <td>{{ $log->date }}</td>
-            <td>{{ $log->staff }}</td>
+            <td class="text-info">{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], []) !!}</td>
         </tr>
         @endforeach
     </table>

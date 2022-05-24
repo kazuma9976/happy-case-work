@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th class="text-center">記録した職員</th>
-            <td>{{ $record->user->name }}</td>
+            <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
         </tr>
         <tr>
             <th class="text-center">記録日時</th>
@@ -85,7 +85,7 @@
         @if($comment->user->id === Auth::id() || $comment->open_flag === '全体に公開')
         <tr>
             <td class="text-center">{{ $comment->id }}</td>
-            <td class="text-center">{{ $comment->user->name }}</td>
+            <td class="text-center">{!! link_to_route('users.show', $comment->user->name, ['id' => $comment->user->id], ['class' => 'text-info']) !!}</td>
             <td>{{ $comment->content }}</td>
             <td class="text-center">{{ $comment->open_flag  }}</td>
             <td class="text-center text-primary">{{ $comment->created_at }}</td>

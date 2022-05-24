@@ -13,6 +13,10 @@
             <td class="text-primary">{{ $patient->created_at }}</td>
         </tr>
         <tr>
+            <th class="text-center">登録した職員</th>
+            <td>{!! link_to_route('users.show', $patient->user->name, ['id' => $patient->user->id], ['class' => 'text-info']) !!}</td>
+        </tr>
+        <tr>
             <th class="text-center">ID</th>
             <td>{{ $patient->id }}</td>
         </tr>

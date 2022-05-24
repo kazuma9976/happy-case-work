@@ -6,6 +6,10 @@
     </div>
     <table class="table table-bordered table-striped mt-4">
         <tr>
+            <th class="text-center">業務日誌の作成者</th>
+            <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], []) !!}</td>
+        </tr>
+        <tr>
             <th class="text-center">日付</th>
             <td>{{ $log->date }}</td>
         </tr>
