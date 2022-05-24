@@ -100,4 +100,51 @@ class User extends Authenticatable
         // Profileモデルのデータを引っ張てくる
         return $this->hasOne(Profile::class);
     }
+    
+    /*
+     * この職員がブックマークした相談記録一覧(中間テーブルを介して取得)
+    */
+    public function record_bookmarks()
+    {
+        return $this->belongsToMany(Record::class, 'record_bookmarks', 'user_id', 'record_id')->withTimestamps();
+    }
+    
+    // 注目する相談記録がすでにブックマークされているかどうかの判定
+    public function is_record_bookmark($record_id)
+    {
+        return $this->record_bookmarks()->where('record_id', $record_id)->exists();
+    }
+    
+    // 相談記録のブックマーク追加
+    public function record_bookmark($record_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_record_bookmark($record_id);
+        
+        if($exist) {
+            // すでにブックマークしていれば何もしない
+            return false;
+        } else {
+            // ブックマークしていないのであればブックマークする
+            $this->record_bookmarks()->attach($record_id);
+            return true;
+        }
+    }
+    
+    // 相談記録のブックマーク解除
+    public function record_unbookmark($record_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_record_bookmark($record_id);
+        
+        if($exist) {
+            // すでにブックマークしていればブックマークを解除
+            $this->record_bookmarks()->detach($record_id);
+            return true;
+        } else {
+            // ブックマークしていない場合
+            return false;
+        }
+    }
+    
 }

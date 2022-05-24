@@ -113,9 +113,12 @@ class RecordsController extends Controller
         $comment = new Comment();
         // 注目する相談記録に紐づいたコメント一覧を降順で取得
         $comments = $record->comments()->orderBy('id', 'desc')->get();
+        
+        // 注目する相談記録にブックマークした人の一覧を取得
+        $record_bookmark_users = $record->record_bookmark_users()->get();
 
         // view の呼び出し
-        return view('records.show', compact('patient', 'record', 'index', 'comments'));
+        return view('records.show', compact('patient', 'record', 'index', 'comments', 'record_bookmark_users'));
     }
 
     /**

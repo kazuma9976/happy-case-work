@@ -10,26 +10,26 @@
             <th>プロフィール画像</th>
             <td>
                 @if($profile->image)
-                <img src="{{ asset('uploads')}}/{{ $profile->image }}" alt="no image" id="image_icon">
+                <img src="{{ asset('uploads')}}/{{ $profile->image }}" alt="no_image" id="image_icon">
                 @else
                 <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon">
                 @endif
             </td>
         </tr>
-        <tr class="text-center">
-            <th>ニックネーム</th>
-            <td class="text-center">{{ $profile->nickname }}</td>
+        <tr>
+            <th class="text-center">ニックネーム</th>
+            <td>{{ $profile->nickname }}</td>
         </tr>
-        <tr class="text-center">
-            <th>性別</th>
-            <td class="text-center">{{ $profile->gender }}</td>
+        <tr>
+            <th class="text-center">性別</th>
+            <td>{{ $profile->gender }}</td>
         </tr>
-        <tr class="text-center">
-            <th>所属部署</th>
-            <td class="text-center">{{ $profile->department }}</td>
+        <tr>
+            <th class="text-center">所属部署</th>
+            <td>{{ $profile->department }}</td>
         </tr>
-        <tr class="text-center">
-            <th>自己紹介</th>
+        <tr>
+            <th class="text-center">自己紹介</th>
             <td>{{ $profile->introduction }}</td>
         </tr>
     </table>
@@ -119,12 +119,14 @@
             <th>記録番号</th>
             <th>日付</th>
             <th>業務日誌の作成者</th>
+            <th>登録日時</th>
         </tr>
         @foreach($logs as $log)
             <tr>
                 <td>{!! link_to_route('logs.show', $log->id, [$log->id], ['class' => 'btn btn-success']) !!}</td>
                 <td>{{ $log->date }}</td>
-                <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], []) !!}</td>
+                <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], ['class' => 'text-info']) !!}</td>
+                <td class="text-primary">{{ $log->created_at }}</td>
             </tr>
         @endforeach
     </table>

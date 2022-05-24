@@ -65,6 +65,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'records/{record_id}'], function () {
             // 相談記録に対するコメント
             Route::resource('comment', 'CommentsController');
+            
+            // 相談記録のブックマーク系
+            Route::post('record_bookmark', 'Record_BookmarksController@store')->name('records.bookmark');
+            Route::delete('record_unbookmark', 'Record_BookmarksController@destroy')->name('records.unbookmark');
+            
         });
         
         // 相談記録のキーワード検索

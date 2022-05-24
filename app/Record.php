@@ -45,4 +45,12 @@ class Record extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+    
+    /**
+     * この相談記録にブックマークした職員一覧(中間テーブルを介して)
+     */
+    public function record_bookmark_users()
+    {
+        return $this->belongsToMany(User::class, 'record_bookmarks', 'record_id', 'user_id')->withTimestamps();
+    }
 }

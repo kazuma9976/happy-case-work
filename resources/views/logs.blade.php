@@ -29,12 +29,14 @@
             <th>記録番号</th>
             <th>日付</th>
             <th>業務日誌の作成者</th>
+            <th>登録日時</th>
         </tr>
         @foreach($logs as $log)
         <tr>
             <td>{!! link_to_route('logs.show', $log->id, ['id' => $log->id ], ['class' => 'btn btn-success']) !!}</td>
             <td>{{ $log->date }}</td>
-            <td class="text-info">{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], []) !!}</td>
+            <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], ['class' => 'text-info']) !!}</td>
+            <td class="text-primary">{{ $log->created_at }}</td>
         </tr>
         @endforeach
     </table>
