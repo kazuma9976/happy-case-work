@@ -29,6 +29,7 @@
                 <th>生年月日</th>
                 <th>性別</th>
                 <th>病名</th>
+                <th>相談記録の件数</th>
             </tr>
             @foreach($patients as $patient)
             <tr>
@@ -37,6 +38,7 @@
                 <td>{{ $patient->birthday }}</td>
                 <td>{{ $patient->gender }}</td>
                 <td>{{ $patient->disease_name }}</td>
+                <td>{{ $patient->records()->count() }} 件</td>
             </tr>
             @endforeach
     </table>

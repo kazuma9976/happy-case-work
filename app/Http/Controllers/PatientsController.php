@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Record; // 追加
 use Illuminate\Http\Request;
 use App\Rules\Postal_code; // 郵便番号のルール追加
 use App\Rules\Phone_number; // 電話番号のルール追加
@@ -18,7 +19,6 @@ class PatientsController extends Controller
     {
         // Patientモデルを使って全利用者を昇順で取得
         $patients = Patient::orderBy('id', 'asc')->paginate(10);
-        
         // キーワードは空文字の設定
         $keyword = '';
         
