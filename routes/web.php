@@ -56,6 +56,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('logs.search', 'LogsController@search')->name('logs.search');
     
     // ネスト
+    Route::group(['prefix' => 'users/{id}'], function () {
+        // ブックマークした相談記録一覧
+        Route::get('record_bookmarks', 'UsersController@record_bookmarks')->name('users.record_bookmarks');
+    });
+    
+    // ネスト
     Route::group(['prefix' => 'patients/{id}'], function () {
         
         // 利用者に対する相談記録

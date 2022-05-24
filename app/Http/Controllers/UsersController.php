@@ -44,5 +44,12 @@ class UsersController extends Controller
         // view の呼び出し
         return view('users.show', compact('user', 'patients', 'profile', 'records','logs'));
     }
+    
+    // 注目している職員が、ブックマークした相談記録一覧
+    public function record_bookmarks($id){
+        $user = User::find($id);
+        $records = $user->record_bookmarks()->paginate(10);
+        return view('users.record_bookmarks', compact('user', 'records'));
+    }
 
 }

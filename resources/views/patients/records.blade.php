@@ -25,28 +25,28 @@
     @if($records->total() !== 0)
     <p class="text-danger mt-4">※相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center">
-            <tr>
-                <th>記録番号</th>
-                <th>記録内容</th>
-                <th>画像資料</th>
-                <th>記録した職員</th>
-                <th>記録日時</th>
-            </tr>
+        <tr>
+            <th>記録番号</th>
+            <th>記録内容</th>
+            <th>画像資料</th>
+            <th>記録した職員</th>
+            <th>記録日時</th>
+        </tr>
         <!-- 各利用者の記録番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
         @foreach($records as $key => $record)
-            <tr>
-                <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
-                <td>{{ $record->content }}</td>
-                <td>
-                    @if($record->image)
-                    <img src="/uploads/{{ $record->image }}" alt="{{ $record->image }}" id="case_photo">
-                    @else
-                    <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
-                    @endif
-                </td>
-                <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
-                <td class="text-primary">{{ $record->created_at }}</td>
-            </tr>
+        <tr>
+            <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
+            <td>{{ $record->content }}</td>
+            <td>
+                @if($record->image)
+                <img src="/uploads/{{ $record->image }}" alt="{{ $record->image }}" id="case_photo">
+                @else
+                <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
+                @endif
+            </td>
+            <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
+            <td class="text-primary">{{ $record->created_at }}</td>
+        </tr>
         @endforeach
     </table>
     {{ $records->links('pagination::bootstrap-4') }}

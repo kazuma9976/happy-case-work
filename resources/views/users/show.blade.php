@@ -32,6 +32,10 @@
             <th class="text-center">自己紹介</th>
             <td>{{ $profile->introduction }}</td>
         </tr>
+        <tr>
+            <th class="text-center">ブックマークした相談記録一覧</th>
+            <td>{!! link_to_route('users.record_bookmarks', 'ブックマーク一覧', ['id' => $user->id ],['class' => 'nav-link']) !!}</td>
+        </tr>
     </table>
     @else
     <div class="row mt-5">
