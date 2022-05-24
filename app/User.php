@@ -69,9 +69,9 @@ class User extends Authenticatable
     }
     
     // ログインした職員が記録を書いた利用者一覧を表示
-    public function record_patients() {
-        return $this->belongsToMany(Patient::class, 'records', 'user_id', 'patient_id')->withTimestamps();
-    }
+    // public function record_patients() {
+    //     return $this->belongsToMany(Patient::class, 'records', 'user_id', 'patient_id')->withTimestamps();
+    // }
     
     /**
      * このユーザーが記録した業務日誌一覧　(Logモデルとの1対多の関係を定義)

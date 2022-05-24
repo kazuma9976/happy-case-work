@@ -39,12 +39,43 @@
     </div>
     @endif
     
+    <!-- 注目する職員が登録した利用者一覧 -->
+    <div class="row mt-3">
+        <h2 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した利用者一覧</h2>
+    </div>
+    @if($patients->total() !== 0)
+    <p class="text-danger mt-4">※利用者 : {{ $patients->total() }}人</p>
+    <table class="table table-bordered table-striped text-center">
+        <tr>
+            <th>ID</th>
+            <th>利用者名</th>
+            <th>生年月日</th>
+            <th>性別</th>
+            <th>病名</th>
+        </tr>
+        @foreach($patients as $patient)
+            <tr>
+                <td>{!! link_to_route('records.index', $patient->id, ['id' => $patient->id ], ['class' => 'btn btn-success']) !!}</td>
+                <td>{{ $patient->name }}</td>
+                <td>{{ $patient->birthday }}</td>
+                <td>{{ $patient->gender }}</td>
+                <td>{{ $patient->disease_name }}</td>
+            </tr>
+        @endforeach
+    </table>
+    {{ $patients->links('pagination::bootstrap-4') }}
+    @else
+    <div class="row mt-3">
+        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が登録した利用者はまだいません</p>
+    </div>
+    @endif
+    
     <!-- 注目する職員が記録した相談記録一覧 -->
     <div class="row mt-3">
-        <h2 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した相談記録一覧</h2>
+        <h3 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した相談記録一覧</h3>
     </div>
     @if($records->total() !== 0)
-    <p class="text-danger mt-4">※相談記録 : {{ $records->total() }}件</p>
+    <p class="text-danger">※相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
             <th>記録番号</th>
@@ -70,17 +101,17 @@
     </table>
     {{ $records->links('pagination::bootstrap-4') }}
     @else
-    <div class="row mt-5">
-        <p class="col-sm-12 text-center text-danger">※{{ $user->name }} さんが記録した相談記録はまだありません</p>
+    <div class="row mt-3">
+        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が記録した相談記録はまだありません</p>
     </div>
     @endif
     
     <!-- 注目する職員が記録した業務日誌一覧 -->
     <div class="row mt-3">
-        <h3 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した業務日誌一覧</h3>
+        <h4 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した業務日誌一覧</h4>
     </div>
     @if($logs->total() !== 0)
-    <p class="text-danger mt-4">※業務日誌 : {{ $logs->total() }}件</p>
+    <p class="text-danger">※業務日誌 : {{ $logs->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
             <th>記録番号</th>
@@ -97,8 +128,8 @@
     </table>
     {{ $logs->links('pagination::bootstrap-4') }}
     @else
-    <div class="row mt-5">
-        <p class="col-sm-12 text-center text-danger">※{{ $user->name }} さんが記録した業務日誌はまだありません</p>
+    <div class="row mt-3">
+        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が記録した業務日誌はまだありません</p>
     </div>
     @endif
     

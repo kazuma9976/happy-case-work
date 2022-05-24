@@ -72,6 +72,7 @@ class ProfilesController extends Controller
             // 画像ファイルが選択されていなければ空の文字列をセット
             $image = '';
         }
+        
         // 入力情報をもとに新しいプロフィールを作成
         \Auth::user()->profile()->create([
             'nickname' => $nickname, 
@@ -81,8 +82,8 @@ class ProfilesController extends Controller
             'image' => $image
         ]);
         
-        // トップページへリダイレクト
-        return redirect('/top')->with('flash_message', '職員プロフィールを作成しました');
+        // 職員詳細ページへリダイレクト
+        return redirect('/users/' . \Auth::user()->id)->with('flash_message', '職員プロフィールを作成しました');
         
     }
 
@@ -109,7 +110,7 @@ class ProfilesController extends Controller
         if($profile->user_id === \Auth::id()){
             // view の呼び出し
             return view('profiles.edit', compact('profile'));
-        }else{
+        } else {
             return redirect('/top');
         }
     }
@@ -170,9 +171,9 @@ class ProfilesController extends Controller
             // データベース更新
             $profile->save();
     
-            // トップページへリダイレクト
-            return redirect('/top')->with('flash_message', '職員プロフィールを変更しました。');
-        }else{
+            // 職員詳細ページへリダイレクト
+            return redirect('/users/' . $profile->user->id)->with('flash_message', '職員プロフィールを更新しました。');
+        } else {
             return redirect('/top');
         }
     }
