@@ -40,7 +40,7 @@
             
             <!-- 1行 -->
             <div class="form-group mt-4">
-                {!! Form::label('image', 'アバターアイコン : ') !!}<br>
+                {!! Form::label('image', 'プロフィール画像 : ') !!}<br>
                 {!! Form::file('image') !!}
             </div>
             {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block mt-5']) !!}
