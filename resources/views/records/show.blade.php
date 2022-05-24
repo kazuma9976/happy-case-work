@@ -61,12 +61,12 @@
 
             {!! Form::open(['route' => ['comment.store', 'patient_id' => $patient->id, 'record_id' => $record->id]]) !!}
                 <div class="form-group">
-                    {!! Form::label('content', 'コメント: ') !!}
+                    {!! Form::label('content', 'コメント内容: ') !!}
                     {!! Form::text('content', old('content'), ['class' => 'form-control']) !!}
                     {!! Form::label('open_flag', 'コメントの公開範囲 :', ['class' => 'mt-4']) !!}
                     {{ Form::select('open_flag', ['自分のみ閲覧' => '自分のみ閲覧', '全体に公開' => '全体に公開'], old('open_flag'), ['class' => 'form-control', 'placeholder'=>'コメントの公開範囲を選択してください']) }}
                 </div>
-                {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block mt-5']) !!}
+                {!! Form::submit('コメントの投稿', ['class' => 'btn btn-primary btn-block mt-5']) !!}
             {!! Form::close() !!}
         </div>
     </div>

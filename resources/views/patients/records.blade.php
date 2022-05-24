@@ -7,7 +7,6 @@
     <div class="row mt-3">
         {!! link_to_route('records.create', '新規相談記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
-        {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     </div>
     
     <!-- 相談記録のキーワード検索 -->
@@ -45,7 +44,7 @@
                     <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
                     @endif
                 </td>
-                <td>{{ $record->user->name }}</td>
+                <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
                 <td class="text-primary">{{ $record->created_at }}</td>
             </tr>
         @endforeach

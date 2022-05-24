@@ -162,6 +162,7 @@ return [
         'email'  => 'メールアドレス',
         'password'  => 'パスワード',
         'nickname'  => 'ニックネーム',
+        'department'  => '所属部署',
         'introduction'  => '自己紹介',
         'content'  => '内容',
         'open_flag'  => 'コメントの公開範囲',

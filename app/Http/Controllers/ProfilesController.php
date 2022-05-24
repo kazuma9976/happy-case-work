@@ -44,6 +44,7 @@ class ProfilesController extends Controller
         $this->validate($request, [
             'nickname' => 'required',
             'gender' => 'required',
+            'department' => 'required',
             'introduction' => 'required',
             'image' => [
                 'file',
@@ -54,6 +55,7 @@ class ProfilesController extends Controller
         // 入力情報の取得
         $nickname = $request->input('nickname');
         $gender = $request->input('gender');
+        $department = $request->input('department');
         $introduction = $request->input('introduction');
         $file =  $request->image;
         
@@ -66,7 +68,7 @@ class ProfilesController extends Controller
             $target_path = public_path('uploads/');
             // アップロード処理
             $file->move($target_path, $image);
-        }else{
+        } else {
             // 画像ファイルが選択されていなければ空の文字列をセット
             $image = '';
         }
@@ -74,6 +76,7 @@ class ProfilesController extends Controller
         \Auth::user()->profile()->create([
             'nickname' => $nickname, 
             'gender' => $gender, 
+            'department' => $department, 
             'introduction' => $introduction, 
             'image' => $image
         ]);
@@ -127,6 +130,7 @@ class ProfilesController extends Controller
             $this->validate($request, [
                 'nickname' => 'required',
                 'gender' => 'required',
+                'department' => 'required',
                 'introduction' => 'required',
                 'image' => [
                     'file',
@@ -137,6 +141,7 @@ class ProfilesController extends Controller
             // 入力情報の取得
             $nickname = $request->input('nickname');
             $gender = $request->input('gender');
+            $department = $request->input('department');
             $introduction = $request->input('introduction');
             $file =  $request->image;
             
@@ -149,7 +154,7 @@ class ProfilesController extends Controller
                 $target_path = public_path('uploads/');
                 // アップロード処理
                 $file->move($target_path, $image);
-            }else{
+            } else {
                 // 画像を選択していなければ、画像ファイルは元の名前のまま
                 $image = $profile->image;
             }
@@ -158,6 +163,7 @@ class ProfilesController extends Controller
             // 入力情報をもとにプロフィールを変更
             $profile->nickname = $nickname;
             $profile->gender = $gender;
+            $profile->department = $department;
             $profile->introduction = $introduction;
             $profile->image = $image;
             

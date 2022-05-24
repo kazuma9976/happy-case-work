@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', '職員: ' . $user->name . 'のプロフィール')
 @section('content')
-    <div class="text-center text-success mt-5">
+    <div class="text-center text-success mt-5 pt-4">
         <h1>職員: {{ $user->name }} のプロフィール</h1>
     </div>
     @if($profile)
@@ -25,10 +25,13 @@
             <td class="text-center">{{ $profile->gender }}</td>
         </tr>
         <tr class="text-center">
+            <th>所属部署</th>
+            <td class="text-center">{{ $profile->department }}</td>
+        </tr>
+        <tr class="text-center">
             <th>自己紹介</th>
             <td>{{ $profile->introduction }}</td>
         </tr>
-        
     </table>
     @else
     <div class="row mt-5">

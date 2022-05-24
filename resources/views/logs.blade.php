@@ -6,7 +6,6 @@
     </div>
     
     {!! link_to_route('logs.create', '新規業務日誌作成', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
-    {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-danger']) !!}
     
     <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">

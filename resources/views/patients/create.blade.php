@@ -218,7 +218,6 @@
             </div>
             {!! Form::submit('登録', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
-        {!! link_to_route('patients.index', '利用者一覧へ戻る', [],['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
     </div>
 @endsection
             

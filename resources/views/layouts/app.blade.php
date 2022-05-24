@@ -19,11 +19,11 @@
         <script src="{{ asset('/js/script.js') }}"></script>
     </head>
     <body>
-        // ログイン認証している場合のみ
+        <!-- ログイン認証している場合のみ -->
         @if(Auth::check())
         <nav id="menu" class="navbar navbar-expand-sm navbar-light bg-white">
             <!-- 利用者一覧 -->
-            <a href="/top" class="navbar-brand text-success">職員: {{ Auth::user()->name }}</a>
+            {!! link_to_route('users.show', '職員: ' . Auth::user()->name, ['id' => Auth::user()->id], ['class' => 'navbar-brand text-success']) !!}
             <!-- スマホなどのレスポンスで表示されるハンバーガーボタン -->
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,6 @@
             <!-- メニュー -->
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav" id="nav">
-                    <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
                     <!--プロフィールを新規登録していなければ-->
                     @if(!Auth::user()->profile()->get()->first())
                     <li>{!! link_to_route('profiles.create', 'プロフィール登録', [], ['class' => 'nav-link']) !!}</li>
@@ -39,6 +38,8 @@
                     @else
                     <li>{!! link_to_route('profiles.edit', 'プロフィール編集', ['id' => Auth::user()->profile()->get()->first()->id ], ['class' => 'nav-link']) !!}</li>
                     @endif
+                    <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('patients.index', '利用者一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
