@@ -67,6 +67,39 @@
             <th class="text-center">更新日時</th>
             <td class="text-danger">{{ $log->updated_at }}</td>
         </tr>
+        <tr>
+            <th class="text-center">ブックマーク追加/解除</th>
+            <td>
+                <!-- まだブックマークしていない場合 -->
+                @if(!Auth::user()->is_log_bookmark($log->id))
+                {!! Form::open(['route' => ['logs.bookmark', $log->user_id, $log->id]]) !!}
+                    {!! Form::submit('ブックマーク追加', ['class' => 'btn btn-success btn-block']) !!}
+                {!! Form::close() !!}
+                
+                <!-- ブックマークをしている場合 -->
+                @else
+                {!! Form::open(['route' => ['logs.unbookmark', $log->user_id, $log->id], 'method' => 'DELETE']) !!}
+                    {!! Form::submit('ブックマーク解除', ['class' => 'btn btn-danger btn-block']) !!}
+                {!! Form::close() !!}
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <th class="text-center">ブックマークの数</th>
+            <td>{{ count($log_bookmark_users) }} 個</td>
+        </tr>
+        <tr>
+            <th class="text-center">ブックマークした職員</th>
+            <td>
+                <ul>
+                    @foreach($log_bookmark_users as $user)
+                    <li>{!! link_to_route('users.show', $user->name , [$user->id, $log->id], ['class' => 'text-info']) !!}</li>
+                    @endforeach
+                </ul>
+            </td>
+        </tr>
+        
+        
     </table>
     
     <!-- 業務日誌 すべての登録職員がその都度、編集、削除ができるようにする -->

@@ -147,4 +147,50 @@ class User extends Authenticatable
         }
     }
     
+    /*
+     * この職員がブックマークした業務日誌記録一覧(中間テーブルを介して取得)
+    */
+    public function log_bookmarks()
+    {
+        return $this->belongsToMany(Log::class, 'log_bookmarks', 'user_id', 'log_id')->withTimestamps();
+    }
+    
+    // 注目する業務日誌がすでにブックマークされているかどうかの判定
+    public function is_log_bookmark($log_id)
+    {
+        return $this->log_bookmarks()->where('log_id', $log_id)->exists();
+    }
+    
+    // 業務日誌のブックマーク追加
+    public function log_bookmark($log_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_log_bookmark($log_id);
+        
+        if($exist) {
+            // すでにブックマークしていれば何もしない
+            return false;
+        } else {
+            // ブックマークしていないのであればブックマークする
+            $this->log_bookmarks()->attach($log_id);
+            return true;
+        }
+    }
+    
+    // 業務日誌のブックマーク解除
+    public function log_unbookmark($log_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_log_bookmark($log_id);
+        
+        if($exist) {
+            // すでにブックマークしていればブックマークを解除
+            $this->log_bookmarks()->detach($log_id);
+            return true;
+        } else {
+            // ブックマークしていない場合
+            return false;
+        }
+    }
+    
 }

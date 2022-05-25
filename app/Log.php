@@ -29,4 +29,12 @@ class Log extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * この業務日誌にブックマークした職員一覧(中間テーブルを介して)
+     */
+    public function log_bookmark_users()
+    {
+        return $this->belongsToMany(User::class, 'log_bookmarks', 'log_id', 'user_id')->withTimestamps();
+    }
 }

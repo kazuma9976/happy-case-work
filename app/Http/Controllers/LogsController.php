@@ -112,8 +112,11 @@ class LogsController extends Controller
      */
     public function show(Log $log)
     {
+        // 注目する業務日誌をブックマークした職員の一覧を取得
+        $log_bookmark_users = $log->log_bookmark_users()->get();
+        
         // viewの呼び出し
-        return view('logs.show', compact('log'));
+        return view('logs.show', compact('log', 'log_bookmark_users'));
     }
 
     /**

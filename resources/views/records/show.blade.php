@@ -24,12 +24,23 @@
             <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
         </tr>
         <tr>
+            <th class="text-center">記録日時</th>
+            <td class="text-primary">{{ $record->created_at }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">更新日時</th>
+            <td class="text-danger">{{ $record->updated_at }}</td>
+        </tr>
+        <tr>
             <th class="text-center">ブックマークの追加/解除</th>
             <td>
+                <!-- まだブックマークしていない場合 -->
                 @if(!Auth::user()->is_record_bookmark($record->id))
                 {!! Form::open(['route' => ['records.bookmark', $patient->id, $record->id]]) !!}
-                    {!! Form::submit('ブックマーク追加', ['class' => 'btn btn-primary btn-block']) !!}
+                    {!! Form::submit('ブックマーク追加', ['class' => 'btn btn-success btn-block']) !!}
                 {!! Form::close() !!}
+                
+                <!-- ブックマークをしている場合 -->
                 @else
                 {!! Form::open(['route' => ['records.unbookmark', $patient->id, $record->id], 'method' => 'DELETE']) !!}
                     {!! Form::submit('ブックマーク解除', ['class' => 'btn btn-danger btn-block']) !!}
@@ -50,14 +61,6 @@
                     @endforeach
                 </ul>
             </td>
-        </tr>
-        <tr>
-            <th class="text-center">記録日時</th>
-            <td class="text-primary">{{ $record->created_at }}</td>
-        </tr>
-        <tr>
-            <th class="text-center">更新日時</th>
-            <td class="text-danger">{{ $record->updated_at }}</td>
         </tr>
     </table>
     

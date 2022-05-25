@@ -57,8 +57,19 @@ Route::group(['middleware' => ['auth']], function () {
     
     // ネスト
     Route::group(['prefix' => 'users/{id}'], function () {
-        // ブックマークした相談記録一覧
+        
+        // 相談記録のブックマーク系
         Route::get('record_bookmarks', 'UsersController@record_bookmarks')->name('users.record_bookmarks');
+        
+        // ネスト
+        Route::group(['prefix' => 'logs/{log_id}'], function () {
+            
+            // 業務日誌のブックマーク系
+            Route::post('log_bookmark', 'Log_BookmarksController@store')->name('logs.bookmark');
+            Route::delete('log_unbookmark', 'Log_BookmarksController@destroy')->name('logs.unbookmark');
+            
+        });
+        
     });
     
     // ネスト
