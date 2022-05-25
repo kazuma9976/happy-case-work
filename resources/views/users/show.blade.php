@@ -34,11 +34,11 @@
         </tr>
         <tr>
             <th class="text-center">ブックマークした相談記録一覧</th>
-            <td>{!! link_to_route('users.record_bookmarks', 'ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
+            <td>{!! link_to_route('users.record_bookmarks', '相談記録ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
         </tr>
         <tr>
             <th class="text-center">ブックマークした業務日誌一覧</th>
-            <td>{!! link_to_route('users.log_bookmarks', 'ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
+            <td>{!! link_to_route('users.log_bookmarks', '業務日誌ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
         </tr>
     </table>
     @else
@@ -82,7 +82,7 @@
     
     <!-- 注目する職員が記録した相談記録一覧 -->
     <div class="row mt-3">
-        <h3 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した相談記録一覧</h3>
+        <h3 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した相談記録一覧</h3>
     </div>
     @if($records->total() !== 0)
     <p class="text-danger">※相談記録 : {{ $records->total() }}件</p>
@@ -112,13 +112,13 @@
     {{ $records->links('pagination::bootstrap-4') }}
     @else
     <div class="row mt-3">
-        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が記録した相談記録はまだありません</p>
+        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が登録した相談記録はまだありません</p>
     </div>
     @endif
     
     <!-- 注目する職員が記録した業務日誌一覧 -->
     <div class="row mt-3">
-        <h4 class="col-sm-12 text-center text-primary mt-5 mb-3">記録した業務日誌一覧</h4>
+        <h4 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した業務日誌一覧</h4>
     </div>
     @if($logs->total() !== 0)
     <p class="text-danger">※業務日誌 : {{ $logs->total() }}件</p>
@@ -141,7 +141,7 @@
     {{ $logs->links('pagination::bootstrap-4') }}
     @else
     <div class="row mt-3">
-        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が記録した業務日誌はまだありません</p>
+        <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が登録した業務日誌はまだありません</p>
     </div>
     @endif
     

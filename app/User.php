@@ -193,4 +193,50 @@ class User extends Authenticatable
         }
     }
     
+    /*
+     * この職員がブックマークした利用者一覧(中間テーブルを介して取得)
+    */
+    public function patient_bookmarks()
+    {
+        return $this->belongsToMany(Patient::class, 'patient_bookmarks', 'user_id', 'patient_id')->withTimestamps();
+    }
+    
+    // 注目する利用者がすでにブックマークされているかどうかの判定
+    public function is_patient_bookmark($patient_id)
+    {
+        return $this->patient_bookmarks()->where('patient_id', $patient_id)->exists();
+    }
+    
+    // 利用者のブックマーク追加
+    public function patient_bookmark($patient_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_patient_bookmark($patient_id);
+        
+        if($exist) {
+            // すでにブックマークしていれば何もしない
+            return false;
+        } else {
+            // ブックマークしていないのであればブックマークする
+            $this->patient_bookmarks()->attach($patient_id);
+            return true;
+        }
+    }
+    
+    // 業務日誌のブックマーク解除
+    public function patient_unbookmark($patient_id)
+    {
+        // すでにブックマークしているかの確認
+        $exist = $this->is_patient_bookmark($patient_id);
+        
+        if($exist) {
+            // すでにブックマークしていればブックマークを解除
+            $this->patient_bookmarks()->detach($patient_id);
+            return true;
+        } else {
+            // ブックマークしていない場合
+            return false;
+        }
+    }
+    
 }

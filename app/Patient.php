@@ -46,7 +46,7 @@ class Patient extends Model
     ];
     
     /**
-     * 利用者を登録したユーザー。（Userモデルとの多対1の関係を定義）
+     * 利用者を登録した職員。（Userモデルとの多対1の関係を定義）
      */
     public function user()
     {
@@ -54,7 +54,7 @@ class Patient extends Model
     }
     
     /**
-     * この利用者に相談記録を記入したユーザ一覧（中間テーブルを介して取得）
+     * この利用者に相談記録を記入した職員一覧（中間テーブルを介して取得）
      * どのユーザーがどの利用者に記録したかを明確にするためTimestamps();も一緒にさせる。
      */
     public function record_users(){
@@ -66,5 +66,13 @@ class Patient extends Model
      */
     public function records(){
         return $this->hasMany(Record::class);
+    }
+    
+    /**
+     * この利用者をブックマークした職員一覧（中間テーブルを介して）
+     */
+    public function patient_bookmark_users()
+    {
+        return $this->belongsToMany(User::class, 'patient_bookmarks', 'patient_id', 'user_id')->withTimestamps();
     }
 }

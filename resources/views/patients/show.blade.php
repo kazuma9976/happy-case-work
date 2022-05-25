@@ -8,6 +8,7 @@
         <p class="col-sm-12 text-left text-danger mt-4">※最終更新日: {{ $patient->updated_at }}</p>
     </div>
     <table class="table table-bordered table-striped">
+        
         <tr>
             <th class="text-center col-3">登録日時</th>
             <td class="text-primary">{{ $patient->created_at }}</td>
@@ -162,6 +163,39 @@
             <th class="text-center">その他</th>
             <td>{{ $patient->other }}</td>
         </tr>
+        <tr>
+            <th class="text-center">ブックマーク追加/解除</th>
+            <td>
+                <!-- まだブックマークしていない場合 -->
+                @if(!Auth::user()->is_patient_bookmark($patient->id))
+                {!! Form::open(['route' => ['patients.bookmark', 'id' => $patient->id]]) !!}
+                    {!! Form::submit('ブックマーク追加', ['class' => 'btn btn-success btn-block']) !!}
+                {!! Form::close() !!}
+                
+                <!-- ブックマークをしている場合 -->
+                @else
+                {!! Form::open(['route' => ['patients.unbookmark', 'id' => $patient->id], 'method' => 'DELETE']) !!}
+                    {!! Form::submit('ブックマーク解除', ['class' => 'btn btn-danger btn-block']) !!}
+                {!! Form::close() !!}
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <th class="text-center">ブックマークの数</th>
+            <td>{{ count($patient->patient_bookmark_users) }} 個</td>
+        </tr>
+        <tr>
+            <th class="text-center">ブックマークした人の一覧</th>
+            <td>
+                <ul>
+                    @foreach($patient_bookmark_users as $user)
+                    <li>{!! link_to_route('users.show', $user->name , ['id' => $user->id ],['class' => 'text-info']) !!}</li>
+                    @endforeach
+                </ul>
+            </td>
+        </tr>
+        
+        
     </table>
     
     <div class="row mt-5">

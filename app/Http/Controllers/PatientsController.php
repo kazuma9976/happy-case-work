@@ -166,8 +166,11 @@ class PatientsController extends Controller
      */
     public function show(Patient $patient)
     {
+        // 注目する利用者をブックマークした職員一覧を取得
+        $patient_bookmark_users = $patient->patient_bookmark_users()->get();
+        
         // view の呼び出し
-        return view('patients.show', compact('patient'));
+        return view('patients.show', compact('patient', 'patient_bookmark_users'));
     }
 
     /**
