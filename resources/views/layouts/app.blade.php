@@ -49,7 +49,7 @@
             </div>
         </nav>
         @endif
-        <div class="container mt-3 p-1">
+        <div class="container mt-5 pt-4">
             @include('commons.flash_message')
             @include('commons.error_messages')
             @yield('content')

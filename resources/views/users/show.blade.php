@@ -53,7 +53,7 @@
     
     <!-- 注目する職員が登録した利用者一覧 -->
     <div class="row mt-3">
-        <h2 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した利用者一覧</h2>
+        <div class="col-sm-12 text-center text-primary mt-5 mb-3" id="sub_title">登録した利用者一覧</div>
     </div>
     @if($patients->total() !== 0)
     <p class="text-danger mt-4">※利用者 : {{ $patients->total() }}人</p>
@@ -86,7 +86,7 @@
     
     <!-- 注目する職員が記録した相談記録一覧 -->
     <div class="row mt-3">
-        <h3 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した相談記録一覧</h3>
+        <div class="col-sm-12 text-center text-primary mt-5 mb-3" id="sub_title">登録した相談記録一覧</div>
     </div>
     @if($records->total() !== 0)
     <p class="text-danger">※相談記録 : {{ $records->total() }}件</p>
@@ -122,7 +122,7 @@
     
     <!-- 注目する職員が記録した業務日誌一覧 -->
     <div class="row mt-3">
-        <h4 class="col-sm-12 text-center text-primary mt-5 mb-3">登録した業務日誌一覧</h4>
+        <div class="col-sm-12 text-center text-primary mt-5 mb-3" id="sub_title">登録した業務日誌一覧</div>
     </div>
     @if($logs->total() !== 0)
     <p class="text-danger">※業務日誌 : {{ $logs->total() }}件</p>

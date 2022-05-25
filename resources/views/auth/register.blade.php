@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', '新規職員登録')
 @section('content')
-    <div class="text-center mt-3">
-        <h1 class="text-info pb-1 mt-3">新規職員登録</h1>
+    <div class="text-center">
+        <h1 class="text-info pb-1">新規職員登録</h1>
     </div>
     <div class="row mt-4">
         <div class="col-sm-6 offset-sm-3">
@@ -28,9 +28,9 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
         </div>
-                {!! Form::submit('登録', ['class' => 'mt-5 col-sm-4 offset-sm-4 btn btn-primary btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'mt-4 col-sm-4 offset-sm-4 btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
             
-        {!! link_to_route('index', 'トップページへ戻る', [], ['class' => 'mt-4 col-sm-4 offset-sm-4 btn btn-danger']) !!}
+        {!! link_to_route('index', 'トップページへ戻る', [], ['class' => 'mt-3 col-sm-4 offset-sm-4 btn btn-danger']) !!}
     </div>
 @endsection
