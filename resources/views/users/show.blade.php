@@ -33,11 +33,15 @@
             <td>{{ $profile->introduction }}</td>
         </tr>
         <tr>
-            <th class="text-center">ブックマークした相談記録一覧</th>
+            <th class="text-center">ブックマークした利用者</th>
+            <td>{!! link_to_route('users.patient_bookmarks', '利用者ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
+        </tr>
+        <tr>
+            <th class="text-center">ブックマークした相談記録</th>
             <td>{!! link_to_route('users.record_bookmarks', '相談記録ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
         </tr>
         <tr>
-            <th class="text-center">ブックマークした業務日誌一覧</th>
+            <th class="text-center">ブックマークした業務日誌</th>
             <td>{!! link_to_route('users.log_bookmarks', '業務日誌ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
         </tr>
     </table>

@@ -45,6 +45,15 @@ class UsersController extends Controller
         return view('users.show', compact('user', 'patients', 'profile', 'records','logs'));
     }
     
+    // 注目している職員がブックマークした利用者一覧
+    public function patient_bookmarks($id){
+        $user = User::find($id);
+        $patients = $user->patient_bookmarks()->paginate(10);
+        
+        // view の呼び出し
+        return view('users.patient_bookmarks', compact('user', 'patients'));
+    }
+    
     // 注目している職員がブックマークした相談記録一覧
     public function record_bookmarks($id){
         $user = User::find($id);
@@ -62,5 +71,6 @@ class UsersController extends Controller
         // view の呼び出し
         return view('users.log_bookmarks', compact('user', 'logs'));
     }
+    
 
 }

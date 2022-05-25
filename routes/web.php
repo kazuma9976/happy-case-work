@@ -58,6 +58,9 @@ Route::group(['middleware' => ['auth']], function () {
     // ネスト
     Route::group(['prefix' => 'users/{id}'], function () {
         
+        // ブックマークした利用者一覧
+        Route::get('patient_bookmarks', 'UsersController@patient_bookmarks')->name('users.patient_bookmarks');
+        
         // ブックマークした相談記録一覧
         Route::get('record_bookmarks', 'UsersController@record_bookmarks')->name('users.record_bookmarks');
         

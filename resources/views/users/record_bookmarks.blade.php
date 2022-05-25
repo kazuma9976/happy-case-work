@@ -3,8 +3,12 @@
 @section('content')
     <div class="text-center text-success mt-5 pt-4">
         <h1>職員: {{ $user->name }}がブックマークした相談記録一覧</h1>
+        
         @if($records->total() !== 0)
         <div class="row mt-5">
+            <p class="col-sm-12 text-left text-danger mt-2">※相談記録: {{ $records->total() }}件</p>
+        </div>
+        <div class="row">
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>記録番号</th>

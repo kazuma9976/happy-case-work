@@ -1,26 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Top')
+@section('title', 'ブックマークした利用者一覧')
 @section('content')
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
-    </div>
-    
-    <!-- 新規利用者登録 -->
-    <div class="row">
-        {!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'col-sm-4 offset-sm-4 btn btn-primary mt-4']) !!}
-    </div>
-    
-    <!--利用者のキーワード検索-->
-    <div class="row mt-5">
-        <div class="col-sm-6 offset-sm-3">
-            {!! Form::open(['route' => ['patients.search'], 'method' => 'get']) !!}
-                <div class="form-group">
-                    {!! Form::label('keyword', '利用者検索: ', ['class' => 'text-primary'] ) !!}
-                    {!! Form::search('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '利用者ID(半角数字)、利用者名、病名のいずれかで検索可能']) !!}
-                </div>
-                {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block mt-4']) !!}
-            {!! Form::close() !!}
-        </div>
+        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">ブックマークした利用者一覧</h1>
     </div>
     
     @if($patients->total() !== 0)
@@ -49,6 +31,8 @@
     </table>
     {{ $patients->links('pagination::bootstrap-4') }}
     @else
-        <h2 class="mt-3 text-center text-danger">※登録利用者はいません</h2>
+    <div class="row mt-3">
+        <p class="col-sm-12 text-center text-danger">※ブックマークした利用者はいません</p>
+    </div>
     @endif
 @endsection           
