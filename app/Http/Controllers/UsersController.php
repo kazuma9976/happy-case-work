@@ -49,7 +49,18 @@ class UsersController extends Controller
     public function record_bookmarks($id){
         $user = User::find($id);
         $records = $user->record_bookmarks()->paginate(10);
+        
+        // view の呼び出し
         return view('users.record_bookmarks', compact('user', 'records'));
+    }
+    
+    // 注目している職員がブックマークした業務日誌一覧
+    public function log_bookmarks($id){
+        $user = User::find($id);
+        $logs = $user->log_bookmarks()->paginate(10);
+        
+        // view の呼び出し
+        return view('users.log_bookmarks', compact('user', 'logs'));
     }
 
 }

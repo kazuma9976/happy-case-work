@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',  '相談記録のブックマーク一覧')
+@section('title',  'ブックマークした相談記録一覧')
 @section('content')
     <div class="text-center text-success mt-5 pt-4">
         <h1>職員: {{ $user->name }}がブックマークした相談記録一覧</h1>

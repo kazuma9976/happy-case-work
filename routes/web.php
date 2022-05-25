@@ -58,8 +58,11 @@ Route::group(['middleware' => ['auth']], function () {
     // ネスト
     Route::group(['prefix' => 'users/{id}'], function () {
         
-        // 相談記録のブックマーク系
+        // ブックマークした相談記録一覧
         Route::get('record_bookmarks', 'UsersController@record_bookmarks')->name('users.record_bookmarks');
+        
+        // ブックマークした業務日誌一覧
+        Route::get('log_bookmarks', 'UsersController@log_bookmarks')->name('users.log_bookmarks');
         
         // ネスト
         Route::group(['prefix' => 'logs/{log_id}'], function () {
@@ -80,6 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
         
         // ネスト
         Route::group(['prefix' => 'records/{record_id}'], function () {
+            
             // 相談記録に対するコメント
             Route::resource('comment', 'CommentsController');
             
