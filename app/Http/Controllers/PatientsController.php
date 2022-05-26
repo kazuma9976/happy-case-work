@@ -300,7 +300,7 @@ class PatientsController extends Controller
         $patient->save();
         
         // view の呼び出し
-        return redirect('/top')->with('flash_message', '利用者ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を更新しました。');
+        return redirect('/patients/' . $patient->id . '/records')->with('flash_message', '利用者ID: ' . $patient->id . 'の『' . $patient->name . '』の登録情報を更新しました。');
         
     }
 
