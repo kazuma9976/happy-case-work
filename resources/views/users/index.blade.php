@@ -19,10 +19,14 @@
             <td>{!! link_to_route('users.show', $user->id , ['id' => $user->id ], ['class' => "btn btn-success"]) !!}</td>
             <td>{{ $user->name }}</td>
             <td>
-                @if($user->profile->image)
-                <img src="{{ Storage::disk('s3')->url('uploads/' . $user->profile->image) }}" alt="{{ $user->profile->image }}" id="image_icon_list">
+                @if($user->profile)
+                    @if($user->profile->image)
+                    <img src="{{ Storage::disk('s3')->url('uploads/' . $user->profile->image) }}" alt="{{ $user->profile->image }}" id="image_icon_list">
+                    @else
+                    <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon_list">
+                    @endif
                 @else
-                <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon_list">
+                    <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon_list">
                 @endif
             </td>
             <td>{{ $user->email }}</td>
