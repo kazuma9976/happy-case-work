@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LogsController extends Controller
 {
@@ -70,19 +71,10 @@ class LogsController extends Controller
         $file =  $request->image;
         $other = $request->input('other');
         
-        // 画像のアップロード
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
-        if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        }else{
-            // 画像が選択されていなければ空文字をセット
-            $image = '';
-        }
+        // S3用
+        $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+        // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+        $image = basename($path);
         
         
         // 入力情報をもとに新しいインスタンス作成
@@ -165,17 +157,16 @@ class LogsController extends Controller
         $file =  $request->image;
         $other = $request->input('other');
         
-        // 画像のアップロード
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+        // 画像アップロード
         if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        }else{
-            // 画像が選択されていなければ、元の画像名のまま
+            // S3用
+            $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+     
+            // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+            $image = basename($path);
+
+        } else {
+            // 画像が選択されていなければ、もとの画像名のまま
             $image = $log->image;
         }
         

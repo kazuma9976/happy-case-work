@@ -7,6 +7,7 @@ use App\Record; // 追加
 use Illuminate\Http\Request;
 use App\Rules\Postal_code; // 郵便番号のルール追加
 use App\Rules\Phone_number; // 電話番号のルール追加
+use Illuminate\Support\Facades\Storage;
 
 class PatientsController extends Controller
 {
@@ -101,19 +102,11 @@ class PatientsController extends Controller
         $consideration = $request->input('consideration');
         $other = $request->input('other');
         
-        // 画像のアップロード
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
-        if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        }else{
-            // 画像が選択されていなければ空文字をセット
-            $image = '';
-        }
+        // S3用
+        $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+ 
+        // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+        $image = basename($path);
         
         // 入力情報をもとに新しいpatientインスタンス作成
         \Auth::user()->patients()->create([
@@ -249,17 +242,15 @@ class PatientsController extends Controller
         $consideration = $request->input('consideration');
         $other = $request->input('other');
         
-        // 画像のアップロード
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+        // 画像ファイルのアップロード
         if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        }else{
-            // 画像が選択されていなければ、元の画像名のまま
+            // S3用
+            $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+     
+            // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+            $image = basename($path);
+        } else {
+            // 画像を選択していなければ、画像ファイルは元の名前のまま
             $image = $patient->image;
         }
         

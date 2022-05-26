@@ -20,7 +20,7 @@
             <td>{{ $user->name }}</td>
             <td>
                 @if($user->profile)
-                <img src="{{ asset('uploads')}}/{{ $user->profile->image }}" alt="プロフィール画像" id="image_icon_list">
+                <img src="{{ Storage::disk('s3')->url('uploads/' . $user->profile->image) }}" alt="{{ $user->profile->image }}" id="image_icon_list">
                 @else
                 <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon_list">
                 @endif

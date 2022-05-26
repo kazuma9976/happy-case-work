@@ -6,6 +6,7 @@ use App\Record;
 use App\Patient; // 追加
 use App\Comment; // 追加
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RecordsController extends Controller
 {
@@ -65,19 +66,11 @@ class RecordsController extends Controller
         $content = $request->input('content');
         $file =  $request->image;
         
-        // 画像のアップロード
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
-        if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        }else{
-            // 画像が選択されていなければ空文字をセット
-            $image = '';
-        }
+        // S3用
+        $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+ 
+        // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+        $image = basename($path);
         
         // 入力情報をもとに新しいpatientインスタンス作成
         \Auth::user()->add_record($patient_id, $content, $image);
@@ -176,17 +169,15 @@ class RecordsController extends Controller
             $content = $request->input('content');
             $file =  $request->image;
             
-            // 画像のアップロード
-            // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+            // 画像ファイルのアップロード
             if($file){
-                // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-                $image = time() . $file->getClientOriginalName();
-                // アップロードするフォルダ名取得
-                $target_path = public_path('uploads/');
-                // アップロード処理
-                $file->move($target_path, $image);
+                // S3用
+                $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+         
+                // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+                $image = basename($path);
             }else{
-                // 画像が選択されていなければ、元の画像名のまま
+                // 画像を選択していなければ、画像ファイルは元の名前のまま
                 $image = $record->image;
             }
             

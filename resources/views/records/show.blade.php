@@ -13,7 +13,7 @@
             <th>画像資料</th>
             <td>
                 @if($record->image)
-                <img src="/uploads/{{ $record->image }}" alt="{{ $record->image }}" id="case_detail_photo">
+                <img src="{{ Storage::disk('s3')->url('uploads/' . $record->image) }}" alt="{{ $record->image }}" id="case_detail_photo">
                 @else
                 <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_detail_photo">
                 @endif

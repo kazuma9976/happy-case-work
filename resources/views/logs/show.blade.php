@@ -49,7 +49,7 @@
             <th class="text-center">画像資料</th>
             <td class="text-center">
                 @if($log->image)
-                <img src="/uploads/{{ $log->image }}" alt="画像はありません" id="log_photo">
+                <img src="{{ Storage::disk('s3')->url('uploads/' . $log->image) }}" alt="{{ $log->image }}" id="log_photo">
                 @else
                 <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="log_photo">
                 @endif

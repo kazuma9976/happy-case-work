@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Profile;
 use App\User; // 追加
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilesController extends Controller
 {
@@ -59,19 +60,11 @@ class ProfilesController extends Controller
         $introduction = $request->input('introduction');
         $file =  $request->image;
         
-        // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
-        // 画像ファイルのアップロード
-        if($file){
-            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-            $image = time() . $file->getClientOriginalName();
-            // アップロードするフォルダ名取得
-            $target_path = public_path('uploads/');
-            // アップロード処理
-            $file->move($target_path, $image);
-        } else {
-            // 画像ファイルが選択されていなければ空の文字列をセット
-            $image = '';
-        }
+        // S3用
+        $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+ 
+        // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+        $image = basename($path);
         
         // 入力情報をもとに新しいプロフィールを作成
         \Auth::user()->profile()->create([
@@ -147,15 +140,13 @@ class ProfilesController extends Controller
             $file =  $request->image;
             
             // 画像ファイルのアップロード
-            // https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
             if($file){
-                // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名作成
-                $image = time() . $file->getClientOriginalName();
-                // アップロードするフォルダ名取得
-                $target_path = public_path('uploads/');
-                // アップロード処理
-                $file->move($target_path, $image);
-            } else {
+                // S3用
+                $path = Storage::disk('s3')->putFile('/uploads', $file, 'public');
+         
+                // パスから、最後の「ファイル名.拡張子」の部分だけ取得
+                $image = basename($path);
+            }else{
                 // 画像を選択していなければ、画像ファイルは元の名前のまま
                 $image = $profile->image;
             }

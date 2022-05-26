@@ -10,7 +10,7 @@
             <th>プロフィール画像</th>
             <td>
                 @if($profile->image)
-                <img src="{{ asset('uploads')}}/{{ $profile->image }}" alt="no_image" id="image_icon">
+                <img src="{{ Storage::disk('s3')->url('uploads/' . $profile->image) }}" alt="{{ $profile->image }}" id="image_icon">
                 @else
                 <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像資料はありません" id="image_icon">
                 @endif
@@ -92,7 +92,7 @@
     <p class="text-danger">※相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
-            <th>ID</th>
+            <th>記録番号</th>
             <th>記録内容</th>
             <th>画像資料</th>
             <th>記録日時</th>
@@ -104,7 +104,7 @@
                 <td>{{ $record->content }}</td>
                 <td>
                     @if($record->image)
-                    <img src="/uploads/{{ $record->image }}" alt="{{ $record->image }}" id="case_photo">
+                    <img src="{{ Storage::disk('s3')->url('uploads/' . $record->image) }}" alt="{{ $record->image }}" id="case_photo">
                     @else
                     <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
                     @endif
@@ -128,7 +128,7 @@
     <p class="text-danger">※業務日誌 : {{ $logs->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
-            <th>ID</th>
+            <th>記録番号</th>
             <th>日付</th>
             <th>業務日誌の作成者</th>
             <th>登録日時</th>
