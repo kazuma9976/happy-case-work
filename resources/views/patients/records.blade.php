@@ -4,7 +4,7 @@
     <div class="row mt-3">
         <h1 id="title" class="col-sm-12 text-center text-success mt-5 mb-3">{{ $patient->name }} の相談記録一覧</h1>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-2">
         {!! link_to_route('records.create', '新規相談記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
     </div>
@@ -23,7 +23,7 @@
     </div>
 
     @if($records->total() !== 0)
-    <p class="text-danger mt-4">※相談記録 : {{ $records->total() }}件</p>
+    <p class="text-danger mt-3">※相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center">
         <tr>
             <th>記録番号</th>

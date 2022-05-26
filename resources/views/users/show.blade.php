@@ -92,7 +92,7 @@
     <p class="text-danger">※相談記録 : {{ $records->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
-            <th>記録番号</th>
+            <th>ID</th>
             <th>記録内容</th>
             <th>画像資料</th>
             <th>記録日時</th>
@@ -128,7 +128,7 @@
     <p class="text-danger">※業務日誌 : {{ $logs->total() }}件</p>
     <table class="table table-bordered table-striped text-center mt-3">
         <tr>
-            <th>記録番号</th>
+            <th>ID</th>
             <th>日付</th>
             <th>業務日誌の作成者</th>
             <th>登録日時</th>

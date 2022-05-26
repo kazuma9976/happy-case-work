@@ -79,7 +79,7 @@
     {!! Form::close() !!}
     @endif
     
-    <div class="row mt-5">
+    <div class="row mt-4">
         {!! link_to_route('records.index', $patient->name . 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-4 col-sm-4 btn btn-info']) !!}
     </div>
     
@@ -87,7 +87,7 @@
     <div class="text-center text-primary mt-5">
         <h2>コメント一覧</h2>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
 
             {!! Form::open(['route' => ['comment.store', 'patient_id' => $patient->id, 'record_id' => $record->id]]) !!}
