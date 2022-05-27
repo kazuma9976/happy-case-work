@@ -14,8 +14,11 @@
             
             <!-- 1行 -->
             <div class="form-group">
-                {!! Form::label('image', '画像資料 :') !!}
-                {!! Form::file('image', ['class' => 'form-control']) !!}
+                {!! Form::label('image', '画像資料 : ') !!}<br>
+                {!! Form::file('image', ['id' => 'preview-uploader', 'class' => 'form-control']) !!}
+                
+                <!-- 画像プレビュー -->
+                <div id="preview" class="mt-3"></div>
             </div>
             <input type="hidden" name="patient_id" value="{{ $patient->id }}">
             

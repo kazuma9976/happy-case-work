@@ -2,7 +2,7 @@
 @section('title', 'ブックマークした業務日誌一覧')
 @section('content')
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">ブックマークした業務日誌一覧</h1>
+        <h1 class="col-sm-12 text-center text-success mt-4 mb-3">ブックマークした業務日誌一覧</h1>
     </div>
     
     @if($logs->total() !== 0)

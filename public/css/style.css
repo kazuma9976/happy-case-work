@@ -37,8 +37,8 @@ h2 {
 }
 
 /* 画像登録のプレビュー表示 */
-.resize-image{
-    width: 180px;
+#preview img{
+    width: 250px;
     height: 180px;
 }
 

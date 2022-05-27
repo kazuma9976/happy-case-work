@@ -41,7 +41,10 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('image', 'プロフィール画像 : ') !!}<br>
-                {!! Form::file('image') !!}
+                {!! Form::file('image', ['id' => 'preview-uploader']) !!}
+                
+                <!-- 画像プレビュー -->
+                <div id="preview" class="mt-3"></div>
             </div>
             {!! Form::submit('更新', ['class' => 'btn btn-primary btn-block mt-5']) !!}
         {!! Form::close() !!}

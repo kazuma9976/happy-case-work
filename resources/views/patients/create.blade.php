@@ -200,9 +200,13 @@
                 {!! Form::textarea('welfare_service', old('welfare_service'), ['class' => 'form-control', 'placeholder' => '障害年金、障害者手帳など', 'rows' => '3']) !!}
             </div>
             
+            <!-- 1行 -->
             <div class="form-group">
-                {!! Form::label('image', '画像資料 :') !!}
-                {!! Form::file('image', ['class' => 'form-control']) !!}
+                {!! Form::label('image', '画像資料 : ') !!}<br>
+                {!! Form::file('image', ['id' => 'preview-uploader', 'class' => 'form-control']) !!}
+                
+                <!-- 画像プレビュー -->
+                <div id="preview" class="mt-3"></div>
             </div>
             
             <!-- 1行 -->

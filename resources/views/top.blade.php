@@ -2,7 +2,7 @@
 @section('title', 'Top')
 @section('content')
     <div class="row mt-5">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
+        <h1 class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
     </div>
     
     <!-- 新規利用者登録 -->

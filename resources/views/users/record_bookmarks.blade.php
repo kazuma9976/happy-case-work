@@ -2,7 +2,7 @@
 @section('title',  'ブックマークした相談記録一覧')
 @section('content')
     <div class="text-center text-success mt-5 pt-4">
-        <h1>職員: {{ $user->name }}がブックマークした相談記録一覧</h1>
+        <h1>ブックマークした相談記録一覧</h1>
         
         @if($records->total() !== 0)
         <div class="row mt-5">

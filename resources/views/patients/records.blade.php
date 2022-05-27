@@ -2,7 +2,7 @@
 @section('title', '利用者ID: ' . $patient->name . 'の相談記録一覧')
 @section('content')
     <div class="row mt-3">
-        <h1 id="title" class="col-sm-12 text-center text-success mt-5 mb-3">{{ $patient->name }} の相談記録一覧</h1>
+        <h1 class="col-sm-12 text-center text-success mt-5 mb-3">{{ $patient->name }} の相談記録一覧</h1>
     </div>
     <div class="row mt-2">
         {!! link_to_route('records.create', '新規相談記録記入', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-primary']) !!}

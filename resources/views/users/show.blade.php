@@ -32,24 +32,22 @@
             <th class="text-center">自己紹介</th>
             <td>{{ $profile->introduction }}</td>
         </tr>
-        <tr>
-            <th class="text-center">ブックマークした利用者</th>
-            <td>{!! link_to_route('users.patient_bookmarks', '利用者ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
-        </tr>
-        <tr>
-            <th class="text-center">ブックマークした相談記録</th>
-            <td>{!! link_to_route('users.record_bookmarks', '相談記録ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
-        </tr>
-        <tr>
-            <th class="text-center">ブックマークした業務日誌</th>
-            <td>{!! link_to_route('users.log_bookmarks', '業務日誌ブックマーク一覧', ['id' => $user->id ], ['class' => 'nav-link']) !!}</td>
-        </tr>
     </table>
     @else
     <div class="row mt-5">
         <p class="col-sm-12 text-center text-danger">※プロフィールは未設定です</p>
     </div>
     @endif
+    
+    <div class="row mt-2">
+        {!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者一覧', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+        {!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録一覧', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+        {!! link_to_route('users.log_bookmarks', 'ブックマーク一覧した業務日誌一覧', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+        
+    </div>
+    
+    
+    
     
     <!-- 注目する職員が登録した利用者一覧 -->
     <div class="row mt-3">
@@ -83,6 +81,7 @@
         <p class="col-sm-12 text-center text-danger">※職員: {{ $user->name }} が登録した利用者はまだいません</p>
     </div>
     @endif
+    
     
     <!-- 注目する職員が記録した相談記録一覧 -->
     <div class="row mt-3">

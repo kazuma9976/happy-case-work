@@ -27,46 +27,50 @@ $(function(){
   
   // 利用者の登録情報削除時の確認アラート関数
   $('#delete_patient').on('click', () => {
-    if(window.confirm('この利用者のすべてのデータが消えます。本当に削除してよろしいですか？')) {
-      
-    } else {
-      return false;
-    }
+      if(window.confirm('この利用者のすべてのデータが消えます。本当に削除してよろしいですか？')) {
+        
+      } else {
+        return false;
+      }
     
   });
   
   // 利用者の登録情報削除時の確認アラート関数
   $('#delete_record').on('click', () => {
-    if(window.confirm('この相談記録のデータが消えます。本当に削除してよろしいですか？')) {
-      
-    } else {
-      return false;
-    }
+      if(window.confirm('この相談記録のデータが消えます。本当に削除してよろしいですか？')) {
+        
+      } else {
+        return false;
+      }
     
   });
   
   // 業務日誌の削除時の確認アラート関数
   $('#delete_log').on('click', () => {
-    if(window.confirm('この業務日誌のデータが消えます。本当に削除してよろしいですか？')) {
-      
-    } else {
-      return false;
-    }
+      if(window.confirm('この業務日誌のデータが消えます。本当に削除してよろしいですか？')) {
+        
+      } else {
+        return false;
+      }
     
   });
   
-  // 各種登録画像のプレビュー表示
-  $(function(){
-      $('#input-file').change(function(){
-          $('img').remove();
-          var file = $(this).prop('files')[0];
-          var fileReader = new FileReader();
-          fileReader.onloadend = function() {
-              $('#preview').html('<img src="' + fileReader.result + '"/>');
-              $('img').addClass('resize-image');
-          }
-          fileReader.readAsDataURL(file);
-      });
-  });
+  // 各種画像のプレビュー表示
+  $(document).on('change', '#preview-uploader', function(){
+        //操作された要素を取得
+        let image = this;
+        //ファイルを読み取るオブジェクトを生成
+        let fileReader = new FileReader();
+        //ファイルを読み取る
+        fileReader.readAsDataURL(image.files[0]);
+        
+        // ファイルを読み取り後
+        fileReader.onload = (function () {                        
+            //img要素を生成
+            let imgTag = `<img src='${fileReader.result}'>`;     
+            //画像を表示
+            $(image).next("#preview").html(imgTag);               
+        });
+    });
   
 });
