@@ -36,6 +36,13 @@ h2 {
     box-shadow: 0 0 10px #444444;
 }
 
+/* 画像登録のプレビュー表示 */
+.resize-image{
+    width: 180px;
+    height: 180px;
+}
+
+
 /* 職員一覧のプロフィール画像 */
 #image_icon_list {
     width: 60px;
