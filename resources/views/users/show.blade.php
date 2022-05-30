@@ -39,13 +39,11 @@
     </div>
     @endif
     
-    <div class="row mt-2">
-        {!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
-        {!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
-        {!! link_to_route('users.log_bookmarks', 'ブックマークした業務日誌', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
-    </div>
-    
-    
+    @if($user->id === Auth::id())    
+    {!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+    {!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+    {!! link_to_route('users.log_bookmarks', 'ブックマークした業務日誌', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+    @endif
     
     <!-- 注目する職員が登録した利用者一覧 -->
     <div class="row mt-3">

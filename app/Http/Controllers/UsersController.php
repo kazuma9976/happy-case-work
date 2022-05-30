@@ -45,6 +45,25 @@ class UsersController extends Controller
         return view('users.show', compact('user', 'patients', 'profile', 'records','logs'));
     }
     
+    public function create(User $user)
+    {
+        
+    }
+    
+    public function store(User $user)
+    {
+        
+    }
+    public function edit(User $user)
+    {
+        
+    }
+    
+    public function update(User $user)
+    {
+        
+    }
+    
     // 注目している職員がブックマークした利用者一覧
     public function patient_bookmarks($id){
         $user = User::find($id);

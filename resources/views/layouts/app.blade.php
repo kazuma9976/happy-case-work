@@ -41,19 +41,12 @@
                     <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('patients.index', '利用者一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
-                    
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
         </nav>
         @endif
-        <div class="container mt-5 mb-5 pt-4">
+        <div class="container mt-5 mb-5 pt-2">
             @include('commons.flash_message')
             @include('commons.error_messages')
             @yield('content')

@@ -25,7 +25,7 @@
             {!! Form::submit('登録', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
         
-        {!! link_to_route('records.index', $patient->name . 'さんの相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
+        {!! link_to_route('records.index', $patient->name . 'の相談記録一覧へ戻る', ['id' => $patient->id], ['class' => 'offset-sm-2 col-sm-8 mt-4 btn btn-danger']) !!}
     </div>
 @endsection
             
