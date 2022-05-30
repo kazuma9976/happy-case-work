@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title',  'ブックマークした相談記録一覧')
+@section('title',  'ブックマークした相談記録')
 @section('content')
     <div class="text-center text-success mt-5 pt-4">
-        <h1>ブックマークした相談記録一覧</h1>
+        <h1>ブックマークした相談記録</h1>
         
         @if($records->total() !== 0)
         <div class="row mt-5">

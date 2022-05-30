@@ -41,9 +41,13 @@
                     <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('patients.index', '利用者一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者', ['id' => Auth::id() ],['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録', ['id' => Auth::id() ],['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('users.log_bookmarks', 'ブックマークした業務日誌', ['id' => Auth::id() ],['class' => 'nav-link']) !!}</li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>
+                    
                     <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
