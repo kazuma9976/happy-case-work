@@ -29,7 +29,7 @@ h2 {
     margin: 20px auto;
 }
 
-#mainVisual img{
+#mainVisual img {
     width: 360px;
     height: 260px;
     border-radius: 10px;
@@ -37,7 +37,7 @@ h2 {
 }
 
 /* 画像登録のプレビュー表示 */
-#preview img{
+#preview img {
     width: 250px;
     height: 180px;
 }
