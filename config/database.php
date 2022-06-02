@@ -90,6 +90,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        
         // CircleCI テスト用
         'circle_testing' => [
             'driver' => 'mysql',
