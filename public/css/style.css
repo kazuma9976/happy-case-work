@@ -38,15 +38,13 @@ h2 {
 
 /* 画像登録のプレビュー表示 */
 #preview img {
-    width: 250px;
-    height: 180px;
+    width: 100%;
 }
 
 
 /* 職員一覧のプロフィール画像 */
 #image_icon_list {
-    width: 60px;
-    height: 50px;
+    width: 100px;
     border-radius: 10px;
 }
 
@@ -65,18 +63,16 @@ h2 {
 
 /* 利用者登録情報の画像資料 */
 #patients_img {
-    width: 150px;
+    width: 200px;
 }
 
 /* 相談記録関連の画像　*/
 #case_photo {
     width: 80px;
-    height: 70px;
 }
 
 #case_detail_photo {
-    width: 230px;
-    height: 150px;
+    width: 200px;
 }
 
 /* 相談記録文字列 */
@@ -86,6 +82,5 @@ h2 {
 
 /* 業務日誌の画像資料 */
 #log_photo {
-    width: 230px;
-    height: 170px;
+    width: 200px;
 }

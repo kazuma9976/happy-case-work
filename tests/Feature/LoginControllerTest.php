@@ -28,6 +28,7 @@ class LoginControllerTest extends TestCase
         // faker を初期化
         $this->faker = Factory::create('ja_JP');
     }
+
     
     /** @test */
     public function ログイン画面のURLにアクセスして画面が表示される()
@@ -220,5 +221,5 @@ class LoginControllerTest extends TestCase
         // ログアウトした画面にリダイレクトするかチェック
         $response->assertRedirect('/');
     }
-    
+
 }
