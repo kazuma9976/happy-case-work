@@ -27,15 +27,15 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
-      # - run:
-      #     name: run php unit tests
-      #     command: |
-      #           mkdir -p phpunit 
-      #           phpdbg -qrr vendor/bin/phpunit -d memory_limit=512M --log-junit phpunit/junit.xml --coverage-html phpunit/coverage-report
-      # - store_test_results:
-      #     path:  phpunit
-      # - store_artifacts:
-      #     path:  phpunit
+      - run:
+          name: run php unit tests
+          command: |
+                # mkdir -p phpunit 
+                # phpdbg -qrr vendor/bin/phpunit -d memory_limit=512M --log-junit phpunit/junit.xml --coverage-html phpunit/coverage-report
+      - store_test_results:
+          path:  phpunit
+      - store_artifacts:
+          path:  phpunit
       #heroku deploy
       - deploy:
           name: Deploy main to Heroku
