@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', '利用者ID: ' . $patient->id . 'の編集')
+@section('title', $patient->name . 'の登録情報編集')
 @section('content')         
     <div class="row mt-3">
-        <h1 class="col-sm-12 text-center text-success pb-1 mt-5">利用者ID:  {{ $patient->id }} の編集</h1>
+        <h1 class="col-sm-12 text-center text-success pb-1 mt-5">{{ $patient->name }} の登録情報編集</h1>
     </div>
     <div class="col-sm-6 offset-sm-3 mt-3">
         {!! Form::open(['route' => ['patients.update', 'id' => $patient->id ], 'files' => true, 'method' => 'PUT']) !!}
@@ -225,7 +225,7 @@
             {!! Form::submit('更新', ['class' => 'offset-sm-4 col-sm-4 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
     
-    {!! link_to_route('patients.show', '利用者ID:' . $patient->id .'の登録情報の詳細へ戻る', ['id' => $patient->id ], ['class' => 'mt-4 mb-5 offset-sm-4 col-sm-4 btn btn-danger']) !!}
+    {!! link_to_route('patients.show', $patient->name .'の登録情報の詳細へ戻る', ['id' => $patient->id ], ['class' => 'mt-4 mb-5 offset-sm-4 col-sm-4 btn btn-danger']) !!}
         
 @endsection
             
