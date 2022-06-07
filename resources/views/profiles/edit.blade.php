@@ -38,10 +38,20 @@
                 {!! Form::textarea('introduction',  $profile->introduction ? $profile->introduction : old('introduction'), ['class' => 'form-control', 'rows' => '4']) !!}
             </div>
             
+            <!--その職員のプロフィール画像があるならば画像を表示させる-->
+            @if($profile->image)
+            <p class="text-primary mt-4">※現在登録されているプロフィール画像</p>
+            <img src="{{ Storage::disk('s3')->url('uploads/' . $profile->image) }}" alt="{{ $profile->image }}" class="now_image">
+            <!--そうでなければno_image_humanを表示させる。 -->
+            @else
+            <p class="text-danger mt-4">※現在プロフィール画像は未設定です</p>
+            <img src="{{ asset('images/no_image_human.jpg') }}" alt="画像は未設定です。" class="now_image">
+            @endif
+            
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('image', 'プロフィール画像 : ') !!}<br>
-                {!! Form::file('image', ['id' => 'preview-uploader']) !!}
+                {!! Form::file('image', ['id' => 'preview-uploader', 'class' => 'form-control']) !!}
                 
                 <!-- 画像プレビュー -->
                 <div id="preview" class="mt-3"></div>

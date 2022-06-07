@@ -41,7 +41,7 @@
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('image', 'プロフィール画像 : ') !!}<br>
-                {!! Form::file('image', ['id' => 'preview-uploader']) !!}
+                {!! Form::file('image', ['id' => 'preview-uploader', 'class' => 'form-control']) !!}
                 
                 <!-- 画像プレビュー -->
                 <div id="preview" class="mt-3"></div>

@@ -61,8 +61,18 @@
                 {!! Form::textarea('training', $log->training ? $log->training : old('training'), ['class' => 'form-control', 'rows' => '3']) !!}
             </div>
             
+            <!--その業務日誌に画像資料が登録されているならば画像資料を表示させる-->
+            @if($log->image)
+            <p class="text-primary mt-4">※現在登録されている画像資料</p>
+            <img src="{{ Storage::disk('s3')->url('uploads/' . $log->image) }}" alt="{{ $log->image }}" class="now_image">
+            <!--そうでなければno_image画像を表示させる。 -->
+            @else
+            <p class="text-danger mt-4">※現在画像資料は登録されていません</p>
+            <img src="{{ asset('images/no_image.jpg') }}" alt="画像は未設定です。" class="now_image">
+            @endif
+            
             <!-- 1行 -->
-            <div class="form-group">
+            <div class="form-group mt-4">
                 {!! Form::label('image', '画像資料 : ') !!}<br>
                 {!! Form::file('image', ['id' => 'preview-uploader', 'class' => 'form-control']) !!}
                 
