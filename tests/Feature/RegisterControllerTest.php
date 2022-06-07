@@ -29,11 +29,11 @@ class RegisterControllerTest extends TestCase
     
     
     /**
-     * ユーザー登録画面のURLにアクセスしてユーザー登録画面が表示されるかテスト
+     * 職員登録画面のURLにアクセスしてユーザー登録画面が表示されるかテスト
      *
      * @return void
      */
-    public function test_ユーザー登録画面のURLにアクセスしてユーザー登録画面が表示される()
+    public function test_職員登録画面のURLにアクセスしてユーザー登録画面が表示される()
     {
         // RegisterController@showRegistrationForm にアクセス
         $response = $this->get('/signup');
@@ -42,22 +42,22 @@ class RegisterControllerTest extends TestCase
     }
     
     /**
-     * ユーザー登録に成功した後はトップ画面が表示されるかテスト
+     * 職員登録に成功した後はトップ画面が表示されるかテスト
      *
      * @return void
      */
-    public function test_ユーザー登録に成功した後はトップ画面が表示される()
+    public function test_職員登録に成功した後はトップ画面が表示される()
     {
         // fakerでパスワード作成
         $password = bcrypt($this->faker->password);
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         $response = $this->post('/signup', [
             'name'     => $this->faker->name,
             'email'     => $this->faker->unique()->email,
             'password' => $password,
             'password_confirmation' => $password
         ]);
-        // ユーザー登録後に /top にリダイレクトされているかのチェック
+        // 職員登録後に /top にリダイレクトされているかのチェック
         $response->assertRedirect('/top');
     }
     
@@ -79,7 +79,7 @@ class RegisterControllerTest extends TestCase
      */
     public function test_名前を入力しないで登録しようとするとエラーメッセージが表示される()
     {
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         // ただし名前は未入力
         $response = $this->post('/signup', [
             'name'  => '',
@@ -100,7 +100,7 @@ class RegisterControllerTest extends TestCase
      */
     public function test_メールアドレスを入力しないで登録しようとするとエラーメッセージが表示される()
     {
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         // ただしメールアドレスは未入力
         $response = $this->post('/signup', [
             'name'  => 'testuser',
@@ -121,7 +121,7 @@ class RegisterControllerTest extends TestCase
      */
     public function test_パスワードを入力しないで登録しようとするとエラーメッセージが表示される()
     {
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         // ただしパスワードは未入力
         $response = $this->post('/signup', [
             'name'  => 'testuser',
@@ -142,7 +142,7 @@ class RegisterControllerTest extends TestCase
      */
     public function test_パスワードを5文字未満で登録しようとするとエラーメッセージが表示される()
     {
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         // ただしパスワードは5文字未満
         $response = $this->post('/signup', [
             'name'  => 'testuser',
@@ -163,7 +163,7 @@ class RegisterControllerTest extends TestCase
      */
     public function test_2つのパスワードが違う状態で登録しようとするとエラーメッセージが表示される()
     {
-        // RegisterController@registerにダミーユーザー情報を引き連れてアクセスする
+        // RegisterController@registerにダミー職員情報を引き連れてアクセスする
         // ただし2つのパスワードが異なる
         $response = $this->post('/signup', [
             'name'  => 'testuser',
