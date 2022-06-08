@@ -17,16 +17,24 @@
             </td>
         </tr>
         <tr>
-            <th class="text-center">ニックネーム</th>
-            <td>{{ $profile->nickname }}</td>
+            <th class="text-center">名前</th>
+            <td>{{ $profile->user->name }}</td>
         </tr>
         <tr>
             <th class="text-center">性別</th>
             <td>{{ $profile->gender }}</td>
         </tr>
         <tr>
+            <th class="text-center">メールアドレス</th>
+            <td>{{ $profile->user->email }}</td>
+        </tr>
+        <tr>
             <th class="text-center">所属部署</th>
             <td>{{ $profile->department }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">ニックネーム</th>
+            <td>{{ $profile->nickname }}</td>
         </tr>
         <tr>
             <th class="text-center">自己紹介</th>
