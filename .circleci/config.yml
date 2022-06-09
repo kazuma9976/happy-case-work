@@ -6,7 +6,7 @@ jobs:
       - image: circleci/mariadb:10.4
         command: [--max_allowed_packet=32M]
     environment:
-      - DB_CONNECTION: circle_testing
+      - DB_CONNECTION: mysql
     working_directory: ~/ci-demo
     steps:
       - checkout
