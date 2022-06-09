@@ -177,4 +177,3 @@ class RegisterControllerTest extends TestCase
         $this->get('/signup')->assertSee($errorMessage);
     }
 }
-
