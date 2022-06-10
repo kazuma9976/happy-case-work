@@ -110,6 +110,14 @@
             <td>{{ $patient->disease_name }}</td>
         </tr>
         <tr>
+            <th class="text-center">通院頻度</th>
+            <td>{{ $patient->visits }}</td>
+        </tr>
+        <tr>
+            <th class="text-center">処方箋</th>
+            <td>{{ $patient->prescription }}</td>
+        </tr>
+        <tr>
             <th class="text-center">病歴</th>
             <td>{{ $patient->clinical_history }}</td>
         </tr>

@@ -148,6 +148,18 @@
             
             <!-- 1行 -->
             <div class="form-group mt-4">
+                {!! Form::label('visits', '通院頻度 : ') !!}
+                {!! Form::text('visits', $patient->visits ? $patient->visits : old('visits'), ['class' => 'form-control', 'placeholder' => '例: 週2回(月・木)。']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('prescription', '処方箋 : ') !!}
+                {!! Form::textarea('prescription',  $patient->prescription ? $patient->prescription : old('prescription'), ['class' => 'form-control', 'placeholder' => 'できる限り記入。', 'rows' => '5']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
                 {!! Form::label('clinical_history', '病歴 :') !!}
                 {!! Form::textarea('clinical_history', $patient->clinical_history ? $patient->clinical_history : old('clinical_history'), ['class' => 'form-control', 'placeholder' => 'どのようなことが原因で、いつ医療機関を受診し、どのような治療を受けたのかなどをできる限り記入。']) !!}
             </div>

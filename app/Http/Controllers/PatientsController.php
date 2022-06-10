@@ -89,6 +89,8 @@ class PatientsController extends Controller
         $family_hospital_address = $request->input('family_hospital_address');
         $doctor= $request->input('doctor');
         $disease_name = $request->input('disease_name');
+        $visits = $request->input('visits');
+        $prescription = $request->input('prescription');
         $clinical_history = $request->input('clinical_history');
         $medical_history = $request->input('medical_history');
         $life_history = $request->input('life_history');
@@ -138,6 +140,8 @@ class PatientsController extends Controller
             'family_hospital_address' => $family_hospital_address,
             'doctor' => $doctor,
             'disease_name' => $disease_name,
+            'visits' => $visits,
+            'prescription' => $prescription,
             'clinical_history' => $clinical_history,
             'medical_history' => $medical_history,
             'life_history' => $life_history,
@@ -235,6 +239,8 @@ class PatientsController extends Controller
         $family_hospital_address = $request->input('family_hospital_address');
         $doctor= $request->input('doctor');
         $disease_name = $request->input('disease_name');
+        $visits= $request->input('visits');
+        $prescription = $request->input('prescription');
         $clinical_history = $request->input('clinical_history');
         $medical_history = $request->input('medical_history');
         $life_history = $request->input('life_history');
@@ -283,6 +289,8 @@ class PatientsController extends Controller
         $patient->family_hospital_address = $family_hospital_address;
         $patient->doctor = $doctor;
         $patient->disease_name = $disease_name;
+        $patient->visits = $visits;
+        $patient->prescription = $prescription;
         $patient->clinical_history = $clinical_history;
         $patient->medical_history = $medical_history;
         $patient->life_history = $life_history;

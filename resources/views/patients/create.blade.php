@@ -140,10 +140,22 @@
                 {!! Form::text('doctor', old('doctor'), ['class' => 'form-control']) !!}
             </div>
             
-             <!-- 1行 -->
+            <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('disease_name', '病名 : ') !!}
                 {!! Form::text('disease_name', old('disease_name'), ['class' => 'form-control']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('visits', '通院頻度 : ') !!}
+                {!! Form::text('visits', old('visits'), ['class' => 'form-control', 'placeholder' => '例: 週2回(月・木)。']) !!}
+            </div>
+            
+            <!-- 1行 -->
+            <div class="form-group mt-4">
+                {!! Form::label('prescription', '処方箋 : ') !!}
+                {!! Form::textarea('prescription', old('prescription'), ['class' => 'form-control', 'placeholder' => 'できる限り記入。', 'rows' => '5']) !!}
             </div>
             
             <!-- 1行 -->
