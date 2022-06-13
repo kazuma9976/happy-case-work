@@ -7,7 +7,7 @@
     <div class="row mt-4">
         <div class="col-sm-6 offset-sm-3">
 
-            {!! Form::open(['route' => 'password.update'], ) !!}
+            {!! Form::open(['route' => 'password.update']) !!}
                 <!-- 1行 -->
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス :') !!}
