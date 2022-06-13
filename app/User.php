@@ -10,6 +10,7 @@ use App\Profile; // 追加
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword; // 追加
 
 class User extends Authenticatable
 {
@@ -42,6 +43,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+    * パスワードリセット通知の送信
+    *
+    * @param  string  $token
+    * @return void
+    */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
     
     /**
      * この職員が登録した利用者（Patientsモデルとの1対多の関係を定義）
