@@ -40,8 +40,7 @@ class ResetPassword extends Notification
     {
         return (new MailMessage)
              ->subject('パスワード再設定についてのお知らせ')
-             ->view('auth.users.emails.reset', [
-                 'restUrl' => route('password.reset', [ 'token' => $this->token])
+             ->view('auth.users.emails.reset', ['restUrl' => route('password.reset', ['token' => $this->token])
         ]);
     }
 }
