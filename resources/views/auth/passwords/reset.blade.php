@@ -7,7 +7,7 @@
     <div class="row mt-4">
         <div class="col-sm-6 offset-sm-3">
 
-            {!! Form::open(['route' => 'login'], []) !!}
+            {!! Form::open(['route' => 'password.update'], ) !!}
                 <!-- 1行 -->
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス :') !!}
@@ -16,15 +16,17 @@
 
                 <!-- 1行 -->
                 <div class="form-group mt-4">
-                    {!! Form::label('password', 'パスワード : ') !!}
+                    {!! Form::label('password', '新しいパスワード : ') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
                 
                 <!-- 1行 -->
                 <div class="form-group">
-                    {!! Form::label('password_confirmation', 'パスワードの確認 :') !!}
+                    {!! Form::label('password_confirmation', '新しいパスワードの確認 :') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
+                
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 
                 {!! Form::submit('再登録', ['class' => 'mt-5 btn btn-primary btn-block']) !!}
                 

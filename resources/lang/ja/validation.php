@@ -161,6 +161,7 @@ return [
         'name'  => '名前',
         'email'  => 'メールアドレス',
         'password'  => 'パスワード',
+        'token' => 'トークン',
         'nickname'  => 'ニックネーム',
         'department'  => '所属部署',
         'introduction'  => '自己紹介',
