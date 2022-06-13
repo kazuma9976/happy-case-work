@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'ログイン')
+@section('title', 'パスワード再設定の申請フォーム')
 @section('content')
     <div class="text-center mt-3">
-        <h1 class="text-info pb-1 mt-3">ログイン画面</h1>
+        <h1 class="text-info pb-1 mt-3">パスワード再設定の申請フォーム</h1>
     </div>
     <div class="row mt-4">
         <div class="col-sm-6 offset-sm-3">
