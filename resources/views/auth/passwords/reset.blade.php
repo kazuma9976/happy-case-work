@@ -26,7 +26,7 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
                 
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @csrf
                 
                 {!! Form::submit('再登録', ['class' => 'mt-5 btn btn-primary btn-block']) !!}
                 

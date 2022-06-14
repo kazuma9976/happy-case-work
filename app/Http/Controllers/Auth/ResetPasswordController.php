@@ -36,19 +36,4 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // パスワードは5文字以上に設定
-            'password' => ['required', 'string', 'min:5', 'confirmed'],
-        ]);
-    }
 }
