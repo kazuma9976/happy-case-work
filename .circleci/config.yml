@@ -43,24 +43,24 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
               git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
             fi
-  #EC2 deploy
-  deploy:
-    machine:
-      docker: # executor type
-        - image: cimg/base:stable
-    steps:
-      - checkout
-      - add_ssh_keys:
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/html/new_case_work/ && git pull origin main'
+#   #EC2 deploy
+#   deploy:
+#     machine:
+#       docker: # executor type
+#         - image: cimg/base:stable
+#     steps:
+#       - checkout
+#       - add_ssh_keys:
+#       - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/html/new_case_work/ && git pull origin main'
  
-workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
+# workflows:
+#   version: 2
+#   build_and_deploy:
+#     jobs:
+#       - build
+#       - deploy:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only: main
