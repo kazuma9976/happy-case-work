@@ -17,16 +17,8 @@
             </td>
         </tr>
         <tr>
-            <th class="text-center">名前</th>
-            <td>{{ $profile->user->name }}</td>
-        </tr>
-        <tr>
             <th class="text-center">性別</th>
             <td>{{ $profile->gender }}</td>
-        </tr>
-        <tr>
-            <th class="text-center">メールアドレス</th>
-            <td>{{ $profile->user->email }}</td>
         </tr>
         <tr>
             <th class="text-center">所属部署</th>
@@ -47,10 +39,25 @@
     </div>
     @endif
     
+    <div class="text-center text-success mt-5 pt-4">
+        <h2>職員: {{ $user->name }} のアカウント情報</h2>
+    </div>
+    
+    <table class="table table-bordered table-striped text-center mt-5">
+        <tr>
+            <th>名前</th>
+            <th>メールアドレス</th>
+        </tr>
+        <tr>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+        </tr>
+    </table>
+
     @if($user->id === Auth::id())    
-    {!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
-    {!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
-    {!! link_to_route('users.log_bookmarks', 'ブックマークした業務日誌', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-success']) !!}
+    {!! link_to_route('users.patient_bookmarks', 'ブックマークした利用者', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-5 btn btn-info']) !!}
+    {!! link_to_route('users.record_bookmarks', 'ブックマークした相談記録', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
+    {!! link_to_route('users.log_bookmarks', 'ブックマークした業務日誌', ['id' => $user->id ], ['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
     @endif
     
     <!-- 注目する職員が登録した利用者一覧 -->

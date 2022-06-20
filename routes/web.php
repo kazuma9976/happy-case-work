@@ -43,7 +43,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
     
     // ユーザー一覧、詳細表示
-    Route::resource('users', 'UsersController');
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    
+    // 個々のユーザーの詳細、編集
+    Route::get('user/edit', 'Admin\UserController@edit')->name('user.edit');
+    Route::post('user/update', 'Admin\UserController@update')->name('user.update');
     
     // プロフィール関係
     Route::resource('profiles', 'ProfilesController');
@@ -115,6 +119,5 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
+// パスワード認証系のルート定義
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

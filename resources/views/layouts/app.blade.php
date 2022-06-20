@@ -38,6 +38,7 @@
                     @else
                     <li>{!! link_to_route('profiles.edit', 'プロフィール編集', ['id' => Auth::user()->profile()->get()->first()->id ], ['class' => 'nav-link']) !!}</li>
                     @endif
+                    <li>{!! link_to_route('user.edit', 'アカウント編集', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('users.index', '職員一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('patients.index', '利用者一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logs.index', '業務日誌一覧', [], ['class' => 'nav-link']) !!}</li>

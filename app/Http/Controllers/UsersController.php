@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User; // 追加
 use Illuminate\Http\Request;
 
+
 class UsersController extends Controller
 {
     /**
@@ -43,25 +44,6 @@ class UsersController extends Controller
         
         // view の呼び出し
         return view('users.show', compact('user', 'patients', 'profile', 'records','logs'));
-    }
-    
-    public function create(User $user)
-    {
-        
-    }
-    
-    public function store(User $user)
-    {
-        
-    }
-    public function edit(User $user)
-    {
-        
-    }
-    
-    public function update(User $user)
-    {
-        
     }
     
     // 注目している職員がブックマークした利用者一覧
