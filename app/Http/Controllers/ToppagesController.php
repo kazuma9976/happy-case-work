@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ToppagesController extends Controller
 {
-    // Toppage表示
+    // トップページの表示
     public function index()
     {
         // viewの呼び出し

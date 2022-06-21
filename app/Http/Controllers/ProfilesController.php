@@ -10,16 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class ProfilesController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -84,17 +74,6 @@ class ProfilesController extends Controller
         // 職員詳細ページへリダイレクト
         return redirect('/users/' . \Auth::user()->id)->with('flash_message', '職員プロフィールを作成しました');
         
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Profile  $profile
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profile $profile)
-    {
-        //
     }
 
     /**
@@ -175,14 +154,4 @@ class ProfilesController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Profile  $profile
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Profile $profile)
-    {
-        //
-    }
 }

@@ -73,5 +73,4 @@ class UsersController extends Controller
         return view('users.log_bookmarks', compact('user', 'logs'));
     }
     
-
 }

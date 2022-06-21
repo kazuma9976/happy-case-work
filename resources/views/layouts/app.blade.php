@@ -21,7 +21,7 @@
     <body>
         <!-- ログイン認証している場合のみ -->
         @if(Auth::check())
-        <nav id="menu" class="navbar navbar-expand-sm navbar-light bg-white">
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
             <!-- 利用者一覧 -->
             {!! link_to_route('users.show', '職員: ' . Auth::user()->name, ['id' => Auth::user()->id], ['class' => 'navbar-brand text-success']) !!}
             <!-- スマホなどのレスポンスで表示されるハンバーガーボタン -->
