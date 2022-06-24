@@ -6,7 +6,6 @@
     </div>
     <div class="col-sm-6 offset-sm-3 mt-3 mb-5">
         {!! Form::open(['route' => ['logs.store'], 'files' => true]) !!}
-        
             <!-- 1行 -->
             <div class="form-group mt-4">
                 {!! Form::label('date', '日付 : ') !!}
@@ -78,7 +77,6 @@
             
             {!! Form::submit('登録', ['class' => 'offset-sm-2 col-sm-8 mt-5 btn btn-primary']) !!}
         {!! Form::close() !!}
-        
     </div>
 @endsection
             

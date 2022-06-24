@@ -5,12 +5,10 @@
         <h1 class="col-sm-12 text-center text-success mt-4 mb-3">利用者一覧</h1>
     </div>
     
-    <!-- 新規利用者登録 -->
     <div class="row">
         {!! link_to_route('patients.create', '新規利用者登録', [], ['class' => 'col-sm-4 offset-sm-4 btn btn-primary mt-4']) !!}
     </div>
     
-    <!--利用者のキーワード検索-->
     <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
             {!! Form::open(['route' => ['patients.search'], 'method' => 'get']) !!}

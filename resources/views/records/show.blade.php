@@ -72,7 +72,6 @@
     
     {!! Form::model($record, ['route' => ['records.destroy', $patient->id, $record->id, 'index' => $index], 'method' => 'DELETE']) !!}
     <div class="row mt-4">
-        <!-- 削除確認アラートをつける。 -->
         {!! Form::submit('削除', ['class' => 'btn btn-danger offset-sm-3 col-sm-6', 'id' => 'delete_record']) !!}
     </div>
     <input type="hidden" name="patient_id" value="{{ $patient->id }}">

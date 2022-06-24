@@ -8,7 +8,6 @@
         <p class="col-sm-12 text-left text-danger mt-4">※最終更新日: {{ $patient->updated_at }}</p>
     </div>
     <table class="table table-bordered table-striped">
-        
         <tr>
             <th class="text-center col-3">登録日時</th>
             <td class="text-primary">{{ $patient->created_at }}</td>
@@ -202,8 +201,6 @@
                 </ul>
             </td>
         </tr>
-        
-        
     </table>
     
     <div class="row mt-5">
@@ -212,7 +209,6 @@
     
     {!! Form::model($patient, ['route' => ['patients.destroy', 'id' => $patient->id ], 'method' => 'DELETE']) !!}
     <div class="row mt-4">
-        <!-- 削除確認アラートをつける。 -->
         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-3 col-sm-6', 'id' => 'delete_patient']) !!}
     </div>
     {!! Form::close() !!}

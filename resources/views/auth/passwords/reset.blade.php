@@ -6,7 +6,6 @@
     </div>
     <div class="row mt-4">
         <div class="col-sm-6 offset-sm-3">
-
             {!! Form::open(['route' => 'password.update']) !!}
                 <!-- 1行 -->
                 <div class="form-group">
@@ -26,10 +25,7 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
                 
-                @csrf
-                
                 {!! Form::submit('再登録', ['class' => 'mt-5 btn btn-primary btn-block']) !!}
-                
             {!! Form::close() !!}
         </div>
     </div>

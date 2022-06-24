@@ -7,7 +7,6 @@
     <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
             {!! Form::open(['route' => 'password.email']) !!}
-            
                 <!-- 1行 -->
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス :') !!}

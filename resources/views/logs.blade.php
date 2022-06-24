@@ -9,7 +9,6 @@
     
     <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
-
             {!! Form::open(['route' => ['logs.search'], 'method' => 'get']) !!}
                 <div class="form-group">
                     {!! Form::label('keyword', '業務日誌検索:', ['class' => 'text-primary']) !!}

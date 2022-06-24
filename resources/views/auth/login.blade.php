@@ -30,9 +30,7 @@
                 
             {!! link_to_route('index', 'トップページへ戻る', [], ['class' => 'mt-4 btn btn-danger btn-block']) !!}
         </div>
-
     </div>
-    
 @endsection
 
 

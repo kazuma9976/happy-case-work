@@ -93,7 +93,6 @@
     </div>
     @endif
     
-    
     <!-- 注目する職員が記録した相談記録一覧 -->
     <div class="row mt-3">
         <div class="col-sm-12 text-center text-primary mt-5 mb-3" id="sub_title">登録した相談記録一覧</div>

@@ -109,7 +109,6 @@
     
     {!! Form::model($log, ['route' => ['logs.destroy', 'id' => $log->id ], 'method' => 'DELETE']) !!}
     <div class="row mt-4 mb-5">
-        <!-- 削除確認アラートをつける。 -->
         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block offset-sm-4 col-sm-4', 'id' => 'delete_log']) !!}
     </div>
     {!! Form::close() !!}

@@ -9,7 +9,6 @@
         {!! link_to_route('patients.show', $patient->name . 'の登録情報の詳細', ['id' => $patient->id ],['class' => 'offset-sm-4 col-sm-4 mt-4 btn btn-info']) !!}
     </div>
     
-    <!-- 相談記録のキーワード検索 -->
     <div class="row mt-5">
         <div class="col-sm-6 offset-sm-3">
             {!! Form::open(['route' => ['records.search', $patient->id], 'method' => 'get']) !!}
