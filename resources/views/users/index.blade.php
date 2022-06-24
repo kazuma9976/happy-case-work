@@ -37,7 +37,7 @@
     {{ $users->links('pagination::bootstrap-4') }}
     @else
     <div class="row mt-5">
-        <h2 class="text-center text-danger mt-5">※登録職員はいません</h2>
+        <h2 class="col-sm-12 text-center text-danger mt-5">※登録職員はいません</h2>
     </div>
     @endif
 @endsection
