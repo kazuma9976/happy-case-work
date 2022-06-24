@@ -23,8 +23,8 @@
 
     @if($records->total() !== 0)
     <p class="text-danger mt-3">※相談記録 : {{ $records->total() }}件</p>
-    <table class="table table-bordered table-striped text-center">
-        <tr>
+    <table class="table table-bordered table-striped text-break">
+        <tr class="text-center">
             <th>記録番号</th>
             <th>記録内容</th>
             <th>画像資料</th>
@@ -34,17 +34,17 @@
         <!-- 各利用者の記録番号をそれぞれ1から表示されるようにするため連想配列を用いて加工 -->
         @foreach($records as $key => $record)
         <tr>
-            <td>{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
+            <td class="text-center">{!! link_to_route('records.show', ($key + 1), [$patient->id, $record->id], ['class' => 'btn btn-success']) !!}</td>
             <td>{{ $record->content }}</td>
-            <td>
+            <td class="text-center">
                 @if($record->image)
                 <img src="{{ Storage::disk('s3')->url('uploads/' . $record->image) }}" alt="{{ $record->image }}" id="case_photo">
                 @else
                 <img src="{{ asset('images/no_image.jpg') }}" alt="画像資料はありません" id="case_photo">
                 @endif
             </td>
-            <td>{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
-            <td class="text-primary">{{ $record->created_at }}</td>
+            <td class="text-center">{!! link_to_route('users.show', $record->user->name, ['id' => $record->user->id], ['class' => 'text-info']) !!}</td>
+            <td class="text-primary text-center">{{ $record->created_at }}</td>
         </tr>
         @endforeach
     </table>

@@ -12,7 +12,7 @@
             {!! Form::open(['route' => ['logs.search'], 'method' => 'get']) !!}
                 <div class="form-group">
                     {!! Form::label('keyword', '業務日誌検索:', ['class' => 'text-primary']) !!}
-                    {!! Form::search('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '記録番号(半角数字)、職員で検索可能']) !!}
+                    {!! Form::search('keyword', $keyword, ['class' => 'form-control', 'placeholder' => '記録番号(半角数字)、出勤した職員で検索可能']) !!}
                 </div>
                 {!! Form::submit('検索', ['class' => 'btn btn-secondary btn-block']) !!}
             {!! Form::close() !!}
@@ -27,14 +27,14 @@
         <tr>
             <th>記録番号</th>
             <th>日付</th>
-            <th>業務日誌の作成者</th>
+            <th>出勤した職員</th>
             <th>登録日時</th>
         </tr>
         @foreach($logs as $log)
         <tr>
             <td>{!! link_to_route('logs.show', $log->id, ['id' => $log->id ], ['class' => 'btn btn-success']) !!}</td>
             <td>{{ $log->date }}</td>
-            <td>{!! link_to_route('users.show', $log->user->name, ['id' => $log->user->id], ['class' => 'text-info']) !!}</td>
+            <td>{{ $log->staff }}</td>
             <td class="text-primary">{{ $log->created_at }}</td>
         </tr>
         @endforeach
