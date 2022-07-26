@@ -33,7 +33,7 @@
 - CircleCI (Heroku、EC2への自動デプロイ)
 - AWS Elastic IP
 - AWS Route53
-- 実際にEC2にデプロイしたもの:  http://happy-case-work.net/
+- 実際にEC2にデプロイしたもの: 
 
 ##### ※以下のダミーユーザーを使ってログインしてご利用ください。
 - 名前: 侍 太郎
