@@ -29,11 +29,9 @@
 - 画像の保存 AWS / S3
 - バージョン管理 Git / GitHub
 - PHPUnit(新規職員登録機能、ログイン機能のみ) 
-- デプロイ Heroku / EC2
-- CircleCI (Heroku、EC2への自動デプロイ)
-- AWS Elastic IP
-- AWS Route53
-- 実際にEC2にデプロイしたもの: 
+- デプロイ Heroku
+- CircleCI (Herokuへの自動デプロイ)
+- 実際にHerokuにデプロイしたもの: https://case-work-memo.herokuapp.com/
 
 ##### ※以下のダミーユーザーを使ってログインしてご利用ください。
 - 名前: 侍 太郎
@@ -121,4 +119,4 @@ happyday.kazuma@outlook.jp
 http://ksamurai.php.xdomain.jp/Portfolio/index.php
 
 ## 著者
-2022/06/10 Kazuma Iwai
+2022/07/29 Kazuma Iwai
