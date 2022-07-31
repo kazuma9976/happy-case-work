@@ -31,7 +31,7 @@
 - PHPUnit(新規職員登録機能、ログイン機能のみ) 
 - デプロイ Heroku
 - CircleCI (Herokuへの自動デプロイ)
-- 実際にHerokuにデプロイしたもの: https://case-work-note.herokuapp.com/
+- 実際にHerokuにデプロイしたもの: https://app-case-work.herokuapp.com/
 
 ##### ※以下のダミーユーザーを使ってログインしてご利用ください。
 - 名前: 侍 太郎
