@@ -29,9 +29,9 @@
 - 画像の保存 AWS / S3
 - バージョン管理 Git / GitHub
 - PHPUnit(新規職員登録機能、ログイン機能のみ) 
-- デプロイ Heroku
-- CircleCI (Herokuへの自動デプロイ)
-- 実際にHerokuにデプロイしたもの: https://app-case-work.herokuapp.com/
+- デプロイ Heroku / EC2
+- CircleCI (Heroku, EC2への自動デプロイ)
+- 実際にEC2にデプロイしたもの: http://ec2-3-112-222-191.ap-northeast-1.compute.amazonaws.com/
 
 ##### ※以下のダミーユーザーを使ってログインしてご利用ください。
 - 名前: 侍 太郎
