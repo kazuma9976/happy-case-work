@@ -31,7 +31,9 @@
 - PHPUnit(新規職員登録機能、ログイン機能のみ) 
 - デプロイ Heroku / EC2
 - CircleCI (Heroku, EC2への自動デプロイ)
-- 実際にEC2にデプロイしたもの: http://ec2-3-112-222-191.ap-northeast-1.compute.amazonaws.com/
+- AWS / Elastic IP
+- AWS / Route53
+- 実際にEC2にデプロイしたもの: http://happy-case-work.site/
 
 ##### ※以下のダミーユーザーを使ってログインしてご利用ください。
 - 名前: 侍 太郎
