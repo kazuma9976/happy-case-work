@@ -2,7 +2,7 @@
 @section('title', '相談記録 精神障害者向け')
 @section('content')
     <div class="row">
-        <h1 class="col-sm-12 text-center text-info mb-2">相談支援記録</h1>
+        <h1 class="col-sm-12 text-center text-danger mb-2">相談支援記録</h1>
         <h2 class="col-sm-12 text-center text-info mt-2">～ 精神障害者向け ～</h2>
     </div>
     <div class="mt-4" id="mainVisual">
